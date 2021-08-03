@@ -1,0 +1,145 @@
+git clone "URL From Github"=> use to copy all file in local 
+git status => use to know the status your file
+git add => use to add files in stagin area
+git reset => use to reset files from stagin area
+git commit -m "Massege For all users in project" => use to send all files that add to local repo
+---------------------------------------------------------------
+git config --global user.name "name" => use to determine your name for the git
+git config --global user.email "email" => use to determine the email for git
+---------------------------------------------------------------
+git branch => your branch
+git remote -v => get your remote
+
+git push NameOfRemote NameOfBranch => push all commit into project in github
+ex:  git push origin main
+
+
+git pull RemoteName => that return all change from github or anthor remote to local
+
+
+
+git config --global user.name
+git config --global user.email
+git config --global --edit => edit from editor
+
+git remote add remoteName Url (SSH)
+
+touch name => create file
+git branch => get all branch 
+git branch name => create new branch 
+git checkout name -> put you in name branch
+git checkout -b name => create new branch and put you in it
+git branch -D name => Delete without check if it has data or modifie 
+git branch -d name => Delete the branch if it has data or modifie 
+git branch -m name => rename the branch 
+
+
+
+git add * => add all files 
+
+git stash => create new stash and send all files that send by add just (storge for you files)
+git stash list => show all stash 
+git stash pop => get  all file from stash to files  and delete stash 
+
+
+ex : 
+git add index.php
+git stash 
+
+git stash show stash@{id} => show all files in stash {id}
+git stash apply stash@{id} => get  all file from stash to files and don't delete stash {id} 
+git stash pop stash@{id} => get  all file from stash to files  and delete stash {id}
+git stash drop stash@{id} => delete stash {id}
+git stash clear => delete all stash 
+
+
+
+git restore --staged namefile.ex => restore files from staging area
+
+git clean -n => tell you to clean files
+git clean -f => confirmation to clean
+
+
+git log => git all commit in remote rep
+
+git reset -hard id => change the pointer to past commit and delete all after commit it
+
+git push origin main -forcea
+
+---------------------------------------------------------------------------------
+#tags
+// common use it to versions 
+-after push all project files-
+git tag nametag(ex: v2.0) or git tag -a nametag(ex: v2.0) -m "comment" => create tag
+git push origin nametag => push tag
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
