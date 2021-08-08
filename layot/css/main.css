@@ -1,0 +1,11 @@
+:root {
+    --orang--color: #e59560;
+    --Navy--color: #35434e;
+    --White--color: #f2f2f2;
+    --residential--color:#ccc;
+}
+body{
+    direction: rtl;
+    text-align: right;
+    background-color: var(--Navy--color);
+}
