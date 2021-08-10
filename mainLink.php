@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="layot/css/main.css">
     <link rel="stylesheet" href="layot/css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Cookie&family=Lobster&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 </html>
