@@ -8,7 +8,7 @@
         <div class="container">
             <div class="col-lg col-md col-sm col-xs">
                 <button class="btn  dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خدمات مميزه </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">خدمات مميزة</a>
                         <a class="dropdown-item" href="#">أضيفيت حديثا</a>
                         <a class="dropdown-item" href="#">خدمات صاعدة</a>

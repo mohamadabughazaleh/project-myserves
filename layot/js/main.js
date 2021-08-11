@@ -9,5 +9,5 @@ $('.navbar-collapse li a').click(function(){
     //scroll nav bar
     $(window).scroll(function(){
     
-    $('nav').toggleClass("sticky", $(this).scrollTop() > 0);   
+    $('.back-color-nav').toggleClass("sticky", $(this).scrollTop() > 0);   
     });

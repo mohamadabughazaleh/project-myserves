@@ -2,7 +2,7 @@
 
 
  <!--start navbar-->
-          <nav class="navbar navbar-edit navbar-expand-lg navbar-light ">
+          <nav class="navbar navbar-edit navbar-expand-lg navbar-light back-color-nav">
                     <a class="navbar-brand logo" href="#"><span>خد</span>متك</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
