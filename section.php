@@ -15,6 +15,7 @@
                     </div>
                     <h1 class="colarname">أعمال</h1>
                     <p>احصل على الدعم اللازم لتسيير أعمالك بشكل أكثر سلاسة</p>
+
             </div>
         </div>
     </div>
@@ -28,7 +29,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6  col-xs">
                     <div class="card">
                         <div class="img">
-                            <img class="card-img-top" src="../pexels-fauxels-3184418 (1).jpg" alt="Card image cap">
+                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-fauxels-3184418 (1).jpg" alt="Card image cap">
                         </div>
                         <div class="visit-wibsite">
                             <ul>
@@ -54,7 +55,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
                         <div class="img">
-                            <img class="card-img-top" src="../pexels-energepiccom-159888.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-energepiccom-159888.jpg" alt="Card image cap">
                         </div>
                         <div class="visit-wibsite">
                             <ul>
@@ -80,7 +81,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
                     <div class="card">
                         <div class="img">
-                            <img class="card-img-top" src="../pexels-fauxels-3184292.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-fauxels-3184292.jpg" alt="Card image cap">
                         </div>
                         <div class="visit-wibsite">
                             <ul>
@@ -107,7 +108,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
                     <div class="card">
                         <div class="img">
-                            <img class="card-img-top" src="../pexels-anamul-rezwan-1216544 (1).jpg" alt="Card image cap">
+                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-anamul-rezwan-1216544 (1).jpg" alt="Card image cap">
                         </div>
                         <div class="visit-wibsite">
                             <ul>
@@ -133,7 +134,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6  col-xs">
                     <div class="card">
                         <div class="img">
-                            <img class="card-img-top" src="../pexels-malte-luk-2244746.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-malte-luk-2244746.jpg" alt="Card image cap">
                         </div>
                         <div class="visit-wibsite">
                             <ul>
@@ -159,7 +160,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
                     <div class="card">
                         <div class="img">
-                            <img class="card-img-top" src="../pexels-jeshootscom-834892.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-jeshootscom-834892.jpg" alt="Card image cap">
                         </div>
                         <div class="visit-wibsite">
                             <ul>
