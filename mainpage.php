@@ -12,8 +12,14 @@
                         <li class="nav-item active">
                         <a class="nav-link main-text-nav" href="#"><i class="fas fa-plus"></i>اضف خدمة</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link main-text-nav" href="#"><i class="fas fa-align-justify"></i>الاقسام</a>
+                        <li class="nav-item">                                              
+                        <a class="nav-link  main-text-nav" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <i class="fas fa-align-justify"></i>الاقسام</a>     
+                        </a>
+                            <div class="dropdown-menu section-navbar" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#"><i class="fas fa-laptop-house"></i>قسم العمل الحر</a>
+                                <a class="dropdown-item" href="#"><i class="far fa-building"></i>قسم الخدمات</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link main-text-nav" href="#"><i class="fas fa-briefcase"></i>الخدمات المطلوبة</a>

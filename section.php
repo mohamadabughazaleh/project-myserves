@@ -1,5 +1,3 @@
-<?php include ("mainLink.php")?>
-
 <?php include ("topnav.php")?>
 
 <!-- start name and drodawn create ghazal-->
