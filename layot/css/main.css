@@ -6,9 +6,7 @@
 }
 body{
     direction: rtl;
-    text-align: right;
-    height: 3000px;
-}
+    text-align: right;}
 /*start navbar*/
 .navbar-edit{
     position: sticky;
@@ -19,6 +17,20 @@ body{
     transition: 1.5s; 
 }
 .back-color-nav{position: fixed;}
+/*start section-navbar*/
+.section-navbar{ left: 60%;  height: 130px; background-color:var(--Navy--color);}
+
+.section-navbar a{
+    background-color: #ccc;
+    padding: 1rem 1.5rem;
+    color: var(--Navy--color);
+    text-align: right;
+    font-weight: bold;
+}
+.section-navbar a:active{background-color: var(--Navy--color);color: var(--White--color);}
+
+.section-navbar a i{margin-left: 10px; font-size: 25px;color:var(--orang--color);}
+/*end section-navbar*/
 /*serch*/
 .serch-dropdown
 {
@@ -290,3 +302,23 @@ font-size: 15px;
 
 .infromtion .card-header .btn:focus, .btn.focus {box-shadow:none;}
 /* end eidted section*/
+/*start freelansiter-section*/
+.name-section{
+    font-family: 'Lemonada';
+    text-align: center;
+    margin-top: 70px;
+    font-size: 40px;
+    color:var(--orang--color);
+}
+.section-title{text-decoration: none; color:var(--Navy--color); font-size: 25px;}
+
+.section-title:hover{color: var(--orang--color);text-decoration: none;}
+
+.container-section-freelance{margin-top: 35px;}
+
+.container-section-freelance ul li{text-decoration: none;margin-bottom: 10px;list-style: none;}
+
+.container-section-freelance ul li a{color:#35434ec2;text-decoration: none;}
+
+.container-section-freelance ul li a:hover{color: black;}
+/*start freelansiter-section*/
