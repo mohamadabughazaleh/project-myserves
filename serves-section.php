@@ -1,125 +1,55 @@
-<?php include ("topnav.php")?>
+<?php
+session_start();
+include ("topnav.php");
+include ("connect.php");?>
+<?php
+$row_category=array();
+$free1 ="SELECT * from main_categories WHERE main_categories.type='S'";
+$run_free = $con->query($free1);
+while($row_free = $run_free->fetch())
+{
+  $categoryid = $row_free['id'];
+  $category_title = $row_free['title_cat'];
+  $sub_cat ="SELECT * from sub_category WHERE sub_category.parent_id='$categoryid'";
+  $run_sub = $con->query($sub_cat);
+  $row = $run_sub->rowCount();
+  if($row >0 )
+  {
+    $row_subs1=[];
+    while($row_subs=$run_sub->fetch()){
+      $sub_id = $row_subs['id'];
+      $sub_title = $row_subs['Name'];
+      array_push($row_subs1,['Sub ID'=> $sub_id,'Sub Title'=> $sub_title]);
 
+    }
 
+  }else{
+    $row_subs1=[];
+
+  }
+
+  array_push($row_category,['Category ID'=> $categoryid, 'Category Title'=> $category_title,'Sub Items'=> $row_subs1]);
+}
+?>
 
 <h1 class="name-section">قسم الخدمات</h1>
 
 <!--start section-->
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
+    <?php foreach($row_category as $category){ ?>
+        <div class="col-md-4">
             <div class="container-section-freelance">
-              <a href="#" class="section-title">كهرباء</a>
+              <a href="#" class="section-title"><?php echo $category['Category Title']?></a>
               <hr>
               <ul>
-                 <li><a href="#">اخصائي كهربائي منازل</a></li>
-                 <li><a href="#">كهربائي مشاريع</a></li>
-                 <li><a href="#">مهندس كهرباء</a></li>
-                 <li><a href="#">اخصائي طاقة شمسية</a></li>
-                 <li><a href="#">صيانة محركات كهربائية</a></li>
-                 <li><a href="#">اخرى ...</a></li>
+                <?php foreach($category['Sub Items'] as $sub): ?>
+                 <li><a href="#"><?= $sub['Sub Title'] ?> </a></li>
+                 <?php endforeach; ?>
               </ul>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="container-section-freelance">
-            <a href="#" class="section-title">صيانة مركبات</a>
-              <hr>
-              <ul>
-                 <li><a href="#">ميكانيكي عام</a></li>
-                 <li><a href="#">كهربائي مركبات </a></li>
-                 <li><a href="#">دهان مركبات</a></li>
-                 <li><a href="#">تنجيد فرش المركبات </a></li>
-                 <li><a href="#">صيانة مركبات الهايبرد</a></li>
-                 <li><a href="#">تعديل مركبات </a></li>
-                 <li><a href="#">اخرى ...</a></li>
-
-              </ul>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="container-section-freelance">
-            <a href="#" class="section-title">صرف الصحي</a>
-              <hr>
-              <ul>
-                 <li><a href="#">صيانة امدادات الصرف الصحي</a></li>
-                 <li><a href="#">فني تمديد مشاريع الصرف الصحي</a></li>
-                 <li><a href="#">قطع صرف الصحي</a></li>
-                 <li><a href="#">تركيب مضخات مياه</a></li>
-                 <li><a href="#">تركيب تمديدات الطاقة الشمسية</a></li>
-                 <li><a href="#">اخرى ...</a></li>
-              </ul>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="container-section-freelance">
-            <a href="#" class="section-title">فلاتر مياه</a>
-              <hr>
-              <ul>
-                 <li><a href="#">تركيب فلاتر مياه</a></li>
-                 <li><a href="#">صيانة فلاتر</a></li>
-                 <li><a href="#">تركيب محطات فلاتر ضخمة</a></li>
-                 <li><a href="#">قطع فلاتر</a></li>
-                 <li><a href="#">اخرى ...</a></li>
-              </ul>
-            </div>
-        </div>
-        <hr>
-        <div class="col-md-3">
-            <div class="container-section-freelance">
-            <a href="#" class="section-title">اعمار وبناء</a>
-              <hr>
-              <ul>
-                 <li><a href="#">مهندس واخصائي مشاريع</a></li>
-                 <li><a href="#">عمال مشاريع</a></li>
-                 <li><a href="#">تمديد بلاط </a></li>
-                 <li><a href="#">قطع وادوات اعمار </a></li>
-                 <li><a href="#">اخرى ...</a></li>
-              </ul>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="container-section-freelance">
-            <a href="#" class="section-title">اثاث </a>
-              <hr>
-              <ul>
-                 <li><a href="#">غرف نوم </a></li>
-                 <li><a href="#">ابواب خشب</a></li>
-                 <li><a href="#">ثلاجات </a></li>
-                 <li><a href="#">فرن منزلي</a></li>
-                 <li><a href="#">اطقم كنب</a></li>
-                 <li><a href="#">مكاتب شركات</a></li>
-                 <li><a href="#">اخرى ...</a></li>
-              </ul>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="container-section-freelance">
-            <a href="#" class="section-title">صيانة ادوات منزلية</a>
-              <hr>
-              <ul>
-                 <li><a href="#"> فني صيانة ثلاجات</a></li>
-                 <li><a href="#"> فني صيانة حاسوب وهواتف </a></li>
-                 <li><a href="#"> فني صيانة افرن الغاز</a></li>
-                 <li><a href="#">فني صيانة شاشات التلفاز</a></li>
-                 <li><a href="#">فني مكيفات ومراوح</a></li>
-                 <li><a href="#">اخرى ...</a></li>
-              </ul>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="container-section-freelance">
-            <a href="#" class="section-title">خدمات اخرى</a>
-              <hr>
-              <ul>
-                 <li><a href="#">فني نجارة</a></li>
-                 <li><a href="#">فني حدادة</a></li>
-                 <li><a href="#">فني مطابخ</a></li>
-                 <li><a href="#">فني تنجيد </a></li>
-                 <li><a href="#">اخرى ...</a></li>
-              </ul>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </div>
 <!--start section-->
