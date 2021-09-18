@@ -2,7 +2,7 @@
 <!--start-edit-infromation-->
 <div class="information-edit text-center">
     <div class="information-img">
-        <img class="information-imge-" src="../project-myserves/layot/imge/team2.png" alt="">
+        <img class="information-imge-" src="../project-myserves/layot/img/pexels-karolina-grabowska-5239911.jpg" alt="">
         <abbr title="تغير الصوره الشخصية"> <div class="img-info"></abbr>
             <i class="fas fa-camera"></i>
         </div>
