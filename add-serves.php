@@ -1,14 +1,16 @@
 <?php
+ob_start();
 session_start();
-if (isset($_SESSION['Username'])) {
 include ("topnav.php");
 include ("connect.php");
 include ("function.php");
 
-$action = isset($_GET['action']) ? $_GET['action'] : 'Add';
+
+    $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
     if($action == 'Add') { 
+        $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) :0;
         $stmt2 = $con->prepare("SELECT * FROM sub_category");
-        $stmt2 ->execute();
+        $stmt2 ->execute(array($userid));
         $sub_categories = $stmt2->fetchAll();
 
         $stmt1 = $con->prepare("SELECT * FROM main_categories"); 
@@ -20,10 +22,10 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
             <h1 class="name-section">اضافة خدمة</h1>
             <div class="container">
                 <div class="add-serves-container">
-                <form action="add-serves.php?action=Insert&userid" method="POST">
+                <form action="add-serves.php?action=Insert&userid" method="POST" enctype = "multipart/form-data">
                     <div class="form-group">
                             <label for="formGroupExampleInput">اسم الخدمة:</label>
-                            <input type="text" name="title" class="form-control" id="formGroupExampleInput" placeholder="اسم الخدمة">
+                            <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="اسم الخدمة">
                         <label for="formGroupExampleInput">نوع الخدمة:</label>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label class="btn btn-secondary btn-add-serves-select active">
@@ -55,7 +57,7 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
                             <div class="upload-add-serves" id="upload-add-serves">
                                 <img src="https://placehold.co/300x300" alt="img-upload" name="img" class="rounded imguploadserves" id="imguploadserves">
                             </div>
-                            <input name="file" type="file" onchange="readUrl(this)"class="inpfile" id="inpfile">
+                            <input name="upload" type="file" onchange="readUrl(this)"class="inpfile" id="inpfile">
                             <label for="inpfile"class="input-file-add-serves"><i class="fas fa-upload"></i>&nbsp;اضافة صورة</label>
                         </div>
                         <label for="formGroupExampleInput">كلمات مفتاحية للخدمة:</label>
@@ -65,36 +67,56 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
                 </form>
                 </div>
             </div>
-   <?php } elseif($action == 'Insert') {
+   <?php } 
+   
+            elseif($action == 'Insert') {
+                // $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) :0;
                 if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 echo  "<h1 class='text-center'>تمت إضافة خدمة</h1>";
                 echo "<div class = 'container'>";
                    
-                    $name = $_POST['title'];
-                    //$option = $_POST['options'];
-                    // $main_c = $_POST['main-cat'];
-                    $sub_c = $_POST['sub-cat'];
-                    $Body = $_POST['body'];
-                    // $Img = $_POST['img'];
-                   
+                    $name       = $_POST['name'];
+                    //$option   = $_POST['options'];
+                    // $main_c  = $_POST['main-cat'];
+                    $sub_c       = $_POST['sub-cat'];
+                    $Body        = $_POST['body'];
+                    
+                    $imageName   = $_FILES['upload']['name'];
+                    $imageSize   = $_FILES['upload']['size'];
+                    $imageTemp   = $_FILES['upload']['tmp_name'];
+                    $imageType   = $_FILES['upload']['type'];
+                    // $temp       = $_POST['upload']['tmp_name'];
+                    // $folder     = "Img/" . $filename;
+                    // move_uploaded_file($temp ,$folder);
+                    $imageAllowedExtentions = array("jpeg" , "jpg", "png" , "gif");
+                    $imageExtension = strtolower(end(explode('.' , $imageName)));
+
+
 
                     $formErrors = array();
                     if(empty($name)){
                         $formErrors[] = 'name cant be <strong>Empty</strong>';
                     }
-                    // if(empty($option)){
-                    //     $formErrors[] = 'Option cant be <strong>Empty</strong>';
-                    // }
-            
-                    // if(empty($main_c)){
-                    // $formErrors[] = 'Main Category cant be <strong>Empty</strong>';
-                    // }
                     if(empty($sub_c)){
                         $formErrors[] = 'Sub Category cant be <strong>Empty</strong>';
                         }
                     if(empty($Body)){
                         $formErrors[] = 'Body cant be <strong>Empty</strong>';
                     }
+                    if(!empty($imageName) && ! in_array($imageExtension,$imageAllowedExtentions)){
+                        $formErrors[] = 'This Extension is Not<strong>Allowed</strong>';
+
+                    }
+                    if(empty($imageName)) {
+                        $formErrors[] = 'Image IS <strong>Required</strong>';
+
+                    }
+                    if($imageSize < 90000) {
+                        $formErrors[] = 'Image IS <strong>Larger</strong>';
+
+                    }
+                    
+                    
                     foreach($formErrors as $erros){
                         echo '<div class="alert alert-danger">' . $erros . '</div>';
             
@@ -102,16 +124,19 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
                     
                     // Check If There's No Error Proceed The Update Operation
                     if(empty($formErrors)){
-            
+                                $image = rand(0 , 100000) . '_' . $imageName;
+                                move_uploaded_file($imageTemp,'upload/image//' .$image);
+
                             // Insert Userinformation In The Database
                                 $stmt = $con->prepare("INSERT INTO 
-                                            post (title , body, category_id, user_id)
-                                            VALUES(:zname, :zbody, :zsub , :userid)");
+                                            post (title , body, category_id, user_id, img)
+                                            VALUES(:zname, :zbody, :zsub , :userid , :zimg)");
                                 $stmt->execute(array(
                                     'zname'     =>$name,
                                     'zbody'     =>$Body,
                                     'zsub'      =>$sub_c,
-                                    'userid'    => $_SESSION['ID']
+                                    'userid'    => $_SESSION['ID'],
+                                    'zimg'      => $image
                             ));
                             //  echo "succes massegae";
                             //     echo "<div class='container'>";
@@ -129,5 +154,5 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
                     }else {
                         echo "No session";
                     }  
-                } 
+    ob_end_flush();
    ?>

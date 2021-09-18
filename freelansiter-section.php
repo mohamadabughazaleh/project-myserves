@@ -46,7 +46,8 @@ while($row_free = $run_free->fetch())
               <hr>
               <ul>
                 <?php foreach($category['Sub Items'] as $sub): ?>
-                  <li><a href="#"><?= $sub['Sub Title'] ?> </a></li>
+                  <li><a href="section.php?Cat_id=<?= $sub['Sub ID'] ?>">
+                    <?= $sub['Sub Title'] ?> </a></li>
                  <?php endforeach; ?>
               </ul>
             </div>
