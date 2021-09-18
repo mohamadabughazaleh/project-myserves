@@ -1,7 +1,6 @@
 <?php
 session_start();
-include ("mainLink.php")
-
+include ("mainLink.php");
 ?>
 
  <!--start navbar-->
@@ -20,8 +19,8 @@ include ("mainLink.php")
                            <i class="fas fa-align-justify"></i>الاقسام</a>     
                         </a>
                             <div class="dropdown-menu section-navbar" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="freelansiter-section.php?userid=<?php echo $_SESSION['ID']?>"><i class="fas fa-laptop-house"></i>قسم العمل الحر</a>
-                                <a class="dropdown-item" href="serves-section.php?userid=<?php echo $_SESSION['ID']?>"><i class="far fa-building"></i>قسم الخدمات</a>
+                                <a class="dropdown-item" href="freelansiter-section.php"><i class="fas fa-laptop-house"></i>قسم العمل الحر</a>
+                                <a class="dropdown-item" href="serves-section.php"><i class="far fa-building"></i>قسم الخدمات</a>
                             </div>
                         </li>
                         <li class="nav-item">
