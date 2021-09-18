@@ -111,10 +111,10 @@ include ("function.php");
                         $formErrors[] = 'Image IS <strong>Required</strong>';
 
                     }
-                    if($imageSize < 90000) {
-                        $formErrors[] = 'Image IS <strong>Larger</strong>';
+                    // if($imageSize < 90000) {
+                    //     $formErrors[] = 'Image IS <strong>Larger</strong>';
 
-                    }
+                    // }
                     
                     
                     foreach($formErrors as $erros){
