@@ -29,3 +29,11 @@ function redirectHome($theMsg,$url = null, $Seconds =4){
     header("refresh:$Seconds;url=$url");
     exit();
 }
+
+function getCat() {
+    global $con;
+    $getCat= $con->prepare("SELECT * FROM post");
+    $getCat->execute();
+    $catId= $getCat->fetchAll();
+    return $catId;  
+}

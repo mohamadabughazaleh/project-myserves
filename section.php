@@ -1,13 +1,20 @@
 <?php 
 session_start();
 include ("topnav.php");
+include ("connect.php");
+include ("function.php");
 ?>
 <!-- start name and drodawn create ghazal-->
-
+<?php 
+$Cat_id = isset($_GET['Cat_id']) && is_numeric($_GET['Cat_id']) ? intval($_GET['Cat_id']) :0;
+$stmt = $con-> prepare("SELECT img,title,category_id FROM post WHERE category_id = ?");
+$stmt->execute(array($Cat_id));
+$stmt = $stmt->fetchAll();
+?>
 <div class="namesaction">
     <div class="row">
         <div class="container">
-            <div class="col-lg col-md col-sm col-xs">
+            <div class="col-lg col-md-6 col-sm col-xs-12">
                 <button class="btn  dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خدمات مميزه </button>
                     <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">خدمات مميزة</a>
@@ -16,7 +23,6 @@ include ("topnav.php");
                     </div>
                     <h1 class="colarname">أعمال</h1>
                     <p>احصل على الدعم اللازم لتسيير أعمالك بشكل أكثر سلاسة</p>
-
             </div>
         </div>
     </div>
@@ -24,92 +30,15 @@ include ("topnav.php");
 <!-- end name and drodawn create ghazal-->
 <!-- start section box create ghazal-->
 <div class="section-box text-center">
-    <div class="container">
-        <div class="row">
+    <div class="row">
+        <div class="container">
             <div class="card-group">
-                <div class="col-lg-4 col-md-6 col-sm-6  col-xs">
-                    <div class="card">
-                        <div class="img">
-                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-fauxels-3184418 (1).jpg" alt="Card image cap">
-                        </div>
-                        <div class="visit-wibsite">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="far fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div class="vist">
-                            <h3>1000<i class="far fa-eye"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <hr>
-                            <h5 class="card-title">دراسة الجدوى بشكل كامل</h5>
-                        </div>  
-                        <div class="card-footer">
-                            <a href=""> <button  type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="card">
-                        <div class="img">
-                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-energepiccom-159888.jpg" alt="Card image cap">
-                        </div>
-                        <div class="visit-wibsite">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="far fa-star"></i></li>
-                                <li><i class="far fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div class="vist">
-                            <h3>1000<i class="far fa-eye"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <hr>
-                            <h5 class="card-title">اعداد الميزانيات والقوائم المالية</h5>
-                        </div>
-                        <div class="card-footer">
-                            <a href=""> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
-                        </div>
-                    </div>
-                </div>
+                <?php foreach($stmt as $sectionId) { ?>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
                     <div class="card">
                         <div class="img">
-                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-fauxels-3184292.jpg" alt="Card image cap">
-                        </div>
-                        <div class="visit-wibsite">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star-half-alt"></i></li>
-                                <li><i class="far fa-star"></i></li>
-                                <li><i class="far fa-star"></i></li>
-                            </ul>
-                        </div>
-
-                        <div class="vist">
-                            <h3>1000<i class="far fa-eye"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <hr>
-                            <h5 class="card-title"> خطتك الاستراتيجية وفق منهجية علمية</h5>
-                        </div>
-                        <div class="card-footer">
-                            <a href=""> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
-                        </div>
-                    </div>   
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
-                    <div class="card">
-                        <div class="img">
-                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-anamul-rezwan-1216544 (1).jpg" alt="Card image cap">
+                            
+                            <img class="card-img-top" src="../project-myserves\upload\image\<?php echo $sectionId['img'];?>" alt="Card image cap">
                         </div>
                         <div class="visit-wibsite">
                             <ul>
@@ -125,66 +54,15 @@ include ("topnav.php");
                         </div>
                         <div class="card-body">
                             <hr>
-                            <h5 class="card-title">حلول لمشاكل التمديدات المنزلية</h5>
+                            <h5 class="card-title"><?php echo $sectionId['title']?></h5>
                         </div>
                         <div class="card-footer">
                             <a href=""> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6  col-xs">
-                    <div class="card">
-                        <div class="img">
-                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-malte-luk-2244746.jpg" alt="Card image cap">
-                        </div>
-                        <div class="visit-wibsite">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star set-white"></i></li>
-                            </ul>
-                        </div>
-                        <div class="vist">
-                            <h3>1000<i class="far fa-eye"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <hr>
-                            <h5 class="card-title">صيانة سيارات</h5>
-                        </div>
-                        <div class="card-footer">
-                            <a href=""> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
-                    <div class="card">
-                        <div class="img">
-                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-jeshootscom-834892.jpg" alt="Card image cap">
-                        </div>
-                        <div class="visit-wibsite">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star-half-alt"></i></li>
+                <?php } ?> 
 
-                            </ul>
-                        </div>
-                        <div class="vist">
-                            <h3>1000<i class="far fa-eye"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <hr>
-                            <h5 class="card-title">جميع انواع صيانه</h5>
-                        </div>
-                        <div class="card-footer">
-                            <a href=""> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
