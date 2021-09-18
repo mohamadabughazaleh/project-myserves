@@ -1,4 +1,4 @@
-//smoth scroll 
+
 $('.navbar-collapse li a').click(function(){
     $('html , body').animate({
     
@@ -8,10 +8,10 @@ $('.navbar-collapse li a').click(function(){
     });
     //scroll nav bar
     $(window).scroll(function(){
-    
+        
     $('.back-color-nav').toggleClass("sticky", $(this).scrollTop() > 0);   
     });
-    
+ 
     //upload-add-serves
 
    function readUrl(input){
@@ -25,3 +25,21 @@ $('.navbar-collapse li a').click(function(){
            }
        }
    }
+   //login
+  function addclassnewaccount() {
+      "use strict"
+      var login_container = document.getElementById("login-container");
+
+      login_container.classList.add("sign-up-mode");
+  }
+
+  function removeclassnewaccount() {
+    "use strict"
+    var login_container = document.getElementById("login-container");
+
+    login_container.classList.remove("sign-up-mode");
+}
+
+ 
+ 
+

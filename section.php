@@ -1,6 +1,11 @@
-<?php include ("topnav.php")?>
+
+<?php 
+session_start();
+include ("topnav.php");
+?>
 
 <!-- start name and drodawn create ghazal-->
+
 <div class="namesaction">
     <div class="row">
         <div class="container">
@@ -13,7 +18,6 @@
                     </div>
                     <h1 class="colarname">أعمال</h1>
                     <p>احصل على الدعم اللازم لتسيير أعمالك بشكل أكثر سلاسة</p>
-
             </div>
         </div>
     </div>
@@ -21,144 +25,13 @@
 <!-- end name and drodawn create ghazal-->
 <!-- start section box create ghazal-->
 <div class="section-box text-center">
-    <div class="container">
-        <div class="row">
+    <div class="row">
+        <div class="container">
             <div class="card-group">
-                <div class="col-lg-4 col-md-6 col-sm-6  col-xs">
-                    <div class="card">
-                        <div class="img">
-                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-fauxels-3184418 (1).jpg" alt="Card image cap">
-                        </div>
-                        <div class="visit-wibsite">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="far fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div class="vist">
-                            <h3>1000<i class="far fa-eye"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <hr>
-                            <h5 class="card-title">دراسة الجدوى بشكل كامل</h5>
-                        </div>  
-                        <div class="card-footer">
-                            <a href=""> <button  type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="card">
-                        <div class="img">
-                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-energepiccom-159888.jpg" alt="Card image cap">
-                        </div>
-                        <div class="visit-wibsite">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="far fa-star"></i></li>
-                                <li><i class="far fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div class="vist">
-                            <h3>1000<i class="far fa-eye"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <hr>
-                            <h5 class="card-title">اعداد الميزانيات والقوائم المالية</h5>
-                        </div>
-                        <div class="card-footer">
-                            <a href=""> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
                     <div class="card">
                         <div class="img">
-                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-fauxels-3184292.jpg" alt="Card image cap">
-                        </div>
-                        <div class="visit-wibsite">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star-half-alt"></i></li>
-                                <li><i class="far fa-star"></i></li>
-                                <li><i class="far fa-star"></i></li>
-                            </ul>
-                        </div>
-
-                        <div class="vist">
-                            <h3>1000<i class="far fa-eye"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <hr>
-                            <h5 class="card-title"> خطتك الاستراتيجية وفق منهجية علمية</h5>
-                        </div>
-                        <div class="card-footer">
-                            <a href=""> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
-                        </div>
-                    </div>   
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
-                    <div class="card">
-                        <div class="img">
-                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-anamul-rezwan-1216544 (1).jpg" alt="Card image cap">
-                        </div>
-                        <div class="visit-wibsite">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star set-white"></i></li>
-                            </ul>
-                        </div>
-                        <div class="vist">
-                            <h3>1000<i class="far fa-eye"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <hr>
-                            <h5 class="card-title">حلول لمشاكل التمديدات المنزلية</h5>
-                        </div>
-                        <div class="card-footer">
-                            <a href=""> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6  col-xs">
-                    <div class="card">
-                        <div class="img">
-                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-malte-luk-2244746.jpg" alt="Card image cap">
-                        </div>
-                        <div class="visit-wibsite">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star set-white"></i></li>
-                            </ul>
-                        </div>
-                        <div class="vist">
-                            <h3>1000<i class="far fa-eye"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <hr>
-                            <h5 class="card-title">صيانة سيارات</h5>
-                        </div>
-                        <div class="card-footer">
-                            <a href=""> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
-                    <div class="card">
-                        <div class="img">
-                            <img class="card-img-top" src="../project-myserves/layot/imge/pexels-jeshootscom-834892.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="../project-myserves/layot/img/0eb94d1a-104f-4457-b702-c9d13f0c3609.jpg" alt="Card image cap">
                         </div>
                         <div class="visit-wibsite">
                             <ul>
@@ -167,7 +40,32 @@
                                 <li><i class="fas fa-star"></i></li>
                                 <li><i class="fas fa-star"></i></li>
                                 <li><i class="fas fa-star-half-alt"></i></li>
-
+                            </ul>
+                        </div>
+                        <div class="vist">
+                            <h3>1000<i class="far fa-eye"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <hr>
+                            <h5 class="card-title">جميع انواع  صيانه</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#"> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+                    <div class="card">
+                        <div class="img">
+                        <img class="card-img-top" src="../project-myserves/layot/img/61da7186-0154-4f59-a2b9-6b4cefd58f48.jpg" alt="Card image cap">
+                        </div>
+                        <div class="visit-wibsite">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
                             </ul>
                         </div>
                         <div class="vist">
@@ -178,14 +76,222 @@
                             <h5 class="card-title">جميع انواع صيانه</h5>
                         </div>
                         <div class="card-footer">
-                            <a href=""> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
+                            <a href="#"> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+                    <div class="card">
+                        <div class="img">
+                            <img class="card-img-top" src="../project-myserves/layot/img/61da7186-0154-4f59-a2b9-6b4cefd58f48.jpg" alt="Card image cap">
+                        </div>
+                        <div class="visit-wibsite">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
+                            </ul>
+                        </div>
+                        <div class="vist">
+                            <h3>1000<i class="far fa-eye"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <hr>
+                            <h5 class="card-title">جميع انواع صيانه</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#"> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+                    <div class="card">
+                        <div class="img">
+                            <img class="card-img-top" src="../project-myserves/layot/img/61da7186-0154-4f59-a2b9-6b4cefd58f48.jpg" alt="Card image cap">
+                        </div>
+                        <div class="visit-wibsite">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
+                            </ul>
+                        </div>
+                        <div class="vist">
+                            <h3>1000<i class="far fa-eye"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <hr>
+                            <h5 class="card-title">جميع انواع صيانه</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#"> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+                    <div class="card">
+                        <div class="img">
+                            <img class="card-img-top" src="../project-myserves/layot/img/61da7186-0154-4f59-a2b9-6b4cefd58f48.jpg" alt="Card image cap">
+                        </div>
+                        <div class="visit-wibsite">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
+                            </ul>
+                        </div>
+                        <div class="vist">
+                            <h3>1000<i class="far fa-eye"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <hr>
+                            <h5 class="card-title">جميع انواع صيانه</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#"> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+                    <div class="card">
+                        <div class="img">
+                            <img class="card-img-top" src="../project-myserves/layot/img/61da7186-0154-4f59-a2b9-6b4cefd58f48.jpg" alt="Card image cap">
+                        </div>
+                        <div class="visit-wibsite">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
+                            </ul>
+                        </div>
+                        <div class="vist">
+                            <h3>1000<i class="far fa-eye"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <hr>
+                            <h5 class="card-title">جميع انواع صيانه</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#"> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+                    <div class="card">
+                        <div class="img">
+                            <img class="card-img-top" src="../project-myserves/layot/img/61da7186-0154-4f59-a2b9-6b4cefd58f48.jpg" alt="Card image cap">
+                        </div>
+                        <div class="visit-wibsite">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
+                            </ul>
+                        </div>
+                        <div class="vist">
+                            <h3>1000<i class="far fa-eye"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <hr>
+                            <h5 class="card-title">جميع انواع صيانه</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#"> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+                    <div class="card">
+                        <div class="img">
+                            <img class="card-img-top" src="../project-myserves/layot/img/61da7186-0154-4f59-a2b9-6b4cefd58f48.jpg" alt="Card image cap">
+                        </div>
+                        <div class="visit-wibsite">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
+                            </ul>
+                        </div>
+                        <div class="vist">
+                            <h3>1000<i class="far fa-eye"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <hr>
+                            <h5 class="card-title">جميع انواع صيانه</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#"> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+                    <div class="card">
+                        <div class="img">
+                            <img class="card-img-top" src="../project-myserves/layot/imge/61da7186-0154-4f59-a2b9-6b4cefd58f48.jpg" alt="Card image cap">
+                        </div>
+                        <div class="visit-wibsite">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
+                            </ul>
+                        </div>
+                        <div class="vist">
+                            <h3>1000<i class="far fa-eye"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <hr>
+                            <h5 class="card-title">جميع انواع صيانه</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#"> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+                    <div class="card">
+                        <div class="img">
+                            <img class="card-img-top" src="../project-myserves/layot/img/61da7186-0154-4f59-a2b9-6b4cefd58f48.jpg" alt="Card image cap">
+                        </div>
+                        <div class="visit-wibsite">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
+                            </ul>
+                        </div>
+                        <div class="vist">
+                            <h3>1000<i class="far fa-eye"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <hr>
+                            <h5 class="card-title">جميع انواع صيانه</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#"> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="butoom-section">
+    <div class="butoom-section  ">
         <button type="button" class="btn btn-dark">عرض المزيد</button>
     </div>
 </div>
