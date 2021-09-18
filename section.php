@@ -1,7 +1,7 @@
-
 <?php 
 session_start();
 include ("topnav.php");
+
 ?>
 
 <!-- start name and drodawn create ghazal-->
