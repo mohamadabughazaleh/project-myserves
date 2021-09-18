@@ -1,4 +1,4 @@
-//smoth scroll 
+
 $('.navbar-collapse li a').click(function(){
     $('html , body').animate({
     
@@ -11,7 +11,7 @@ $('.navbar-collapse li a').click(function(){
     
     $('.back-color-nav').toggleClass("sticky", $(this).scrollTop() > 0);   
     });
-    
+ 
     //upload-add-serves
 
    function readUrl(input){
@@ -42,3 +42,4 @@ $('.navbar-collapse li a').click(function(){
 
  
  
+

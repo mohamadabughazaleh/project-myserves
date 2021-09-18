@@ -66,6 +66,20 @@
     .section-box .vist h3 {left: 43%;bottom: 20px;}
     }
     /*section*/
+    /* start-responsive-information-pr*/
+@media (min-width: 992px) and (max-width: 1125px){
+    .ul-styly { margin-left: 510px;}
+}
+/* end-responsive-information-pr*/
+    /*edit-inforamtion*/
+    @media(max-width:767px){
+
+        .account-form {
+            border: 1px solid var(--Navy--color);
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+    }
     /*login*/
     @media (max-width: 870px){
         .login-containers{ min-height: 800px;height: 100vh;}
@@ -132,4 +146,5 @@
         .sign-up-mode::before{bottom: 28%!important;left: 50%;}
     }
     /*login*/
+
 
