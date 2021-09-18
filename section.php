@@ -1,6 +1,11 @@
 
-<?php include ("topnav.php")?>
+<?php 
+session_start();
+include ("topnav.php");
+?>
+
 <!-- start name and drodawn create ghazal-->
+
 <div class="namesaction">
     <div class="row">
         <div class="container">

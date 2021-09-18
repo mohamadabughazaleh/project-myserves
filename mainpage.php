@@ -1,19 +1,28 @@
-<?php include ("mainLink.php")?>
+<?php
+session_start();
+include ("mainLink.php")
 
+?>
 
  <!--start navbar-->
           <nav class="navbar navbar-edit navbar-expand-lg navbar-light back-color-nav">
-                    <a class="navbar-brand logo" href="#"><span>خد</span>متك</a>
+                    <a class="navbar-brand logo" href="mainpage.php"><span>خد</span>متك</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                        <a class="nav-link main-text-nav" href="#"><i class="fas fa-plus"></i>اضف خدمة</a>
+                        <a class="nav-link main-text-nav" href="add-serves.php?action=Add&userid=<?php echo $_SESSION['ID']?>"><i class="fas fa-plus"></i>اضف خدمة</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link main-text-nav" href="#"><i class="fas fa-align-justify"></i>الاقسام</a>
+                        <li class="nav-item">                                              
+                        <a class="nav-link  main-text-nav" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <i class="fas fa-align-justify"></i>الاقسام</a>     
+                        </a>
+                            <div class="dropdown-menu section-navbar" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="freelansiter-section.php?userid=<?php echo $_SESSION['ID']?>"><i class="fas fa-laptop-house"></i>قسم العمل الحر</a>
+                                <a class="dropdown-item" href="serves-section.php?userid=<?php echo $_SESSION['ID']?>"><i class="far fa-building"></i>قسم الخدمات</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link main-text-nav" href="#"><i class="fas fa-briefcase"></i>الخدمات المطلوبة</a>
@@ -138,7 +147,8 @@
                                 <a class="dropdown-item" href="#"><i class="fas fa-user"></i>حسين ابوقطام</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-wallet"></i>الرصيد</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user-edit"></i>تعديل الحساب</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-door-open"></i> خروج</a>
+                                <a class="dropdown-item" href="logout.php"><i class="fas fa-door-open"></i> خروج</a>
+
                             </div>
                         </li>
                          <!--end profile-->
@@ -154,4 +164,6 @@
 
             </article>
         </header>
+
    <!---end background-->
+   
