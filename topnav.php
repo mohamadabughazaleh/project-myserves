@@ -145,8 +145,8 @@
                                 <a class="dropdown-item" href="#"><i class="fas fa-user"></i>حسين ابوقطام</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-wallet"></i>الرصيد</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user-edit"></i>تعديل الحساب</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>الاعدادات</a>
                                 <a class="dropdown-item" href="logout.php"><i class="fas fa-door-open"></i> خروج</a>
+
                             </div>
                         </li>
                          <!--end profile-->

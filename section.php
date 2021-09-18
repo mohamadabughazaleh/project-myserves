@@ -131,6 +131,3 @@ $stmt = $stmt->fetchAll();
     </div>
 </div>  
 <!--end about prodacts and services-->
-
-
-
