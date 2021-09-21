@@ -1,7 +1,9 @@
 <?php
 session_start();
 include ("topnav.php");
-include ("connect.php");?>
+include ("connect.php");
+
+?>
 <?php
 $row_category=array();
 $free1 ="SELECT * from main_categories WHERE main_categories.type='S'";
@@ -30,6 +32,7 @@ while($row_free = $run_free->fetch())
 
   array_push($row_category,['Category ID'=> $categoryid, 'Category Title'=> $category_title,'Sub Items'=> $row_subs1]);
 }
+
 ?>
 
 <h1 class="name-section">قسم الخدمات</h1>
@@ -43,8 +46,10 @@ while($row_free = $run_free->fetch())
               <a href="#" class="section-title"><?php echo $category['Category Title']?></a>
               <hr>
               <ul>
+
                 <?php foreach($category['Sub Items'] as $sub): ?>
-                 <li><a href="#"><?= $sub['Sub Title'] ?> </a></li>
+                 <li><a href="section.php?Cat_id=<?= $sub['Sub ID'] ?>">
+                   <?= $sub['Sub Title'] ?> </a></li>
                  <?php endforeach; ?>
               </ul>
             </div>
