@@ -13,10 +13,21 @@ include ("function.php");
         $stmt2 ->execute(array($userid));
         $sub_categories = $stmt2->fetchAll();
 
-        $stmt1 = $con->prepare("SELECT * FROM main_categories"); 
+        $stmt1 = $con->prepare("SELECT * FROM main_categories ORDER BY `type`"); 
         $stmt1 ->execute();
-        $main_categories = $stmt1->fetchAll();
+        $result = $stmt1->fetchAll();
+        $categories = [];
+        foreach($result as $category){
+            $data = [];
+            $data["id"] = $category["id"];
+            $data["title"] = $category["title_cat"];
 
+            if($category["type"] == "S")
+                $categories["services"][] = $data;
+            else
+                $categories["freelance"][] = $data;
+        }
+    
         ?>
         
             <h1 class="name-section">اضافة خدمة</h1>
@@ -29,26 +40,22 @@ include ("function.php");
                         <label for="formGroupExampleInput">نوع الخدمة:</label>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label class="btn btn-secondary btn-add-serves-select active">
-                                    <input type="radio"  name="options" id="option1" checked> عمل حر
+                                    <input type="radio"  name="options" id="option1 " onclick="myFunctionfreelance()" checked> عمل حر
                                     <?php (checkCat("F")); ?>
                                 </label>
                                 <label class="btn btn-secondary btn-add-serves-select">
-                                    <input type="radio" name="options" id="option2"> خدمات
+                                    <input type="radio" name="options" id="option2 " onclick="myFunctionservices()" > خدمات
                                     <?php (checkCat("S")); ?>
                                 </label>
                         </div><br><br>
                         <label for="formGroupExampleInput" style="display: inline-block;">القسم:</label>
-                        <select name="main-cat" class="form-control section-add-serves">
+                        <select id="add_main_select" name="main-cat" class="form-control section-add-serves">
                             <option>القسم الرئيسي</option>
-                            <?php foreach($main_categories as $main): ?>
-                                <option value="<?= $main['id'] ?>"> <?= $main['title_cat'] ?></option>
-                            <?php endforeach; ?>
+                            
                         </select>
-                        <select name="sub-cat" class="form-control section-add-serves">
+                        <select id="add_sub_select" name="sub-cat" class="form-control section-add-serves">
                             <option>القسم الفرعي</option>
-                            <?php foreach($sub_categories as $sub): ?>
-                                <option value="<?= $sub['id'] ?>"> <?= $sub['Name'] ?></option>
-                            <?php endforeach; ?>
+                            
                         </select><br><br>
                         <label for="validationTextarea">وصف الخدمة:</label>
                         <textarea name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -67,6 +74,32 @@ include ("function.php");
                 </form>
                 </div>
             </div>
+            <script>
+                //freelance select
+                function myFunctionfreelance() {
+
+                let categories = <?= json_encode($categories,true); ?>;
+                let items = ``;
+                for (var i = 0; i < categories.freelance.length; i++) 
+                {
+                    items += `<option >${categories.freelance[i].title}</option>`;
+            
+                }
+                  document.getElementById("add_main_select").innerHTML =items;
+                }
+                //serves select
+                function myFunctionservices() {
+
+                let categories = <?= json_encode($categories,true); ?>;
+                let items = ``;
+                for (var i = 0; i < categories.services.length; i++) 
+                {
+                    items += `<option >${categories.services[i].title}</option>`;
+
+                }
+                  document.getElementById("add_main_select").innerHTML =items;
+                }
+            </script>
    <?php } 
    
             elseif($action == 'Insert') {
