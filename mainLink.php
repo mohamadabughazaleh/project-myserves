@@ -23,6 +23,7 @@
         <script src="layot/js/popper.min.js"></script>
         <script src="layot/js/bootstrap.min.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="layot/js/ajax.js"></script>
         <script src="layot/js/main.js"></script>
         <script src="layot/js/wow.min.js"></script>
         <script>
