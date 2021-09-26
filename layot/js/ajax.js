@@ -3,6 +3,7 @@ $(document).ready(function(){
   
     $('#add_main_select').change(function(){
         var main_select = $(this).val();
+
         if(main_select){
             $.get(
                 "ajax.php",
@@ -10,6 +11,7 @@ $(document).ready(function(){
                 console.log(main_selector),
                 function(data){
                     $('#add_sub_select').html(data);
+                    console.log(data);
                 }
             );
             
