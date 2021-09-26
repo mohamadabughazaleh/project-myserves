@@ -41,5 +41,3 @@ $('.navbar-collapse li a').click(function(){
 }
 
  
- 
-
