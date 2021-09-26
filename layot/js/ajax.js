@@ -7,11 +7,13 @@ $(document).ready(function(){
             $.get(
                 "ajax.php",
                 {main_selector : main_select},
+                console.log(main_selector),
                 function(data){
                     $('#add_sub_select').html(data);
                 }
-
             );
+            
+
         }else{
             $('#add_sub_select').html('<option>اختر الفرع الرئيسي اولا</option>');
         }
