@@ -6,12 +6,24 @@ $('.navbar-collapse li a').click(function(){
     
     }, 1000);
     });
+
     //scroll nav bar
+    $(document).ready(function(){ 
+
+    if (location.pathname == '/project-myserves/mainpage.php'){
+
     $(window).scroll(function(){
+    $('.navbar-edit').toggleClass("sticky", $(this).scrollTop() > 0);   
+    
+     })
+} else { 
+
+        $('.navbar-edit').removeClass("back-color-nav");
+        $('.navbar-edit').addClass("sticky");
         
-    $('.back-color-nav').toggleClass("sticky", $(this).scrollTop() > 0);   
-    });
- 
+       }
+});
+
     //upload-add-serves
 
    function readUrl(input){
