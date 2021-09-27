@@ -5,9 +5,9 @@ include ("topnav.php");
 include ("connect.php");
 include ("function.php");
 
-
-    $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
-    if($action == 'Add') { 
+        if (isset($_SESSION['Username'])) {
+        $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
+            if($action == 'Add') { 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) :0;
         $stmt2 = $con->prepare("SELECT * FROM sub_category");
         $stmt2 ->execute();
@@ -109,33 +109,24 @@ include ("function.php");
                 echo  "<h1 class='text-center'>تمت إضافة خدمة</h1>";
                 echo "<div class = 'container'>";
                    
-                    $name       = $_POST['name'];
-                    //$option   = $_POST['options'];
-                    // $main_c  = $_POST['main-cat'];
+                    $name        = $_POST['name'];
                     $sub_c       = $_POST['sub-cat'];
                     $Body        = $_POST['body'];
-                    
                     $imageName   = $_FILES['upload']['name'];
                     $imageSize   = $_FILES['upload']['size'];
                     $imageTemp   = $_FILES['upload']['tmp_name'];
                     $imageType   = $_FILES['upload']['type'];
-                    // $temp       = $_POST['upload']['tmp_name'];
-                    // $folder     = "Img/" . $filename;
-                    // move_uploaded_file($temp ,$folder);
                     $imageAllowedExtentions = array("jpeg" , "jpg", "png" , "gif");
                     $imageExtension = strtolower(end(explode('.' , $imageName)));
-                    $Keyword = $_POST['search'];
-
-
 
                     $formErrors = array();
-                    if(empty($name)){
+                    if(empty($name)) {
                         $formErrors[] = 'name cant be <strong>Empty</strong>';
                     }
-                    if(empty($sub_c)){
+                    if(empty($sub_c)) {
                         $formErrors[] = 'Sub Category cant be <strong>Empty</strong>';
                         }
-                    if(empty($Body)){
+                    if(empty($Body)) {
                         $formErrors[] = 'Body cant be <strong>Empty</strong>';
                     }
                     if(!empty($imageName) && ! in_array($imageExtension,$imageAllowedExtentions)){
@@ -144,14 +135,10 @@ include ("function.php");
                     }
                     if(empty($imageName)) {
                         $formErrors[] = 'Image IS <strong>Required</strong>';
-
                     }
                     // if($imageSize < 90000) {
                     //     $formErrors[] = 'Image IS <strong>Larger</strong>';
-
                     // }
-                    
-                    
                     foreach($formErrors as $erros){
                         echo '<div class="alert alert-danger">' . $erros . '</div>';
             
@@ -164,15 +151,16 @@ include ("function.php");
 
                             // Insert Userinformation In The Database
                                 $stmt = $con->prepare("INSERT INTO 
-                                            post (title , body, category_id, user_id, img, Keyword)
-                                            VALUES(:zname, :zbody, :zsub , :userid , :zimg , :zKeyword)");
+                                            post (title , body, category_id, user_id, img)
+                                            VALUES(:zname, :zbody, :zsub , :userid , :zimg)");
                                 $stmt->execute(array(
                                     'zname'     =>$name,
                                     'zbody'     =>$Body,
                                     'zsub'      =>$sub_c,
                                     'userid'    =>$_SESSION['ID'],
                                     'zimg'      =>$image,
-                                    'zKeyword'  => $Keyword
+                                  
+
                             ));
                             //  echo "succes massegae";
                             //     echo "<div class='container'>";
@@ -181,14 +169,15 @@ include ("function.php");
                             //         echo "</div>";
                                 }else {
                                    echo "No Record";
-                                }
-                            
-            
+                                } 
                         }       
                         echo "</div>";                 
+                    }else{
 
-                    }else {
                         echo "No session";
-                    }  
-    ob_end_flush();
+                }  
+            } else {
+
+            }
+        ob_end_flush();
    ?>

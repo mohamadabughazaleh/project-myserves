@@ -18,7 +18,7 @@ body{
     left: 0;
     transition: 1.5s; 
 }
-.back-color-nav{position: fixed;}
+.back-color-nav{position: fixed !important;}
 /*start section-navbar*/
 .section-navbar{ left: 60%;  height: 130px; background-color:var(--Navy--color);}
 
