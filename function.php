@@ -4,7 +4,7 @@ function checkCat($type){
     global $con;
 
     $statment = $con->prepare("SELECT title_cat FROM main_categories where type = '$type'");
-    $statment->execute(array($type));
+    $statment->execute();
     $main_cat = $statment->fetchAll();
 
     return $main_cat;

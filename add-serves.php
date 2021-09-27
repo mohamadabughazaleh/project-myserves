@@ -10,7 +10,7 @@ include ("function.php");
     if($action == 'Add') { 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) :0;
         $stmt2 = $con->prepare("SELECT * FROM sub_category");
-        $stmt2 ->execute(array($userid));
+        $stmt2 ->execute();
         $sub_categories = $stmt2->fetchAll();
 
         $stmt1 = $con->prepare("SELECT * FROM main_categories ORDER BY `type`"); 
@@ -99,6 +99,7 @@ include ("function.php");
                 }
                   document.getElementById("add_main_select").innerHTML =items;
                 }
+                
             </script>
    <?php } 
    
@@ -123,6 +124,7 @@ include ("function.php");
                     // move_uploaded_file($temp ,$folder);
                     $imageAllowedExtentions = array("jpeg" , "jpg", "png" , "gif");
                     $imageExtension = strtolower(end(explode('.' , $imageName)));
+                    $Keyword = $_POST['search'];
 
 
 
@@ -162,14 +164,15 @@ include ("function.php");
 
                             // Insert Userinformation In The Database
                                 $stmt = $con->prepare("INSERT INTO 
-                                            post (title , body, category_id, user_id, img)
-                                            VALUES(:zname, :zbody, :zsub , :userid , :zimg)");
+                                            post (title , body, category_id, user_id, img, Keyword)
+                                            VALUES(:zname, :zbody, :zsub , :userid , :zimg , :zKeyword)");
                                 $stmt->execute(array(
                                     'zname'     =>$name,
                                     'zbody'     =>$Body,
                                     'zsub'      =>$sub_c,
-                                    'userid'    => $_SESSION['ID'],
-                                    'zimg'      => $image
+                                    'userid'    =>$_SESSION['ID'],
+                                    'zimg'      =>$image,
+                                    'zKeyword'  => $Keyword
                             ));
                             //  echo "succes massegae";
                             //     echo "<div class='container'>";
