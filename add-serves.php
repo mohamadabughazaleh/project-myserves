@@ -10,7 +10,7 @@ include ("function.php");
             if($action == 'Add') { 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) :0;
         $stmt2 = $con->prepare("SELECT * FROM sub_category");
-        $stmt2 ->execute(array($userid));
+        $stmt2 ->execute();
         $sub_categories = $stmt2->fetchAll();
 
         $stmt1 = $con->prepare("SELECT * FROM main_categories ORDER BY `type`"); 
@@ -99,6 +99,7 @@ include ("function.php");
                 }
                   document.getElementById("add_main_select").innerHTML =items;
                 }
+                
             </script>
    <?php } 
    
@@ -157,7 +158,9 @@ include ("function.php");
                                     'zbody'     =>$Body,
                                     'zsub'      =>$sub_c,
                                     'userid'    =>$_SESSION['ID'],
-                                    'zimg'      =>$image
+                                    'zimg'      =>$image,
+                                  
+
                             ));
                             //  echo "succes massegae";
                             //     echo "<div class='container'>";
