@@ -3,17 +3,16 @@ $(document).ready(function(){
   
     $('#add_main_select').change(function(){
         var main_select = $(this).val();
-
         if(main_select){
-            $.get(
-                "ajax.php",
-                {main_selector : main_select},
-                console.log(main_selector),
-                function(data){
-                    $('#add_sub_select').html(data);
-                    console.log(data);
-                }
-            );
+            $.ajax({
+                url: "ajax.php",
+                method: "GET",
+                data : {main_selector: main_select},
+                success : function(data){
+                $('#add_sub_select').html(data);
+                    }
+                });
+
             
 
         }else{
