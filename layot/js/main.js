@@ -6,12 +6,24 @@ $('.navbar-collapse li a').click(function(){
     
     }, 1000);
     });
+
     //scroll nav bar
+    $(document).ready(function(){ 
+
+    if (location.pathname == '/project-myserves/mainpage.php'){
+
     $(window).scroll(function(){
+    $('.navbar-edit').toggleClass("sticky", $(this).scrollTop() > 0);   
+    
+     })
+} else { 
+
+        $('.navbar-edit').removeClass("back-color-nav");
+        $('.navbar-edit').addClass("sticky");
         
-    $('.back-color-nav').toggleClass("sticky", $(this).scrollTop() > 0);   
-    });
- 
+       }
+});
+
     //upload-add-serves
 
    function readUrl(input){
@@ -40,19 +52,32 @@ $('.navbar-collapse li a').click(function(){
 
     login_container.classList.remove("sign-up-mode");
 }
+
 /*details*/
 $(document).ready(function(){
-$(".imge-details-tow img").animate({top:'25%'},2800)
+  
+$(".imge-details-tow img").animate({top:'25%'},2800);
+  
 $(".h1-detals").animate({width:'170px'},1000).animate({width:'100%'},3000).animate({width:'170px'},2000);
+  
 $(".prg-dtails").fadeTo(5000,1);
+  
 $(".ul-details-tow-ico ul").show(3000);
+  
 $(".ul-details-tow-ico ul li i").animate({marginLeft:"5px"},5000);
+  
 $(".replay-commnt").click(function(){
+  
 $(".back-ground-comment-part-tow").slideToggle(1000);
-});
+
+})
+  
 $(".replay-feedback").click(function(){
+  
 $(".replay-comment-details").slideToggle(1000);
-});
+
+})
+    
 });
 /*add-img-edit-profile-*/
 function readUrledit(event){
@@ -72,4 +97,5 @@ function uptateimge(){
 var uptateimgeS=document.getElementById("uplode-img-edit");
 uptateimgeS.click();
 };
+
 

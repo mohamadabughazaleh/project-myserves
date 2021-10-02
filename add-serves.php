@@ -5,18 +5,29 @@ include ("topnav.php");
 include ("connect.php");
 include ("function.php");
 
-
-    $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
-    if($action == 'Add') { 
+        if (isset($_SESSION['Username'])) {
+        $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
+            if($action == 'Add') { 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) :0;
         $stmt2 = $con->prepare("SELECT * FROM sub_category");
-        $stmt2 ->execute(array());
+        $stmt2 ->execute();
         $sub_categories = $stmt2->fetchAll();
 
-        $stmt1 = $con->prepare("SELECT * FROM main_categories"); 
+        $stmt1 = $con->prepare("SELECT * FROM main_categories ORDER BY `type`"); 
         $stmt1 ->execute();
-        $main_categories = $stmt1->fetchAll();
+        $result = $stmt1->fetchAll();
+        $categories = [];
+        foreach($result as $category){
+            $data = [];
+            $data["id"] = $category["id"];
+            $data["title"] = $category["title_cat"];
 
+            if($category["type"] == "S")
+                $categories["services"][] = $data;
+            else
+                $categories["freelance"][] = $data;
+        }
+    
         ?>
         
             <h1 class="name-section">اضافة خدمة</h1>
@@ -29,26 +40,22 @@ include ("function.php");
                         <label for="formGroupExampleInput">نوع الخدمة:</label>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label class="btn btn-secondary btn-add-serves-select active">
-                                    <input type="radio"  name="options" id="option1" checked> عمل حر
-                                    <?php //(checkCat("F")); ?>
+                                    <input type="radio"  name="options" id="option1 " onclick="myFunctionfreelance()" checked> عمل حر
+                                    <?php (checkCat("F")); ?>
                                 </label>
                                 <label class="btn btn-secondary btn-add-serves-select">
-                                    <input type="radio" name="options" id="option2"> خدمات
-                                    <?php //(checkCat("S")); ?>
+                                    <input type="radio" name="options" id="option2 " onclick="myFunctionservices()" > خدمات
+                                    <?php (checkCat("S")); ?>
                                 </label>
                         </div><br><br>
                         <label for="formGroupExampleInput" style="display: inline-block;">القسم:</label>
-                        <select name="main-cat" class="form-control section-add-serves">
+                        <select id="add_main_select" name="main-cat" class="form-control section-add-serves">
                             <option>القسم الرئيسي</option>
-                            <?php foreach($main_categories as $main): ?>
-                                <option value="<?= $main['id'] ?>"> <?= $main['title_cat'] ?></option>
-                            <?php endforeach; ?>
+                            
                         </select>
-                        <select name="sub-cat" class="form-control section-add-serves">
+                        <select id="add_sub_select" name="sub-cat" class="form-control section-add-serves">
                             <option>القسم الفرعي</option>
-                            <?php foreach($sub_categories as $sub): ?>
-                                <option value="<?= $sub['id'] ?>"> <?= $sub['Name'] ?></option>
-                            <?php endforeach; ?>
+                            
                         </select><br><br>
                         <label for="validationTextarea">وصف الخدمة:</label>
                         <textarea name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -67,6 +74,33 @@ include ("function.php");
                 </form>
                 </div>
             </div>
+            <script>
+                //freelance select
+                function myFunctionfreelance() {
+
+                let categories = <?= json_encode($categories,true); ?>;
+                let items = ``;
+                for (var i = 0; i < categories.freelance.length; i++) 
+                {
+                    items += `<option >${categories.freelance[i].title}</option>`;
+            
+                }
+                  document.getElementById("add_main_select").innerHTML =items;
+                }
+                //serves select
+                function myFunctionservices() {
+
+                let categories = <?= json_encode($categories,true); ?>;
+                let items = ``;
+                for (var i = 0; i < categories.services.length; i++) 
+                {
+                    items += `<option >${categories.services[i].title}</option>`;
+
+                }
+                  document.getElementById("add_main_select").innerHTML =items;
+                }
+                
+            </script>
    <?php } 
    
             elseif($action == 'Insert') {
@@ -75,32 +109,24 @@ include ("function.php");
                 echo  "<h1 class='text-center'>تمت إضافة خدمة</h1>";
                 echo "<div class = 'container'>";
                    
-                    $name       = $_POST['name'];
-                    //$option   = $_POST['options'];
-                    // $main_c  = $_POST['main-cat'];
+                    $name        = $_POST['name'];
                     $sub_c       = $_POST['sub-cat'];
                     $Body        = $_POST['body'];
-                    
                     $imageName   = $_FILES['upload']['name'];
                     $imageSize   = $_FILES['upload']['size'];
                     $imageTemp   = $_FILES['upload']['tmp_name'];
                     $imageType   = $_FILES['upload']['type'];
-                    // $temp       = $_POST['upload']['tmp_name'];
-                    // $folder     = "Img/" . $filename;
-                    // move_uploaded_file($temp ,$folder);
                     $imageAllowedExtentions = array("jpeg" , "jpg", "png" , "gif");
                     $imageExtension = strtolower(end(explode('.' , $imageName)));
 
-
-
                     $formErrors = array();
-                    if(empty($name)){
+                    if(empty($name)) {
                         $formErrors[] = 'name cant be <strong>Empty</strong>';
                     }
-                    if(empty($sub_c)){
+                    if(empty($sub_c)) {
                         $formErrors[] = 'Sub Category cant be <strong>Empty</strong>';
                         }
-                    if(empty($Body)){
+                    if(empty($Body)) {
                         $formErrors[] = 'Body cant be <strong>Empty</strong>';
                     }
                     if(!empty($imageName) && ! in_array($imageExtension,$imageAllowedExtentions)){
@@ -109,14 +135,10 @@ include ("function.php");
                     }
                     if(empty($imageName)) {
                         $formErrors[] = 'Image IS <strong>Required</strong>';
-
                     }
                     // if($imageSize < 90000) {
                     //     $formErrors[] = 'Image IS <strong>Larger</strong>';
-
                     // }
-                    
-                    
                     foreach($formErrors as $erros){
                         echo '<div class="alert alert-danger">' . $erros . '</div>';
             
@@ -135,8 +157,10 @@ include ("function.php");
                                     'zname'     =>$name,
                                     'zbody'     =>$Body,
                                     'zsub'      =>$sub_c,
-                                    'userid'    => $_SESSION['ID'],
-                                    'zimg'      => $image
+                                    'userid'    =>$_SESSION['ID'],
+                                    'zimg'      =>$image,
+                                  
+
                             ));
                             //  echo "succes massegae";
                             //     echo "<div class='container'>";
@@ -145,14 +169,15 @@ include ("function.php");
                             //         echo "</div>";
                                 }else {
                                    echo "No Record";
-                                }
-                            
-            
+                                } 
                         }       
                         echo "</div>";                 
+                    }else{
 
-                    }else {
                         echo "No session";
-                    }  
-    ob_end_flush();
+                }  
+            } else {
+
+            }
+        ob_end_flush();
    ?>

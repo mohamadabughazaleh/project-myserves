@@ -1,7 +1,6 @@
 <?php 
 include ("mainLink.php");
 include ("connect.php");
-
 session_start();
 $pageTitle = 'Login';
 if(isset($_SESSION['Username'])){
