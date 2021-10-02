@@ -15,7 +15,7 @@ $stmt = $stmt->fetchAll();
 <div class="namesaction">
     <div class="row">
         <div class="container">
-            <div class="col-lg col-md-6 col-sm col-xs-12">
+            <div class="col-lg col-md col-sm col-xs">
                 <button class="btn  dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خدمات مميزه </button>
                     <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">خدمات مميزة</a>

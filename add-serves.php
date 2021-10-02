@@ -10,7 +10,7 @@ include ("function.php");
     if($action == 'Add') { 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) :0;
         $stmt2 = $con->prepare("SELECT * FROM sub_category");
-        $stmt2 ->execute(array($userid));
+        $stmt2 ->execute(array());
         $sub_categories = $stmt2->fetchAll();
 
         $stmt1 = $con->prepare("SELECT * FROM main_categories"); 
@@ -30,11 +30,11 @@ include ("function.php");
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label class="btn btn-secondary btn-add-serves-select active">
                                     <input type="radio"  name="options" id="option1" checked> عمل حر
-                                    <?php (checkCat("F")); ?>
+                                    <?php //(checkCat("F")); ?>
                                 </label>
                                 <label class="btn btn-secondary btn-add-serves-select">
                                     <input type="radio" name="options" id="option2"> خدمات
-                                    <?php (checkCat("S")); ?>
+                                    <?php //(checkCat("S")); ?>
                                 </label>
                         </div><br><br>
                         <label for="formGroupExampleInput" style="display: inline-block;">القسم:</label>
@@ -61,7 +61,7 @@ include ("function.php");
                             <label for="inpfile"class="input-file-add-serves"><i class="fas fa-upload"></i>&nbsp;اضافة صورة</label>
                         </div>
                         <label for="formGroupExampleInput">كلمات مفتاحية للخدمة:</label>
-                        <input type="text" name="search" class="form-control" id="formGroupExampleInput" placeholder="كلمات مفتاحية">
+                        <input type="text" name="search" class="form-control" id="formGroupExampleInput search" placeholder="كلمات مفتاحية">
                     </div>
                     <button type="submit" class="btn btn-add-serves"><i class="fas fa-plus-circle"></i>&nbsp;اضافة الخدمة</button>
                 </form>

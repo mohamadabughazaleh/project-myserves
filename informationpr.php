@@ -1,24 +1,12 @@
 <?php include ("mainLink.php")?>
 <!--startinframtionpr-->
-<div class="inframtion-pr text-center d-none d-xl-block">
+<div class="inframtion-pr text-center  ">
     <div class="img-pr">
-        <img class="imge-pr " src="../project-myserves/layot/img/61da7186-0154-4f59-a2b9-6b4cefd58f48.jpg" alt="">
-    </div>
-</div>
-<div class="inframtion-p2 text-center  d-xl-none">
-    <div class="img-p2">
-        <img class="imge-p2 rounded " src="../project-myserves/layot/img/1564a5b8c6b0f3cd049a4c632d4fb4d9.gif" alt="">
+        <img class="imge-pr " src="../project-myserves/layot/img/pexels-karolina-grabowska-5239911.jpg" alt="">
     </div>
 </div>
 <div class="name text-center ">
     <h1>اسامه ابو قويدر</h1>
-    <ul class=" ul-styly  d-none  d-lg-block  d-xl-none  d-none d-xl-block  ">
-        <li><i class="far fa-star i-color  "></i></li>
-        <li><i class="fas fa-star i-color"></i></li>
-        <li><i class="fas fa-star i-color"></i></li>
-        <li><i class="fas fa-star i-color"></i></li>
-        <li><i class="fas fa-star i-color"></i></li>
-    </ul>
     <h3 class="infroamtion-you">معلوماتك</h3>
     <hr class="hr-pr">
 </div>
