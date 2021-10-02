@@ -2,8 +2,6 @@
 session_start();
 include ("topnav.php");
 ?>
-
- 
    <!---start background-->
         <header class="background-section">
         
@@ -13,6 +11,5 @@ include ("topnav.php");
 
             </article>
         </header>
-
    <!---end background-->
    

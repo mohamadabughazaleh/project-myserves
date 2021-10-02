@@ -118,6 +118,7 @@ include ("function.php");
                     $imageType   = $_FILES['upload']['type'];
                     $imageAllowedExtentions = array("jpeg" , "jpg", "png" , "gif");
                     $imageExtension = strtolower(end(explode('.' , $imageName)));
+                    $Keyword     = $_POST['search'];
 
                     $formErrors = array();
                     if(empty($name)) {
@@ -151,16 +152,15 @@ include ("function.php");
 
                             // Insert Userinformation In The Database
                                 $stmt = $con->prepare("INSERT INTO 
-                                            post (title , body, category_id, user_id, img)
-                                            VALUES(:zname, :zbody, :zsub , :userid , :zimg)");
+                                            post (title , body, category_id, user_id, img, Keyword)
+                                            VALUES(:zname, :zbody, :zsub , :userid , :zimg , :zKeyword)");
                                 $stmt->execute(array(
                                     'zname'     =>$name,
                                     'zbody'     =>$Body,
                                     'zsub'      =>$sub_c,
                                     'userid'    =>$_SESSION['ID'],
                                     'zimg'      =>$image,
-                                  
-
+                                    'zKeyword'  =>$Keyword
                             ));
                             //  echo "succes massegae";
                             //     echo "<div class='container'>";

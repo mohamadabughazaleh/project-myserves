@@ -7,11 +7,24 @@ include ("function.php");
 ?>
 <!-- start name and drodawn create ghazal-->
 <?php 
+
+$sort = 'ASC';
+
+$sort_array = array('ASC','DESC');
+
+if(isset($_GET['sort']) && in_array($_GET['sort'] , $sort_array)){
+
+$sort = $_GET['sort'];
+
+}
+
 $Cat_id = isset($_GET['Cat_id']) && is_numeric($_GET['Cat_id']) ? intval($_GET['Cat_id']) :0;
-$stmt = $con-> prepare("SELECT img,title,category_id FROM post WHERE category_id = ?");
+$stmt = $con-> prepare("SELECT * FROM post WHERE category_id = ?  ORDER BY id $sort ");
 $stmt->execute(array($Cat_id));
 $stmt = $stmt->fetchAll();
-?>
+
+ ?>
+
 <div class="namesaction">
     <div class="row">
         <div class="container">
@@ -19,8 +32,8 @@ $stmt = $stmt->fetchAll();
                 <button class="btn  dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خدمات مميزه </button>
                     <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">خدمات مميزة</a>
-                        <a class="dropdown-item" href="#">أضيفيت حديثا</a>
-                        <a class="dropdown-item" href="#">خدمات صاعدة</a>
+                        <a class="dropdown-item" href="?sort=DESC">أضيفيت حديثا</a>
+                        <a class="dropdown-item" href="?sort=ASC">خدمات صاعدة</a>
                     </div>
                     <h1 class="colarname">أعمال</h1>
                     <p>احصل على الدعم اللازم لتسيير أعمالك بشكل أكثر سلاسة</p>
