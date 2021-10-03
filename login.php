@@ -42,8 +42,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                         AND
                             password =?");
     $stmt->execute(array($user,$ShaPass));
-    $row = $stmt->fetch();
     $count = $stmt->rowCount();
+    $row = $stmt->fetch();
 
     // IF Count > 0 This Mean The Database Contain Record About This Username
         if ($count > 0){

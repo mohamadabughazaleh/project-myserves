@@ -4,5 +4,5 @@
  session_unset($_SESSION['Username']); 
  session_unset($_SESSION['user']);  // Unset the data
  session_destroy(); // Destroy the session
- header('Location: login.php');
+ header('Location: main-login.php');
  exit();

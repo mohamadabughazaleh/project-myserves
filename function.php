@@ -37,3 +37,13 @@ function getCat() {
     $catId= $getCat->fetchAll();
     return $catId;  
 }
+
+function checkItem($select, $from, $value){
+    global $con;
+
+    $stmt = $con->prepare("SELECT $select FROM $from where $select = ?");
+    $stmt->execute(array($value));
+    $count = $stmt->rowCount();
+
+    return $count;
+}
