@@ -3,7 +3,7 @@ ob_start();
 session_start();
 include ("topnav.php");
 include ("connect.php");
-include ("function.php");
+include ("function.php"); 
 
         if (isset($_SESSION['Username'])) {
         $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
