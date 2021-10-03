@@ -3,7 +3,7 @@
 <div class="information-edit text-center">
     <form>
     <div class="information-img">
-        <img class="information-imge-" src="../project-myserves/layot/img/images.jpg"  id="uplodeimgedit" alt="">
+        <img class="information-imge-" src="../project-myserves/layot/img/people-icons-3800-free-files-in-png-eps-svg-format-blank-person-png-2454_1534.jpg"  id="uplodeimgedit" alt="">
         <input type="file" id="uplode-img-edit" onchange="readUrledit(this)" hidden>
         <abbr title="تغير الصوره الشخصية"> <div class="img-info" id="clickimgedite" onclick="uptateimge()"></abbr>
         <i class="fas fa-camera"></i>
