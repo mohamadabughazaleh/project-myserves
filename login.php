@@ -1,7 +1,6 @@
 <?php 
 include ("mainLink.php");
 include ("connect.php");
-
 session_start();
 $pageTitle = 'Login';
 if(isset($_SESSION['Username'])){
@@ -23,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                             password =? 
                         AND 
                             Group_ID = 1
-                            LIMIT 1");
+                            LIMIT 2");
     $stmt->execute(array($username,$hashedPass));
     $row = $stmt->fetch();
     $count = $stmt->rowCount();

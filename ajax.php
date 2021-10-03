@@ -17,6 +17,7 @@ if(isset($_GET['main_selector']) && !empty($_GET['main_selector']))
     $html = '';
     foreach($row as $rows) {
         $html .= '<option value="' .$rows['sub_id'].'">'.$rows['Name'];
+
     }
     echo $html;
     // echo json_encode($row , JSON_PREITY_PRINT);

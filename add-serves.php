@@ -5,6 +5,7 @@ include ("topnav.php");
 include ("connect.php");
 include ("function.php");
 if (isset($_SESSION['user'])) {
+
         $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
             if($action == 'Add') { 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) :0;
@@ -67,7 +68,7 @@ if (isset($_SESSION['user'])) {
                             <label for="inpfile"class="input-file-add-serves"><i class="fas fa-upload"></i>&nbsp;اضافة صورة</label>
                         </div>
                         <label for="formGroupExampleInput">كلمات مفتاحية للخدمة:</label>
-                        <input type="text" name="search" class="form-control" id="formGroupExampleInput" placeholder="كلمات مفتاحية">
+                        <input type="text" name="search" class="form-control" id="formGroupExampleInput search" placeholder="كلمات مفتاحية">
                     </div>
                     <button type="submit" class="btn btn-add-serves"><i class="fas fa-plus-circle"></i>&nbsp;اضافة الخدمة</button>
                 </form>
@@ -98,6 +99,7 @@ if (isset($_SESSION['user'])) {
                 }
                   document.getElementById("add_main_select").innerHTML =items;
                 }
+                
             </script>
    <?php } 
    
@@ -117,8 +119,6 @@ if (isset($_SESSION['user'])) {
                     $imageAllowedExtentions = array("jpeg" , "jpg", "png" , "gif");
                     $imageExtension = strtolower(end(explode('.' , $imageName)));
                     $keyword     = filter_var($_POST['search'],FILTER_SANITIZE_STRING);
-
-
                     $formErrors = array();
                     if(empty($name)) {
                         $formErrors[] = 'name cant be <strong>Empty</strong>';

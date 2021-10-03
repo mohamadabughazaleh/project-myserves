@@ -3,7 +3,6 @@ session_start();
 include ("topnav.php");
 include('connect.php');
 ?>
- 
    <!---start background-->
         <header class="background-section">
         
@@ -13,6 +12,5 @@ include('connect.php');
 
             </article>
         </header>
-
    <!---end background-->
    
