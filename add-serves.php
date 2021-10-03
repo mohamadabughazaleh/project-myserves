@@ -68,7 +68,7 @@ include ("function.php");
                             <label for="inpfile"class="input-file-add-serves"><i class="fas fa-upload"></i>&nbsp;اضافة صورة</label>
                         </div>
                         <label for="formGroupExampleInput">كلمات مفتاحية للخدمة:</label>
-                        <input type="text" name="search" class="form-control" id="formGroupExampleInput" placeholder="كلمات مفتاحية">
+                        <input type="text" name="search" class="form-control" id="formGroupExampleInput search" placeholder="كلمات مفتاحية">
                     </div>
                     <button type="submit" class="btn btn-add-serves"><i class="fas fa-plus-circle"></i>&nbsp;اضافة الخدمة</button>
                 </form>
