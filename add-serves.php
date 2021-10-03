@@ -3,9 +3,9 @@ ob_start();
 session_start();
 include ("topnav.php");
 include ("connect.php");
-include ("function.php"); 
+include ("function.php");
+if (isset($_SESSION['user'])) {
 
-        if (isset($_SESSION['Username'])) {
         $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
             if($action == 'Add') { 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) :0;
@@ -107,7 +107,7 @@ include ("function.php");
                 // $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) :0;
                 if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 echo  "<h1 class='text-center'>تمت إضافة خدمة</h1>";
-                echo "<div class = 'container'>";
+                echo  "<div class = 'container'>";
                    
                     $name        = $_POST['name'];
                     $sub_c       = $_POST['sub-cat'];
@@ -118,8 +118,7 @@ include ("function.php");
                     $imageType   = $_FILES['upload']['type'];
                     $imageAllowedExtentions = array("jpeg" , "jpg", "png" , "gif");
                     $imageExtension = strtolower(end(explode('.' , $imageName)));
-                    $Keyword     = $_POST['search'];
-
+                    $keyword     = filter_var($_POST['search'],FILTER_SANITIZE_STRING);
                     $formErrors = array();
                     if(empty($name)) {
                         $formErrors[] = 'name cant be <strong>Empty</strong>';
@@ -137,9 +136,9 @@ include ("function.php");
                     if(empty($imageName)) {
                         $formErrors[] = 'Image IS <strong>Required</strong>';
                     }
-                    // if($imageSize < 90000) {
-                    //     $formErrors[] = 'Image IS <strong>Larger</strong>';
-                    // }
+                    if(empty($keyword)) {
+                        $formErrors[] = 'Keyword Cant be <strong>Empty</strong>';
+                        }
                     foreach($formErrors as $erros){
                         echo '<div class="alert alert-danger">' . $erros . '</div>';
             
@@ -149,35 +148,34 @@ include ("function.php");
                     if(empty($formErrors)){
                                 $image = rand(0 , 100000) . '_' . $imageName;
                                 move_uploaded_file($imageTemp,'upload/image//' .$image);
-
                             // Insert Userinformation In The Database
                                 $stmt = $con->prepare("INSERT INTO 
-                                            post (title , body, category_id, user_id, img, Keyword)
-                                            VALUES(:zname, :zbody, :zsub , :userid , :zimg , :zKeyword)");
+                                            post (title , body , category_id , user_id , img , Keyword)
+                                            VALUES(:zname, :zbody, :zsub , :userid , :zimg, :zkeyword)");
                                 $stmt->execute(array(
                                     'zname'     =>$name,
                                     'zbody'     =>$Body,
                                     'zsub'      =>$sub_c,
                                     'userid'    =>$_SESSION['ID'],
                                     'zimg'      =>$image,
-                                    'zKeyword'  =>$Keyword
+                                    'zkeyword'  =>$keyword
                             ));
-                            //  echo "succes massegae";
-                            //     echo "<div class='container'>";
+                                    echo "succes massegae";
+                                    echo "<div class=''>";
                             //     $theMsg = "<div class='alert alert-success'>" . $stmt->rowcount() . ' Record Inserted </div>';
                             //     redirectHome($theMsg,'back',4);
                             //         echo "</div>";
                                 }else {
-                                   echo "No Record";
+                                   echo "No Record Added";
                                 } 
                         }       
                         echo "</div>";                 
                     }else{
-
-                        echo "No session";
+                        echo "No Action Insert";
                 }  
             } else {
-
+                header('location: main-login.php');
+        exit();
             }
         ob_end_flush();
    ?>
