@@ -14,7 +14,15 @@
                     <i class="fas fa-lock"></i>
                     <input type="password" placeholder="كلمة السر">
                 </div>
+                <div class="input-field">
+                <i class="fas fa-calendar-check"></i>
+                        <select>
+                            <option>مستخدم عادي</option>
+                            <option>مشرف</option>
+                        </select>                
+                    </div>
                 <input type="submit" value="تسجيل الدخول" class="btn-login-sign-in">
+                <a href="#" class="forget-passowrd-login">نسيت كلمة السر؟</a>
             </form>
 
             <form action="" class="sign-up-form">

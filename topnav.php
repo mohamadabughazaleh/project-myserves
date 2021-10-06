@@ -1,6 +1,4 @@
-<?php include ("mainLink.php");
-
-?>
+<?php include ("mainLink.php");?>
 
  <!--start navbar-->
  <nav class="navbar navbar-edit navbar-expand-lg navbar-light back-color-nav ">

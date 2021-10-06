@@ -143,5 +143,26 @@
         .sign-up-mode::before{bottom: 28%!important;left: 50%;}
     }
     /*login*/
+    /*section new*/
+    @media screen and (max-width: 767px) {
+        .material-card.mc-active {
+          padding-bottom: 0;
+          height: auto;
+        }
+        .material-card.mc-active .mc-content {
+            position: relative;
+            margin-right: 16px;
+          }
+          .material-card.mc-active .mc-description {
+            position: relative;
+            top: auto;
+            right: auto;
+            left: auto;
+            padding: 50px 30px 70px 30px;
+            bottom: 0;
+          }
+      }
+      
+    /*end section new*/
 
 
