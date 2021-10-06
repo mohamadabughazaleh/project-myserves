@@ -1400,8 +1400,8 @@ font-size: 1.1rem;
   border-left-color: transparent;
 }
 .material-card.Red .mc-btn-action {
-  background-color: var(--Navy--color);
-}
+  background-color: var(--Navy--color);  
+} 
 .material-card.Red .mc-btn-action:hover {
   background-color: var(--Navy--color);
 }
