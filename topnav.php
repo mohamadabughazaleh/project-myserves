@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 <?php include ("mainLink.php");?>
+=======
+<?php 
+include ("mainLink.php");
+?>
+>>>>>>> eb759a7ee7b4fffcd64e8f2ec656b043d9906452
 
  <!--start navbar-->
  <nav class="navbar navbar-edit navbar-expand-lg navbar-light back-color-nav ">
@@ -140,7 +146,7 @@
                                 <img class="main-img-profile" src="layot/img/pexels-cottonbro-4778611.jpg">
                             </a>
                             <div class="dropdown-menu drop-nav-profile" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#"><i class="fas fa-user"></i>حسين ابوقطام</a>
+                                <a class="dropdown-item" href="informationpr.php?userid=<?php echo $_SESSION['ID']?>"><i class="fas fa-user"></i>الملف الشخصي </a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-wallet"></i>الرصيد</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user-edit"></i>تعديل الحساب</a>
                                 <a class="dropdown-item" href="logout.php"><i class="fas fa-door-open"></i> خروج</a>

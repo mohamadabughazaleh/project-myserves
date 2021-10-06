@@ -1,16 +1,17 @@
 <?php include ("mainLink.php")?>
 <!--start-edit-infromation-->
 <div class="information-edit text-center">
+    <form>
     <div class="information-img">
-        <img class="information-imge-" src="../project-myserves/layot/img/pexels-karolina-grabowska-5239911.jpg" alt="">
-        <abbr title="تغير الصوره الشخصية"> <div class="img-info"></abbr>
-            <i class="fas fa-camera"></i>
-        </div>
+        <img class="information-imge-" src="../project-myserves/layot/img/people-icons-3800-free-files-in-png-eps-svg-format-blank-person-png-2454_1534.jpg"  id="uplodeimgedit" alt="">
+        <input type="file" id="uplode-img-edit" onchange="readUrledit(this)" hidden>
+        <abbr title="تغير الصوره الشخصية"> <div class="img-info" id="clickimgedite" onclick="uptateimge()"></abbr>
+        <i class="fas fa-camera"></i>
     </div>
+</div>
 <div class="form-informayion text-center">
     <div class="container">
         <div class="form-edit">
-            <form>
                 <div class="form-row">
                     <div class="col-lg-4 col-md-6">
                         <div class="mr-form">
@@ -78,7 +79,7 @@
                     </div>
                 </div>
                 <input class="btn" type="submit" value="حفظ التغيرات">
-            </form>
+            </form>   
         </div>
     </div>
 </div>

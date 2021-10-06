@@ -4,7 +4,7 @@ function checkCat($type){
     global $con;
 
     $statment = $con->prepare("SELECT title_cat FROM main_categories where type = '$type'");
-    $statment->execute(array($type));
+    $statment->execute();
     $main_cat = $statment->fetchAll();
 
     return $main_cat;
@@ -36,4 +36,14 @@ function getCat() {
     $getCat->execute();
     $catId= $getCat->fetchAll();
     return $catId;  
+}
+
+function checkItem($select, $from, $value){
+    global $con;
+
+    $stmt = $con->prepare("SELECT $select FROM $from where $select = ?");
+    $stmt->execute(array($value));
+    $count = $stmt->rowCount();
+
+    return $count;
 }

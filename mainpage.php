@@ -1,9 +1,8 @@
 <?php
 session_start();
 include ("topnav.php");
+include('connect.php');
 ?>
-
- 
    <!---start background-->
         <header class="background-section">
         
@@ -18,7 +17,6 @@ include ("topnav.php");
 
             </article>
         </header>
-
    <!---end background-->
    <!--how to work ---->
    <div class="container">
