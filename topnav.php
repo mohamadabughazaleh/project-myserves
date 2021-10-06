@@ -1,6 +1,10 @@
+<<<<<<< HEAD
+<?php include ("mainLink.php");?>
+=======
 <?php 
 include ("mainLink.php");
 ?>
+>>>>>>> eb759a7ee7b4fffcd64e8f2ec656b043d9906452
 
  <!--start navbar-->
  <nav class="navbar navbar-edit navbar-expand-lg navbar-light back-color-nav ">

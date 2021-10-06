@@ -113,9 +113,17 @@ include ('function.php');
                         <i class="fas fa-lock"></i>
                         <input type="password" name="pass" placeholder="كلمة السر">
                     </div>
+                    <div class="input-field">
+                     <i class="fas fa-calendar-check"></i>
+                        <select>
+                            <option>مستخدم عادي</option>
+                            <option>مشرف</option>
+                        </select>                
+                    </div>
                     <input type="submit" name="login" value="تسجيل الدخول" class="btn-login-sign-in">
+                    <a href="#" class="forget-passowrd-login">نسيت كلمة السر؟</a>
                 </form>
-
+                
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" class="sign-up-form">
                 <h2 class="title-login">حساب جديد</h2>
                 <div class="input-field">
