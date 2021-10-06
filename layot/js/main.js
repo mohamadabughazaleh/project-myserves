@@ -58,8 +58,6 @@ $(function() {
         var card = $(this).parent('.material-card');
         var icon = $(this).children('i');
         icon.addClass('fa-spin-fast');
-
-<<<<<<< HEAD
         if (card.hasClass('mc-active')) {
             card.removeClass('mc-active');
 
@@ -85,7 +83,6 @@ $(function() {
 });
 /*end test */
  
-=======
 /*details*/
 $(document).ready(function(){
   
@@ -130,6 +127,3 @@ function uptateimge(){
 var uptateimgeS=document.getElementById("uplode-img-edit");
 uptateimgeS.click();
 };
-
-
->>>>>>> eb759a7ee7b4fffcd64e8f2ec656b043d9906452

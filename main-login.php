@@ -7,31 +7,6 @@ include ('function.php');
 
 ?>
 
-<<<<<<< HEAD
-<div class="login-containers" id="login-container">
-    <div class="forms-container">
-        <div class="signin-signgup">
-            <form action="" class="sign-in-form">
-                <h2 class="title-login">تسجيل الدخول</h2>
-                <div class="input-field">
-                    <i class="fas fa-user"></i>
-                    <input type="text" placeholder="اسم المستخدم">
-                </div>
-                <div class="input-field">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="كلمة السر">
-                </div>
-                <div class="input-field">
-                <i class="fas fa-calendar-check"></i>
-                        <select>
-                            <option>مستخدم عادي</option>
-                            <option>مشرف</option>
-                        </select>                
-                    </div>
-                <input type="submit" value="تسجيل الدخول" class="btn-login-sign-in">
-                <a href="#" class="forget-passowrd-login">نسيت كلمة السر؟</a>
-            </form>
-=======
     <?php 
         if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
@@ -138,10 +113,17 @@ include ('function.php');
                         <i class="fas fa-lock"></i>
                         <input type="password" name="pass" placeholder="كلمة السر">
                     </div>
+                    <div class="input-field">
+                     <i class="fas fa-calendar-check"></i>
+                        <select>
+                            <option>مستخدم عادي</option>
+                            <option>مشرف</option>
+                        </select>                
+                    </div>
                     <input type="submit" name="login" value="تسجيل الدخول" class="btn-login-sign-in">
+                    <a href="#" class="forget-passowrd-login">نسيت كلمة السر؟</a>
                 </form>
->>>>>>> eb759a7ee7b4fffcd64e8f2ec656b043d9906452
-
+                
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" class="sign-up-form">
                 <h2 class="title-login">حساب جديد</h2>
                 <div class="input-field">
