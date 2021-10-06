@@ -1,12 +1,11 @@
 <?php
-ob_start();
 session_start();
+ob_start();
 include('connect.php');
 include ("mainLink.php");
 include ('function.php');
-
-?>
-
+    if(!isset($_SESSION['username']) && !isset($_SESSION['id']))
+    {?>
     <?php 
         if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
@@ -25,7 +24,7 @@ include ('function.php');
             $stmt->execute(array($username,$password));
             $count = $stmt->rowCount();
             $row = $stmt->fetch();
-     
+            
             if($count > 0) 
             {
                 if($_SESSION['user'] == 0) {
@@ -107,15 +106,31 @@ include ('function.php');
                     <h2 class="title-login">تسجيل الدخول</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="username" placeholder="اسم المستخدم">
+                        <input type="text"
+                               name="username"
+                               id ="username"
+                               placeholder="اسم المستخدم">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="pass" placeholder="كلمة السر">
+                        <input type="password"
+                               name="pass"
+                               placeholder="كلمة السر"
+                               id ="password">
+                    </div>
+                    <div class="input-field">
+                      <label for="password"
+                          class="form-label">Select User Type:</label>
+                    <select class="form-select mb-3"
+                         name="role"
+                         aria-label="Default select example">
+                        <option selected value="user">User</option>
+                        <option value="admin">Admin</option>
+                        <option value="custom">Coustomer</option>
+                    </select>
                     </div>
                     <input type="submit" name="login" value="تسجيل الدخول" class="btn-login-sign-in">
                 </form>
-
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" class="sign-up-form">
                 <h2 class="title-login">حساب جديد</h2>
                 <div class="input-field">
@@ -185,16 +200,8 @@ include ('function.php');
         </div> 
     </div>
 </div>
-<?php 
-            if (!empty($filterdUuser)){
-                foreach ($formErrors as $error){
-                    echo '<div class="msg error">' . $error .'</div>';
-                }
-            }
-            if (isset($successMsg)) {
-                echo '<div class="msg success">' . $successMsg . '</div>' ;
-            }
-        ?>
-    <?php 
-        ob_end_flush();
-    ?>
+
+        <?php } else {
+            header("location: home.php");
+        } 
+        ob_end_flush();?>

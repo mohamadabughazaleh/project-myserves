@@ -7,10 +7,12 @@ include ("function.php");
 ?>
 <!-- start name and drodawn create ghazal-->
 <?php 
+
 $Cat_id = isset($_GET['Cat_id']) && is_numeric($_GET['Cat_id']) ? intval($_GET['Cat_id']) :0;
 $stmt = $con-> prepare("SELECT img,title,category_id FROM post WHERE category_id = ?");
 $stmt->execute(array($Cat_id));
 $stmt = $stmt->fetchAll();
+
 ?>
 <div class="namesaction">
     <div class="row">
