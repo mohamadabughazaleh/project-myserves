@@ -58,3 +58,4 @@ while($row_free = $run_free->fetch())
     </div>
 </div>
 <!--start section-->
+<?php include ("footer.php");?>
