@@ -84,6 +84,8 @@
     </div>
 </div>
 <!--end-edit-infromation-->
+<?php include ("footer.php");?>
+
 
 
 

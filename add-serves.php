@@ -179,3 +179,4 @@ if (isset($_SESSION['user'])) {
             }
         ob_end_flush();
    ?>
+   <?php include ("footer.php");?>
