@@ -129,6 +129,8 @@
   </div>
 </div>
 <!--end-details-->
+<?php include('loding.php');?>
+
 <?php include ("footer.php");?>
 
 

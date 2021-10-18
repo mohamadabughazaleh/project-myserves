@@ -1,6 +1,8 @@
 <!-- start-account-balance-->
 <?php include ("topnav.php")?>
 
+<?php include('loding.php');?>
+
 <div class="accountitel-ds text-center">
     <div class="container">
         <div class="row">

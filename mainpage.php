@@ -2,6 +2,7 @@
 session_start();
 include ("topnav.php");
 include('connect.php');
+include('loding.php');
 ?>
    <!---start background-->
         <header class="background-section">
@@ -167,7 +168,7 @@ include('connect.php');
                 <article class="material-card Red ">
                 <div id="description-box" class="description-front-box ">
                     <h2>ترجمة</h2>
-                    <p><i class="fas fa-star" style="margin-left:5px"></i>7 من طلبوا هذه الخدمة</p>
+                    <p><i class="far fa-eye" style="margin-left:5px;color: #f8f9fa;"></i>7 من طلبوا هذه الخدمة</p>
                     <button type="button" class="btn btn-outline-light" style="font-weight: bold;">تفاصيل الخدمة</button>
                 </div>
                 <div class="mc-content">
@@ -178,7 +179,7 @@ include('connect.php');
                     <div class="mc-description">
                         <div class="description-back-box">
                             <h2>ترجمة</h2>
-                            <p><i class="fas fa-star" style="margin-left:5px"></i>7 من طلبوا هذه الخدمة</p>
+                            <p><i class="far fa-eye" style="margin-left:5px;color: #f8f9fa;"></i>7 من طلبوا هذه الخدمة</p>
                         </div>
                       <div class="ul-details-tow-ico">
                          <ul>
@@ -209,7 +210,7 @@ include('connect.php');
             <article class="material-card Red">
                 <div id="description-box" class="description-front-box ">
                     <h2>تصميم</h2>
-                    <p><i class="fas fa-star" style="margin-left:5px"></i>30 من طلبوا هذه الخدمة</p>
+                    <p><i class="far fa-eye" style="margin-left:5px;color: #f8f9fa;"></i>30 من طلبوا هذه الخدمة</p>
                     <button type="button" class="btn btn-outline-light" style="font-weight: bold;">تفاصيل الخدمة</button>
                 </div>
               
@@ -221,7 +222,7 @@ include('connect.php');
                     <div class="mc-description">
                         <div class="description-back-box">
                         <h2>تصميم</h2>
-                        <p><i class="fas fa-star" style="margin-left:5px"></i>30 من طلبوا هذه الخدمة</p>
+                        <p><i class="far fa-eye" style="margin-left:5px;color: #f8f9fa;"></i>30 من طلبوا هذه الخدمة</p>
                         </div>
                       <div class="ul-details-tow-ico">
                          <ul>
@@ -252,7 +253,7 @@ include('connect.php');
             <article class="material-card Red">
                 <div id="description-box" class="description-front-box ">
                     <h2>تصميم</h2>
-                    <p><i class="fas fa-star" style="margin-left:5px"></i>30 من طلبوا هذه الخدمة</p>
+                    <p><i class="far fa-eye" style="margin-left:5px;color: #f8f9fa;"></i>30 من طلبوا هذه الخدمة</p>
                     <button type="button" class="btn btn-outline-light" style="font-weight: bold;">تفاصيل الخدمة</button>
                 </div>
               
@@ -264,7 +265,7 @@ include('connect.php');
                     <div class="mc-description">
                         <div class="description-back-box">
                         <h2>تصميم</h2>
-                        <p><i class="fas fa-star" style="margin-left:5px"></i>30 من طلبوا هذه الخدمة</p>
+                        <p><i class="far fa-eye" style="margin-left:5px;color: #f8f9fa;"></i>30 من طلبوا هذه الخدمة</p>
                         </div>
                       <div class="ul-details-tow-ico">
                          <ul>
@@ -298,7 +299,7 @@ include('connect.php');
             <article class="material-card Red">
                 <div id="description-box" class="description-front-box ">
                     <h2>برمجة صفحات امامية</h2>
-                    <p><i class="fas fa-star" style="margin-left:5px"></i>50 من طلبوا هذه الخدمة</p>
+                    <p><i class="far fa-eye" style="margin-left:5px;color: #f8f9fa;"></i>50 من طلبوا هذه الخدمة</p>
                     <button type="button" class="btn btn-outline-light" style="font-weight: bold;">تفاصيل الخدمة</button>
                 </div>
               
@@ -310,7 +311,7 @@ include('connect.php');
                     <div class="mc-description">
                     <div class="description-back-box">
                         <h2>برمجة صفحات امامية</h2>
-                        <p><i class="fas fa-star" style="margin-left:5px"></i>50 من طلبوا هذه الخدمة</p>
+                        <p><i class="far fa-eye" style="margin-left:5px;color: #f8f9fa;"></i>50 من طلبوا هذه الخدمة</p>
                     </div>
                       <div class="ul-details-tow-ico">
                          <ul>
@@ -342,7 +343,7 @@ include('connect.php');
             <article class="material-card Red">
                 <div id="description-box" class="description-front-box ">
                     <h2>برمجة صفحات امامية</h2>
-                    <p><i class="fas fa-star" style="margin-left:5px"></i>50 من طلبوا هذه الخدمة</p>
+                    <p><i class="far fa-eye" style="margin-left:5px; color: #f8f9fa;"></i>50 من طلبوا هذه الخدمة</p>
                     <button type="button" class="btn btn-outline-light" style="font-weight: bold;">تفاصيل الخدمة</button>
                 </div>
               
@@ -354,7 +355,7 @@ include('connect.php');
                     <div class="mc-description">
                     <div class="description-back-box">
                         <h2>برمجة صفحات امامية</h2>
-                        <p><i class="fas fa-star" style="margin-left:5px"></i>50 من طلبوا هذه الخدمة</p>
+                        <p><i class="far fa-eye" style="margin-left:5px;color: #f8f9fa;"></i>50 من طلبوا هذه الخدمة</p>
                     </div>
                       <div class="ul-details-tow-ico">
                          <ul>

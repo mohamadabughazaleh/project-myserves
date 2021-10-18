@@ -20,10 +20,6 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
-   <!---loding-->
-   <section class="loading-overlay">
-        <div class="spinner"></div>
-    </section>
-   <!---loding-->
+ 
 
    
