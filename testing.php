@@ -450,5 +450,7 @@
     </footer>
 </footer>
     <!--footer-->
+    <?php include('loding.php');?>
+
     <?php include ("footer.php");?>
 

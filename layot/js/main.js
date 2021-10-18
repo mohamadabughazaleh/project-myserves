@@ -52,7 +52,7 @@ $('.navbar-collapse li a').click(function(){
 
     login_container.classList.remove("sign-up-mode");
 }
-/*test */
+/*new-box-section*/
 $(function() {
     $('.mc-btn-action').click(function () {
          
@@ -135,21 +135,9 @@ uploadimge.src = download.target.result;
 function uptateimge(){
     "use strict"
 var uptateimgeS=document.getElementById("uplode-img-edit");
-uptateimgeS.click();
+uptateimgeS.click();};
 
-};
-//test
-/*$(document).ready(function(){
-    $("#testimonial-slider").owlCarousel({
-        items:3,
-        itemsDesktop:[1000,3],
-        itemsDesktopSmall:[979,2],
-        itemsTablet:[768,2],
-        itemsMobile:[650,1],
-        pagination:true,
-        autoPlay:true
-    });
-});*/
+//slider mainpage 
 $(document).ready(function(){
     $("#testimonial-slider").owlCarousel({
         items:3,

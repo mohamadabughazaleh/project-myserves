@@ -143,7 +143,7 @@
         .sign-up-mode::before{bottom: 28%!important;left: 50%;}
     }
     /*login*/
-<<<<<<< HEAD
+
     /*section new*/
     @media screen and (max-width: 767px) {
         .material-card.mc-active {
@@ -166,8 +166,6 @@
       
     /*end section new*/
 
-
-=======
     /*details*/
     @media (max-width: 450px){
         .main-backgrond {
@@ -175,6 +173,34 @@
             padding-right: 0;
             padding-left: 0;
             padding-top: 40px;}}
+
     @media (max-width: 1180px){.h1-detals {margin-top: 90px;}}
+
     @media (min-width: 973.33px) and (max-width: 1095.56px){.btn-details-tow{margin: 10px;}}
->>>>>>> eb759a7ee7b4fffcd64e8f2ec656b043d9906452
+
+    /*main page*/
+    @media (min-width: 750px) and (max-width: 980px){.main-body-img .text-section-main-page{top: 15%;}}
+
+    @media (max-width:973px){.owl-theme .owl-controls .owl-buttons div{margin-left: 10px;margin-right: 10px;}}
+   
+    /*slider mainpage*/
+
+    @media only screen and (max-width: 990px){
+        .owl-theme .owl-controls,
+        .owl-prev,
+        .owl-next{
+            position: relative;
+            left: 0;
+            right: 0;
+        }
+    }
+    @media only screen and (max-width: 768px){
+        .testimonial .testimonial-content{
+            padding: 15px 10px 12px;
+        }
+        .testimonial .rating{
+            right: 12px;
+        }
+    }
+    /*slider mainpage*/
+    
