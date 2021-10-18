@@ -118,7 +118,7 @@ $(".replay-comment-details").slideToggle(1000);
 
 })
     
-});
+});   
 /*add-img-edit-profile-*/
 function readUrledit(event){
     "use strict"
@@ -130,7 +130,7 @@ readers.onload=(download)=>{
 uploadimge.src = download.target.result;
 }
 }
-};
+};     
 /*add-img-edit-profile-click*/
 function uptateimge(){
     "use strict"
