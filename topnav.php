@@ -35,7 +35,8 @@ include ("mainLink.php");
                             </a>
                             <div class="dropdown-menu serch-dropdown" aria-labelledby="navbarDropdownMenuLink">
                                     <form class="form-inline">
-                                        <input class="form-control mr-sm-2" style="width:100%;margin-right: 0px !important;border-radius: 0;" type="search" placeholder="Search" aria-label="Search">
+                                        <input class="form-control mr-sm-2" id="conutry" style="width:100%;margin-right: 0px !important;border-radius: 0;" type="search" placeholder="Search" aria-label="Search">
+                                        <div id="countrylist"></div>
                                     </form>
                             </div>
                         </li>
