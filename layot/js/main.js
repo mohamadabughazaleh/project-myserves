@@ -52,7 +52,47 @@ $('.navbar-collapse li a').click(function(){
 
     login_container.classList.remove("sign-up-mode");
 }
+/*new-box-section*/
+$(function() {
+    $('.mc-btn-action').click(function () {
+         
+        var card = $(this).parent('.material-card'),
+         icon = $(this).children('i'),
+         overs = $(this).siblings('.description-front-box'),
+         ovarflowcolor = $(this).siblings('.mc-content'),
+         noncolrs = ovarflowcolor.children('.mains-sections');
 
+        icon.addClass('fa-spin-fast');
+        if (card.hasClass('mc-active')) {
+            card.removeClass('mc-active');
+            overs.removeClass('det-display-none');
+            noncolrs.addClass('color-overlay-section-main');
+
+            window.setTimeout(function() {
+                icon
+                    .removeClass('fa-arrow-left')
+                    .removeClass('fa-spin-fast')
+                    .addClass('fa-bars');
+
+            }, 800);
+        } else {
+            card.addClass('mc-active');
+            overs.addClass('det-display-none');
+            noncolrs.removeClass('color-overlay-section-main');
+
+
+            window.setTimeout(function() {
+                icon
+                    .removeClass('fa-bars')
+                    .removeClass('fa-spin-fast')
+                    .addClass('fa-arrow-left');
+
+            }, 800);
+        }
+    });
+});
+/*end test */
+ 
 /*details*/
 $(document).ready(function(){
   
@@ -65,8 +105,8 @@ $(".prg-dtails").fadeTo(5000,1);
 $(".ul-details-tow-ico ul").show(3000);
   
 $(".ul-details-tow-ico ul li i").animate({marginLeft:"5px"},5000);
-
 });
+
 /*add-img-edit-profile-*/
 function readUrledit(event){
     "use strict"
@@ -78,13 +118,44 @@ readers.onload=(download)=>{
 uploadimge.src = download.target.result;
 }
 }
-};
+};     
 /*add-img-edit-profile-click*/
 function uptateimge(){
     "use strict"
 var uptateimgeS=document.getElementById("uplode-img-edit");
-uptateimgeS.click();
-};
+uptateimgeS.click();};
 
 //dashbord
+//slider mainpage 
+$(document).ready(function(){
+    $("#testimonial-slider").owlCarousel({
+        items:3,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[768,2],
+        itemsMobile:[650,1],
+        pagination:false,
+        navigation:true,
+        navigationText:["",""],
+        autoPlay:true
+    });
+});
+//loding
+$(window).load(function () {
+    
+    "use strict";
+    
+    // Loading Elements
+    
+    $(".loading-overlay .spinner").fadeOut(2500, function () {
+        
+        // Show The Scroll
 
+        $("body").css("overflow-y", "auto");
+        
+        $(this).parent().fadeOut(2500, function () {
+            
+            $(this).remove();
+        });
+    });
+});

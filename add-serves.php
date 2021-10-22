@@ -179,3 +179,6 @@ if (isset($_SESSION['user'])) {
             }
         ob_end_flush();
    ?>
+   <?php include('loding.php');?>
+
+   <?php include ("footer.php");?>
