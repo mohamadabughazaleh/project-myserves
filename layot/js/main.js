@@ -105,20 +105,8 @@ $(".prg-dtails").fadeTo(5000,1);
 $(".ul-details-tow-ico ul").show(3000);
   
 $(".ul-details-tow-ico ul li i").animate({marginLeft:"5px"},5000);
-  
-$(".replay-commnt").click(function(){
-  
-$(".back-ground-comment-part-tow").slideToggle(1000);
+});
 
-})
-  
-$(".replay-feedback").click(function(){
-  
-$(".replay-comment-details").slideToggle(1000);
-
-})
-    
-});   
 /*add-img-edit-profile-*/
 function readUrledit(event){
     "use strict"
@@ -137,6 +125,7 @@ function uptateimge(){
 var uptateimgeS=document.getElementById("uplode-img-edit");
 uptateimgeS.click();};
 
+//dashbord
 //slider mainpage 
 $(document).ready(function(){
     $("#testimonial-slider").owlCarousel({

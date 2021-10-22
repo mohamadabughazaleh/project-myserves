@@ -53,7 +53,7 @@
                     <div class=" col-lg-4  col-md-6">
                         <div class="mr-form">
                             <label class="text-form" for="phone">رقم الهاتف</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="079-11-67887" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="079-11-67887" pattern="[0-9]{3}-[0-9]{2}-[0-9]{5}">
                         </div>
                     </div>
                     <div class=" col-lg-4  col-md-6">
