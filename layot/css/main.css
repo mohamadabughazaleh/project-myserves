@@ -1125,6 +1125,8 @@ font-size: 1.1rem;
 
 /*end main login*/
 
+<<<<<<< HEAD
+=======
 /* dashbord*/
 *{
   padding: 0;
@@ -1675,3 +1677,4 @@ footer .form-control {
       -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
 /*loding*/
 
+>>>>>>> 6aae8bf4c70c756ed35d96c798d324544298ae67
