@@ -13,7 +13,7 @@
 
     .navbar-edit ul li .main-text-nav{margin-right: 15px!important;}
 
-    .icon-nav-space{margin-right:50px!important;}
+    .icon-nav-space{margin-right:50pxs!important;}
 
 }
 /*navbar*/
@@ -144,4 +144,37 @@
     }
     /*login*/
 
+    /*section new*/
+    @media screen and (max-width: 767px) {
+        .material-card.mc-active {
+          padding-bottom: 0;
+          height: auto;
+        }
+        .material-card.mc-active .mc-content {
+            position: relative;
+            margin-right: 16px;
+          }
+          .material-card.mc-active .mc-description {
+            position: relative;
+            top: auto;
+            right: auto;
+            left: auto;
+            padding: 50px 30px 70px 30px;
+            bottom: 0;
+          }
+      }
+      
+    /*end section new*/
+
+
+
+    /*details*/
+    @media (max-width: 450px){
+        .main-backgrond {
+            background-color: var(--residential--color);
+            padding-right: 0;
+            padding-left: 0;
+            padding-top: 40px;}}
+    @media (max-width: 1180px){.h1-detals {margin-top: 90px;}}
+    @media (min-width: 973.33px) and (max-width: 1095.56px){.btn-details-tow{margin: 10px;}}
 

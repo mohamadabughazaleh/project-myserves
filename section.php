@@ -1,5 +1,4 @@
 <?php 
-session_start();
 include ("topnav.php");
 include ("connect.php");
 include ("function.php");
@@ -8,21 +7,29 @@ include ("function.php");
 <!-- start name and drodawn create ghazal-->
 <?php 
 
+// $sort = 'DESC';
+// $sort_array = array('DESC');
+// if(isset($_GET['sort']) && in_array($_GET['sort'] && isset($_POST['desc']) , $sort_array)){
+//     $sort = $_GET['sort'];
+//     $stmt = $con-> prepare("SELECT * FROM post WHERE category_id = ? AND ORDER BY id $sort");
+//     $stmt->execute();
+//     $stmt = $stmt->fetchAll();
+// }
+
 $Cat_id = isset($_GET['Cat_id']) && is_numeric($_GET['Cat_id']) ? intval($_GET['Cat_id']) :0;
-$stmt = $con-> prepare("SELECT img,title,category_id FROM post WHERE category_id = ?");
+$stmt = $con-> prepare("SELECT * FROM post WHERE category_id = ? ");
 $stmt->execute(array($Cat_id));
 $stmt = $stmt->fetchAll();
-
 ?>
+
 <div class="namesaction">
     <div class="row">
         <div class="container">
-            <div class="col-lg col-md-6 col-sm col-xs-12">
+            <div class="col-lg col-md col-sm col-xs">
                 <button class="btn  dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خدمات مميزه </button>
                     <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">خدمات مميزة</a>
-                        <a class="dropdown-item" href="#">أضيفيت حديثا</a>
-                        <a class="dropdown-item" href="#">خدمات صاعدة</a>
+                        <a class="dropdown-item" name ="desc" href="?sort=DESC">أضيفيت حديثا</a>
                     </div>
                     <h1 class="colarname">أعمال</h1>
                     <p>احصل على الدعم اللازم لتسيير أعمالك بشكل أكثر سلاسة</p>
@@ -41,7 +48,7 @@ $stmt = $stmt->fetchAll();
                     <div class="card">
                         <div class="img">
                             
-                            <img class="card-img-top" src="../project-myserves\upload\image\<?php echo $sectionId['img'];?>" alt="Card image cap">
+                            <img class="card-img-top" src="../project-myserves\layot\img\<?php echo $sectionId['img'];?>" alt="Card image cap">
                         </div>
                         <div class="visit-wibsite">
                             <ul>
@@ -60,7 +67,7 @@ $stmt = $stmt->fetchAll();
                             <h5 class="card-title"><?php echo $sectionId['title']?></h5>
                         </div>
                         <div class="card-footer">
-                            <a href=""> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
+                        <a href="detailsservice.php?id=<?= $sectionId['id']?>"> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
                         </div>
                     </div>
                 </div>
