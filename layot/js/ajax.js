@@ -50,11 +50,6 @@ $(document).ready(function(){
         $("#countrylist").fadeOut();
         });
 });
-<<<<<<< HEAD
-$(document).ready(function(){
-    load_comment();
-    function load_comment(){
-=======
 
 //////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// COMMENT ////////////////////////////////////////////////
@@ -147,28 +142,10 @@ function load_comment(){
         var thisClicked = $(this);
         var cmt_id = thisClicked.val();
 
->>>>>>> 6aae8bf4c70c756ed35d96c798d324544298ae67
         $.ajax({
             type:"POST",
             url:"code.php",
             data:{
-<<<<<<< HEAD
-                'comment_load_data':true
-
-            },
-            success:function(response){
-                $(".comment_line").html("");
-                console.log(response);
-                $.each(response ,function (Key,value){
-               
-                $(".comment_line").
-                append('<div class="back-ground-comment-part-one">\
-                <img class="imge-comment" src="../project-myserves/layot/img/'+value.user['imgg']+'" alt=""><span class="commnt-span"> '+ value.user['name'] +' </span><i class="far fa-clock icon-commint-details"></i><span class="span-commnt-data">'+value.cmt['commented_on']+'</span>\
-                <div class="commnt-text" id="display_comment"> '+value.cmt['comment']+' </div>\
-                <i class="fas fa-reply icon-commint-details-tow"></i><span class="replay-commnt">0ردود</span><small class="replay-feedback" style="margin-right:20px">رد على تعليق</small>\
-              </div>');
-            });
-=======
                 'cmt_id': cmt_id,
                 'view_comment_data': true
             },
@@ -188,7 +165,6 @@ function load_comment(){
                     </div>\
                   ');
                });
->>>>>>> 6aae8bf4c70c756ed35d96c798d324544298ae67
             }
         });
     });
@@ -280,20 +256,6 @@ function load_comment(){
         'add_comnment':true,
 
     };
-<<<<<<< HEAD
-$.ajax({
-type:"POST",
-url:"code.php",
-data:data,
-datatType:"datatype",
-success:function(response){
-alert(response);
-}
-});
- }
-});
-})
-=======
     $.ajax({
 
         type:"POST",
@@ -309,4 +271,3 @@ alert(response);
    }
  });
 });
->>>>>>> 6aae8bf4c70c756ed35d96c798d324544298ae67
