@@ -62,7 +62,7 @@ if (isset($_SESSION['userid'])) {
               </form>
             </div>
           </div>
-<<<<<<< HEAD
+
               <div class="col-lg-12">
                 <div class="back-ground-comment-part-one">
                   <img class="imge-comment" src="../project-myserves/layot/img/pexels-anamul-rezwan-1216544 (1).jpg" alt=""><span class="commnt-span">حمزه ابو قويدر</span><i class="far fa-clock icon-commint-details"></i><span class="span-commnt-data">منذ 6 أشهر و8 أيام</span>
@@ -73,9 +73,8 @@ if (isset($_SESSION['userid'])) {
   <div class="text-end">
     <button class="btn btn-sm btn-primary reply_add_btn">reply</button>
     <button class="btn btn-sm btn-danger reply_cancel_btn">cancel</button>
-=======
+
               <div class="col-lg-12 comment_line" >
->>>>>>> 6aae8bf4c70c756ed35d96c798d324544298ae67
 
               </div>
           </div>      
