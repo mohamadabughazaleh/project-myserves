@@ -86,8 +86,3 @@ if (isset($_SESSION['userid'])) {
 ?>
 <!--end-details-->
 <script src="layot/js/pages/details-services.js"></script>
-
-
-
-
-
