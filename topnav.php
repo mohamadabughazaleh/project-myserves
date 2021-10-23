@@ -1,4 +1,8 @@
-<?php include ("mainLink.php");?>
+
+<?php include ("mainLink.php");
+session_start();
+?>
+
 
  <!--start navbar-->
  <nav class="navbar navbar-edit navbar-expand-lg navbar-light back-color-nav ">
@@ -9,7 +13,24 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                        <a class="nav-link main-text-nav" href="add-serves.php?action=Add&userid=<?php echo $_SESSION['ID']?>"><i class="fas fa-plus"></i>اضف خدمة</a>
+                    <?php 
+ 
+                    if(isset($_SESSION['userid']))
+                    {
+                        switch ($_SESSION['usertype']) {
+                            case "1": ?>
+                                <a class="nav-link main-text-nav" href="add-serves.php?action=Add&userid=<?php echo $_SESSION['userid'] ;?>"><i class="fas fa-plus"></i>اضف خدمة</a>
+                              <?php
+                            case "2":
+                                echo '';
+                                break;
+                            default:
+                            echo  '';
+                    
+                        }
+                    
+                    }     
+                   ?>
                         </li>
                         <li class="nav-item">                                              
                         <a class="nav-link  main-text-nav" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,9 +162,11 @@
                                 <img class="main-img-profile" src="layot/img/pexels-cottonbro-4778611.jpg">
                             </a>
                             <div class="dropdown-menu drop-nav-profile" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="informationpr.php?userid=<?php echo $_SESSION['ID']?>"><i class="fas fa-user"></i>الملف الشخصي </a>
+
+
+                                <a class="dropdown-item" href="informationpr.php?userid=<?php echo $_SESSION['userid']?>"><i class="fas fa-user"></i>الملف الشخصي </a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-wallet"></i>الرصيد</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-user-edit"></i>تعديل الحساب</a>
+                                <a class="dropdown-item" href="edit-inforamtion.php?action=Edit&userid=<?php echo $_SESSION['userid']?>"><i class="fas fa-user-edit"></i>تعديل الحساب</a>
                                 <a class="dropdown-item" href="logout.php"><i class="fas fa-door-open"></i> خروج</a>
 
                             </div>
