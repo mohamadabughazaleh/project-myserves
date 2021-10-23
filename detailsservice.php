@@ -64,7 +64,7 @@
                   <p class="commnt-text">خدمة احترافية جدا وتعامل راقي .</p>
                   <i class="fas fa-reply icon-commint-details-tow"></i><span class="replay-commnt">0ردود</span><small class="replay-feedback" style="margin-right:20px">رد على تعليق</small>
                 </div>
-                <input type="text" class="reply_msg form-control my-2" placholder="reply">
+  <input type="text" class="reply_msg form-control my-2" placholder="reply">
   <div class="text-end">
     <button class="btn btn-sm btn-primary reply_add_btn">reply</button>
     <button class="btn btn-sm btn-danger reply_cancel_btn">cancel</button>

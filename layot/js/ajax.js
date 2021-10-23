@@ -49,24 +49,26 @@ $(document).ready(function(){
         });
 });
 $(document).ready(function(){
+    load_comment();
     function load_comment(){
         $.ajax({
             type:"POST",
             url:"code.php",
             data:{
-                'load_comment_data':true
+                'comment_load_data':true
 
             },
             success:function(response){
-                $(".back-ground-comment-part-one").html("");
+                $(".comment_line").html("");
                 console.log(response);
                 $.each(response ,function (Key,value){
                
-                $(".back-ground-comment-part-one").
-                append(' <img class="imge-comment" src="../project-myserves/layot/img/pexels-anamul-rezwan-1216544 (1).jpg" alt=""><span class="commnt-span"> '+value +'</span><i class="far fa-clock icon-commint-details"></i><span class="span-commnt-data">منذ 6 أشهر و8 أيام</span>\
-                <p class="commnt-text">خدمة احترافية جدا وتعامل راقي .</p>\
+                $(".comment_line").
+                append('<div class="back-ground-comment-part-one">\
+                <img class="imge-comment" src="../project-myserves/layot/img/'+value.user['imgg']+'" alt=""><span class="commnt-span"> '+ value.user['name'] +' </span><i class="far fa-clock icon-commint-details"></i><span class="span-commnt-data">'+value.cmt['commented_on']+'</span>\
+                <div class="commnt-text" id="display_comment"> '+value.cmt['comment']+' </div>\
                 <i class="fas fa-reply icon-commint-details-tow"></i><span class="replay-commnt">0ردود</span><small class="replay-feedback" style="margin-right:20px">رد على تعليق</small>\
-                ');
+              </div>');
             });
             }
         });
@@ -107,4 +109,4 @@ alert(response);
 });
  }
 });
-});
+})
