@@ -11,7 +11,7 @@ if (isset($_SESSION['userid'])) {
   $getUser = $con->prepare("SELECT *, users.first_name , users.last_name , users.Response_speed FROM post INNER JOIN users ON users.id  = post.user_id WHERE post.id = '$ID' ");
   $getUser->execute();
   $row = $getUser->fetch();
-
+ 
 ?>
 <!--start-detalis-->
 <div class="main-backgrond">
