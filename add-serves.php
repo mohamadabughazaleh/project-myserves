@@ -1,11 +1,10 @@
 <?php
 ob_start();
-session_start();
 include ("topnav.php");
 include ("connect.php");
 include ("function.php");
-if (isset($_SESSION['user'])) {
-
+if (isset($_SESSION['userid'])) {
+    
         $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
             if($action == 'Add') { 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) :0;
@@ -101,9 +100,8 @@ if (isset($_SESSION['user'])) {
                 }
                 
             </script>
-   <?php } 
-   
-            elseif($action == 'Insert') {
+         <?php } 
+                elseif($action == 'Insert') {
                 // $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) :0;
                 if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 echo  "<h1 class='text-center'>تمت إضافة خدمة</h1>";
@@ -147,7 +145,7 @@ if (isset($_SESSION['user'])) {
                     // Check If There's No Error Proceed The Update Operation
                     if(empty($formErrors)){
                                 $image = rand(0 , 100000) . '_' . $imageName;
-                                move_uploaded_file($imageTemp,'upload/image//' .$image);
+                                move_uploaded_file($imageTemp,'layot/img/' .$image);
                             // Insert Userinformation In The Database
                                 $stmt = $con->prepare("INSERT INTO 
                                             post (title , body , category_id , user_id , img , Keyword)
@@ -156,7 +154,7 @@ if (isset($_SESSION['user'])) {
                                     'zname'     =>$name,
                                     'zbody'     =>$Body,
                                     'zsub'      =>$sub_c,
-                                    'userid'    =>$_SESSION['ID'],
+                                    'userid'    =>$_SESSION['userid'],
                                     'zimg'      =>$image,
                                     'zkeyword'  =>$keyword
                             ));
@@ -172,10 +170,14 @@ if (isset($_SESSION['user'])) {
                         echo "</div>";                 
                     }else{
                         echo "No Action Insert";
-                }  
+                    }  
             } else {
+
                 header('location: main-login.php');
-        exit();
+                exit();
             }
         ob_end_flush();
    ?>
+   <?php include('loding.php');?>
+
+   <?php include ("footer.php");?>

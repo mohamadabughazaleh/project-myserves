@@ -1,5 +1,4 @@
 <?php 
-session_start();
 include ("topnav.php");
 include ("connect.php");
 include ("function.php");
@@ -8,32 +7,20 @@ include ("function.php");
 <!-- start name and drodawn create ghazal-->
 <?php 
 
-
-$sort = 'DESC';
-
-$sort_array = array('DESC');
-
-
-if(isset($_GET['sort']) && in_array($_GET['sort'] , $sort_array)){
-
-    $sort = $_GET['sort'];
-
-}
-
-if(isset($_POST['desc'])){
-
-    $stmt = $con-> prepare("SELECT * FROM post ORDER BY id $sort");
-    $stmt->execute();
-    $stmt = $stmt->fetchAll();
-
-}
+// $sort = 'DESC';
+// $sort_array = array('DESC');
+// if(isset($_GET['sort']) && in_array($_GET['sort'] && isset($_POST['desc']) , $sort_array)){
+//     $sort = $_GET['sort'];
+//     $stmt = $con-> prepare("SELECT * FROM post WHERE category_id = ? AND ORDER BY id $sort");
+//     $stmt->execute();
+//     $stmt = $stmt->fetchAll();
+// }
 
 $Cat_id = isset($_GET['Cat_id']) && is_numeric($_GET['Cat_id']) ? intval($_GET['Cat_id']) :0;
 $stmt = $con-> prepare("SELECT * FROM post WHERE category_id = ? ");
 $stmt->execute(array($Cat_id));
 $stmt = $stmt->fetchAll();
-
- ?>
+?>
 
 <div class="namesaction">
     <div class="row">
@@ -61,7 +48,7 @@ $stmt = $stmt->fetchAll();
                     <div class="card">
                         <div class="img">
                             
-                            <img class="card-img-top" src="../project-myserves\upload\image\<?php echo $sectionId['img'];?>" alt="Card image cap">
+                            <img class="card-img-top" src="../project-myserves\layot\img\<?php echo $sectionId['img'];?>" alt="Card image cap">
                         </div>
                         <div class="visit-wibsite">
                             <ul>
@@ -80,7 +67,7 @@ $stmt = $stmt->fetchAll();
                             <h5 class="card-title"><?php echo $sectionId['title']?></h5>
                         </div>
                         <div class="card-footer">
-                            <a href=""> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
+                        <a href="detailsservice.php?id=<?= $sectionId['id']?>"> <button type="button" class="btn btn-primary"> تفاصيل الخدمه</button></a>
                         </div>
                     </div>
                 </div>
@@ -154,3 +141,4 @@ $stmt = $stmt->fetchAll();
     </div>
 </div>  
 <!--end about prodacts and services-->
+<?php include ("footer.php");?>

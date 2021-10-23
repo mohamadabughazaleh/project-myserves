@@ -1,5 +1,4 @@
 <?php 
-session_start();
 include ("topnav.php");
 include ("connect.php");
 ?>
@@ -56,3 +55,6 @@ while($row_free = $run_free->fetch())
     </div>
 </div>
 <!--start section-->
+<?php include('loding.php');?>
+
+<?php include ("footer.php");?>

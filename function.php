@@ -47,3 +47,34 @@ function checkItem($select, $from, $value){
 
     return $count;
 }
+
+function login($username,$password)
+    {
+        global $con;
+        $get_user="select * from `users` WHERE name ='$username' and password='$password'";
+        $run_user = $con->query($get_user);
+        $state_user = $run_user->rowCount();
+        if($state_user >0){
+            $row_data = $run_user->fetch();
+            $_SESSION['usertype']=$row_data['type'];
+            $_SESSION['userid']=$row_data['id'];
+            $_SESSION['username']=$row_data['name'];
+            header('location: mainpage.php');
+
+        }else
+        {
+            echo '<script>alert("عذراً يرجى ادخال معلومات صحيحه")</script>';
+        }
+    
+    }
+
+    function CheckReg($select, $from, $value){
+        global $con;
+    
+        $statment = $con->prepare("SELECT $select FROM $from where $select = ?");
+        $statment->execute(array($value));
+        $count = $statment->rowCount();
+    
+        return $count;
+    }
+
