@@ -1,6 +1,6 @@
-<?php
-include ("mainLink.php");
-?>
+<?php include ("mainlinks.php");?>
+
+
 <!--start disgin dashbord-->
 <div class="dashbord-edit">
 <div class="sidebar">
@@ -86,17 +86,6 @@ include ("mainLink.php");
 </div>
 </div>
 </div>
-<script>
-let btn=document.querySelector("#btn"),
-sidedar=document.querySelector(".sidebar"),
-searchbtn=document.querySelector(".fa-search");
-btn.onclick = function(){
-    
-    sidedar.classList.toggle("active");
-}
-searchbtn.onclick = function(){
-    
-    sidedar.classList.toggle("active");
-}
 
-</script>
+
+
