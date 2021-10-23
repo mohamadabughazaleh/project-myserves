@@ -1442,7 +1442,7 @@ footer .form-control {
   
   @-webkit-keyframes sk-rotateplane {
     0% {
-      -webkit-transform: perspective(120px); }
+      -webkit-transform: perspective(120px); }   
     50% {
       -webkit-transform: perspective(120px) rotateY(180deg); }
     100% {
