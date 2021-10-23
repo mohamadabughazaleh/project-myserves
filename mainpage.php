@@ -1,5 +1,4 @@
 <?php
-session_start();
 include ("topnav.php");
 include('connect.php');
 include('loding.php');

@@ -193,7 +193,7 @@ if(isset($_SESSION['userid']))
         </div> 
     </div>
 </div>
-
+<?php 
             if (!empty($filterdUuser)){
                 foreach ($formErrors as $error){
                     echo '<div class="msg error">' . $error .'</div>';
