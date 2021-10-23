@@ -13,7 +13,7 @@
 
     .navbar-edit ul li .main-text-nav{margin-right: 15px!important;}
 
-    .icon-nav-space{margin-right:50px!important;}
+    .icon-nav-space{margin-right:50pxs!important;}
 
 }
 /*navbar*/
@@ -177,7 +177,6 @@
     @media (max-width: 1180px){.h1-detals {margin-top: 90px;}}
 
     @media (min-width: 973.33px) and (max-width: 1095.56px){.btn-details-tow{margin: 10px;}}
-
     /*main page*/
     @media (min-width: 750px) and (max-width: 980px){.main-body-img .text-section-main-page{top: 15%;}}
 
