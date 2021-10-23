@@ -3,6 +3,7 @@
 session_start();
 ?>
 
+
  <!--start navbar-->
  <nav class="navbar navbar-edit navbar-expand-lg navbar-light back-color-nav ">
                     <a class="navbar-brand logo" href="mainpage.php"><span>خد</span>متك</a>
@@ -52,7 +53,7 @@ session_start();
                                 <i class="fas fa-search icon-nav"></i>
                             </a>
                             <div class="dropdown-menu serch-dropdown" aria-labelledby="navbarDropdownMenuLink">
-                                    <form class="form-inline ">
+                                    <form class="form-inline">
                                         <input class="form-control mr-sm-2" id="conutry" style="width:100%;margin-right: 0px !important;border-radius: 0;" type="search" placeholder="Search" aria-label="Search">
                                         <div id="countrylist"></div>
                                     </form>

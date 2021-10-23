@@ -89,4 +89,8 @@ if (isset($_SESSION['userid'])) {
         }
 ?>
 <!--endinframtionpr-->
+<?php include('loding.php');?>
+
+<?php include ("footer.php");?>
+
     

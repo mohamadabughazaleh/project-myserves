@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="layot/css/bootstrap.css">
     <link rel="stylesheet" href="layot/css/animate.css">  
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
     <link rel="stylesheet" href="layot/css/main.css">
     <link rel="stylesheet" href="layot/css/media.css">
     <link rel="stylesheet" href="layot/css/normalize.css">
@@ -17,18 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
-</html>
 <body>
+ 
 
-        <script src="layot/js/jquery-3.5.1.min.js"></script>
-        <script src="layot/js/popper.min.js"></script>
-        <script src="layot/js/bootstrap.min.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="layot/js/ajax.js"></script>
-        <script src="layot/js/main.js"></script>
-        <script src="layot/js/wow.min.js"></script>
-        <script>
-          AOS.init();
-        </script>
-        <script>new WOW().init();</script>
-</body>
+   

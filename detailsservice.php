@@ -61,7 +61,7 @@ if (isset($_SESSION['userid'])) {
             <div class="back-ground-comment-part-tow">
               <form method="POST">
                 <div class="form-group">
-                  <!--<div id="error_status"></div>-->
+
                   <label class="lable-details" for="exampleFormControlTextarea1"><span><i style="color:#e59560" class="fas fa-comment-alt "></i>&nbsp;</span>آراء المشترين</label>
                   <textarea class="form-control comment-texrarea" id="exampleFormControlTextarea1" rows="2"></textarea><span><button type="submit" class="btn btn-textarea btn-comment"> <span style="margin-left:5px"><i class="fas fa-comments"></i></span>تعليق</button>
                 </div>
@@ -69,23 +69,13 @@ if (isset($_SESSION['userid'])) {
             </div>
           </div>
               <div class="col-lg-12 comment_line" >
-                <!-- <div class="back-ground-comment-part-one">
-                  <img class="imge-comment" src="../project-myserves/layot/img/pexels-anamul-rezwan-1216544 (1).jpg" alt=""><span class="commnt-span">حمزه ابو قويدر</span><i class="far fa-clock icon-commint-details"></i><span class="span-commnt-data">منذ 6 أشهر و8 أيام</span>
-                  <div class="commnt-text" id="display_comment">خدمة احترافية جدا وتعامل راقي .</div>
-                  <i class="fas fa-reply icon-commint-details-tow"></i><span class="replay-commnt">0ردود</span><small class="replay-feedback" style="margin-right:20px">رد على تعليق</small>
-                </div> -->
+
               </div>
           </div>      
       </div>
     </div>
   </div>
-  <!-- <div class='ml-4 replay_section'>
-  <input type="text" class="reply_msg form-control my-2" placholder="reply">
-  <div class="text-end">
-    <button class="btn btn-sm btn-primary reply_add_btn">reply</button>
-    <button class="btn btn-sm btn-danger reply_cancel_btn">cancel</button>
-  </div>
-  </div> -->
+
 </div>
 <?php 
         } else {
@@ -96,8 +86,3 @@ if (isset($_SESSION['userid'])) {
 ?>
 <!--end-details-->
 <script src="layot/js/pages/details-services.js"></script>
-
-
-
-
-
