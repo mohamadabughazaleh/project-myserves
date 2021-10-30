@@ -11,7 +11,7 @@ searchbtn.onclick = function(){
     
     sidedar.classList.toggle("active");
 }
-//main page
+//main page        
 function collapsesidebar(){
     var body = document.getElementById("expends");
 
