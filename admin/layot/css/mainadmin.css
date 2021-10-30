@@ -11,7 +11,8 @@
 
 body{
     direction: rtl;
-    text-align: right;    
+    text-align: right; 
+    overflow-x: hidden;   
 }
 /* dashbord*/
 
@@ -575,7 +576,7 @@ body{
 /* start contant*/
 .wrapper{
   padding: 10px;
-  padding-top: 75px;
+  padding-top: 100px;
   margin-right: 82px;
   background-color: var(--residential--color);
   transition: margin-right .5s;
@@ -642,6 +643,151 @@ body{
 .sidebar-expand .sidebar-main-page{width: 250px;}
 
 .sidebar-expand .wrapper{  margin-right: 250px;}
+
+/*top box main-admin-page*/
+.panel {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  width: 285px;
+  height: 160px;
+  margin: 10px;
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.panel a {
+  position: relative;
+  display: block;
+  padding: 12px 25px 25px 25px;
+  color: #fff;
+  text-decoration: none;
+  z-index: 2;
+}
+.panel a span {
+  display: block;
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 96px;
+}
+.panel:after {
+  position: absolute;
+  font-family: FontAwesome;
+  color: #000000;
+  z-index: 1;
+  transition: all 0.5s;
+  line-height: normal;
+}
+.panel.post {
+  background-color: #b8aa0e;
+}
+.panel.post:after {
+  content: "\f08d";
+  font-size: 200px;
+  color: #a5980d;
+  top: 45px;
+  right: 60px;
+  transform: rotate(45deg);
+}
+.panel.post:hover:after {
+  top: 8px;
+}
+.panel.comment {
+  background-color: #0377c0;
+}
+.panel.comment:after {
+  content: "\f075";
+  font-size: 180px;
+  color: #036bac;
+  top: 30px;
+  right: 35px;
+}
+.panel.comment:hover:after {
+  top: -5px;
+}
+.panel.page {
+  background-color: #279824;
+}
+.panel.page:after {
+  content: "\f15c";
+  font-size: 160px;
+  color: #238820;
+  top: 62px;
+  right: 39px;
+}
+.panel.page:hover:after {
+  top: 24px;
+}
+.panel.user {
+  background-color: #fc1c3e;
+}
+.panel.user:after {
+  content: "\f007";
+  font-size: 200px;
+  color: #ec0326;
+  top: 45px;
+  right: 35px;
+}
+.panel.user:hover:after {
+  top: 7px;
+}
+.panel:hover:after {
+  transition: all 0.5s;
+}
+/*top box main-admin-page*/
+/*start taple main-admin-page*/
+.cardsd{
+  background-color: var(--residential--color);
+  color: var(--Navy--color);
+  border-radius: 10px;
+  border-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.cardsd-header{
+  padding: 15px 30px;
+  border-bottom: 1px solid var(--Navy--color);
+  position: relative;
+}
+.cardsd-header i{
+  color: var(--Navy--color);
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.cardsd-header i:hover{cursor: pointer;}
+
+.cardsd-header h3{margin: 0;}
+
+.cardsd-content{padding: 20px;overflow-x: auto;}
+
+table{border-collapse: collapse;width: 100%;text-align: center;}
+
+table tr {height: 40px;}
+
+table td{border-top: 1px solid #00000026;}
+
+table th{border-top: 1px solid var(--Navy--color);border-bottom: 1px solid var(--Navy--color);padding: 15px 12px;}
+
+.dot i{
+  display: inline-block;
+  width: .385rem;
+  height: .385rem;
+  margin-right: .385rem;
+  vertical-align: middle;
+  border-radius:50%;
+}
+/*start taple main-admin-page*/
+/*start progres */
+.progressd-wrapper{margin-bottom: 15px;}
+
+.float-lefts{float: left;}
+
+canvas{height: 500px!important;}
+/*end progres */
+
 /*end contant*/
    
  /*mainadmin-page*/
