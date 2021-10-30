@@ -1,25 +1,25 @@
 <?php 
 ob_start(); 
-session_start();
 include ("topnav.php");
 include ("connect.php");
 include ("function.php");
 include ("mainLink.php");
 
-if (isset($_SESSION['Username'])) {
-    $getUser = $con->prepare('SELECT * FROM users WHERE name = ?');
-    $getUser->execute(array($_SESSION['Username']));
+if (isset($_SESSION['userid'])) {
+
+    $getUser = $con->prepare('SELECT * FROM users WHERE id ="'.$_SESSION['userid'].'"');
+    $getUser->execute();
     $info = $getUser->fetch();
 
 ?>
 <!--startinframtionpr-->
 <div class="inframtion-pr text-center  ">
     <div class="img-pr">
-        <img class="imge-pr " src="../project-myserves/layot/img/<?php echo $info['img'] ?>" alt="">
+        <img class="imge-pr " src="../project-myserves/layot/img/<?php echo $info['imgg'] ?>" alt="">
     </div>
 </div>
 <div class="name text-center ">
-    <h1>اسامه ابو قويدر</h1>
+    <h1><?php echo $info['first_name'] ."  ". $info['last_name']; ?></h1>
     <h3 class="infroamtion-you">معلوماتك</h3>
     <hr class="hr-pr">
 </div>
@@ -67,7 +67,7 @@ if (isset($_SESSION['Username'])) {
             <div class="col-lg-3 col-md-6 col-xs-6">
                 <div class="icon-profile-paet2">
                 <i class="fas fa-reply icon-pa"></i>
-                <p class="num-bu">خلال <?php echo $info['Response_speed'] ?></p>
+                <p class="num-bu"> hours خلال <?php echo $info['Response_speed'] ?> </p>
                 <p class="namecountry">سرعة الرد</p>
                 </div>
             </div>
@@ -83,7 +83,8 @@ if (isset($_SESSION['Username'])) {
 </div>
 <?php 
         } else {
-            header('Location: login.php');
+
+            header('Location: main-login.php');
             exit();
         }
 ?>

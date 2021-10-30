@@ -1,24 +1,28 @@
 <?php
 
-$connect = mysqli_connect("localhost" , "root" , "" , "khidma");
-if(isset($_POST["query"]))
+if(isset($_GET["query"]))
 {
+    include('connect.php');
     $output='';
-    $query = "SELECT * FROM  post WHERE Keyword LIKE '%".$_POST['query']."%'";
-    $result = mysqli_query($connect,$query);
+    $search = $_GET["query"];
+    $stmt = $con->prepare("SELECT title FROM post WHERE title LIKE '%".$search."%'");
+    $stmt->execute();
+    $row = $stmt->fetchAll();
+    $count =$stmt->rowCount();
     $output= '<ul class="list-unstyled">';
-    if(mysqli_num_rows($result)>0)
+
+    if($count > 0)
     {
-        while ($row=mysqli_fetch_array($result)) 
+        foreach($row as $rows)
         {
-            $output .= '<li>' .$row["title"] .'</li>';
+            $output .= '<li><a href="section.php">' . $rows["title"] . '</a></li>';
         }
-    }
-    else
-    {
+    } else{
+
         $output .= '<li>خدمة غير موجودة</li>';
     }
-    $output.='</ul>';
     echo $output;
+    $output.='</ul>';
 }
+
 ?>
