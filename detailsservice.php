@@ -4,6 +4,7 @@ include ("connect.php");
 include ("function.php");
 include('loding.php');
 
+
 if (isset($_SESSION['userid'])) {
 
   $ID = isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) :0;
@@ -33,12 +34,14 @@ if (isset($_SESSION['userid'])) {
           <div class="mar-btn-detals">
             <a href="#"><button type="button" class="btn  btn-details">تواصل مع البائع</button></a><span><a href="#"><button type="button" class="btn btn-secondary btn-details-tow"><i class="fas fa-shopping-cart icon-cart"></i><span>طلب الخدمة</span></button></a></span>
           </div>
+          <div class="padding d-none d-xl-block">
+          </div>
         </div>
       </div>
     </div>
     <div class="back-ground-par">
       <div class="imge-details-tow d-none d-xl-block">
-        <img  src="../project-myserves/layot/img/<?php echo $row['img'] ?>" alt="">
+        <img  src="../project-myserves/layot/img/pexels-pixabay-147413.jpg" alt="">
       </div>
       <div class="row">
         <div class="container">
@@ -62,18 +65,6 @@ if (isset($_SESSION['userid'])) {
               </form>
             </div>
           </div>
-
-              <div class="col-lg-12">
-                <div class="back-ground-comment-part-one">
-                  <img class="imge-comment" src="../project-myserves/layot/img/pexels-anamul-rezwan-1216544 (1).jpg" alt=""><span class="commnt-span">حمزه ابو قويدر</span><i class="far fa-clock icon-commint-details"></i><span class="span-commnt-data">منذ 6 أشهر و8 أيام</span>
-                  <p class="commnt-text">خدمة احترافية جدا وتعامل راقي .</p>
-                  <i class="fas fa-reply icon-commint-details-tow"></i><span class="replay-commnt">0ردود</span><small class="replay-feedback" style="margin-right:20px">رد على تعليق</small>
-                </div>
-  <input type="text" class="reply_msg form-control my-2" placholder="reply">
-  <div class="text-end">
-    <button class="btn btn-sm btn-primary reply_add_btn">reply</button>
-    <button class="btn btn-sm btn-danger reply_cancel_btn">cancel</button>
-
               <div class="col-lg-12 comment_line" >
 
               </div>
