@@ -4,6 +4,7 @@ include ("connect.php");
 include ("function.php");
 include('loding.php');
 
+
 if (isset($_SESSION['userid'])) {
 
   $ID = isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) :0;
@@ -33,12 +34,14 @@ if (isset($_SESSION['userid'])) {
           <div class="mar-btn-detals">
             <a href="home.php?id=<?php echo $_SESSION['userid'];?>"><button type="button" class="btn  btn-details">تواصل مع البائع</button></a><span><a href="#"><button type="button" class="btn btn-secondary btn-details-tow"><i class="fas fa-shopping-cart icon-cart"></i><span>طلب الخدمة</span></button></a></span>
           </div>
+          <div class="padding d-none d-xl-block">
+          </div>
         </div>
       </div>
     </div>
     <div class="back-ground-par">
       <div class="imge-details-tow d-none d-xl-block">
-        <img  src="../project-myserves/layot/img/<?php echo $row['img'] ?>" alt="">
+        <img  src="../project-myserves/layot/img/pexels-pixabay-147413.jpg" alt="">
       </div>
       <div class="row">
         <div class="container">

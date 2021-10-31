@@ -1,16 +1,18 @@
 <?php
 session_start();
 $con = mysqli_connect("localhost" , "root" ,"","khidma");
-// $post_id = mysqli_real_escape_string($con, $_GET['location']);
-// var_dump($post_id);
+
+
 if(isset($_POST['add_subreplies']))
 {
+     //$comt_id = isset($_GET['loac']) && is_numeric($_GET['loac']) ? intval($_GET['loac']) :0;
+
     $cmt_id = mysqli_real_escape_string($con, $_POST['cmt_id']);
     $reply_msg = mysqli_real_escape_string($con, $_POST['reply_msg']);
 
     $user_id = $_SESSION['userid'];
 
-    $query ="INSERT INTO comment_replies (user_id , comt_id, reply_msg) VALUES ('$user_id','$cmt_id','$reply_msg')";
+    $query ="INSERT INTO comment_replies (user_id , comt_id, reply_msg) VALUES ('$user_id','$cmt_id','$reply_msg') ";
 
     $query_run = mysqli_query($con,$query);
 
@@ -26,7 +28,6 @@ if(isset($_POST['add_subreplies']))
     }
     
 }
-
 
 if(isset($_POST['view_comment_data']))
 {
@@ -119,6 +120,7 @@ if(isset($_POST['comment_load_data']))
 if(isset($_POST['add_comnment']))
 {
     $msg = mysqli_real_escape_string($con, $_POST['msg']);
+    
 
     $user_id = $_SESSION['userid'];
 

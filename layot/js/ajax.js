@@ -46,6 +46,7 @@ $(document).ready(function(){
         
     });
     $(document).on("click","li",function(){
+        $("#conutry").trim();
         $("#conutry").val($(this).text());
         $("#countrylist").fadeOut();
         });
@@ -55,7 +56,7 @@ $(document).ready(function(){
 ///////////////////////////////// COMMENT ////////////////////////////////////////////////
 
  $(document).ready(function(){
-load_comment();
+    load_comment();
 function load_comment(){
     $.ajax({
         type:"POST",
@@ -81,9 +82,6 @@ function load_comment(){
     });
     
 }
-
-
-
     $(document).on('click','.replay-feedback',function()
     {
         var thisClicked = $(this);
@@ -163,7 +161,7 @@ function load_comment(){
                     <i class="fas fa-reply icon-commint-details-tow"></i><button class="sub_replay-feedback" value="'+ value.cmt['comt_id'] +'" style="margin-right:20px">رد على تعليق</button>\
                     <div class="ml-4 sub_replay_section"></div>\
                     </div>\
-                  ');
+                ');
                });
             }
         });
@@ -236,7 +234,6 @@ function load_comment(){
 
     var msg =$(".comment-texrarea").val();
 
-
     if($.trim(msg).length==0){
 
         error_msg="please type comment";
@@ -253,11 +250,12 @@ function load_comment(){
     }
     else{
     var data={
+        'loac': location.search,
         'msg':msg,
         'add_comnment':true,
-        'location':location.search,
 
     };
+    console.log(data);
     $.ajax({
         type:"POST",
         url:"code.php",
@@ -266,9 +264,13 @@ function load_comment(){
         success:function(response){ 
         $('.comment-texrarea').val("");
         load_comment();
+
         
         }
     });
    }
  });
 });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////END COMMENT//////////////////////////////////////////////////////////////
