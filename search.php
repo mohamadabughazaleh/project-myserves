@@ -5,7 +5,7 @@ if(isset($_GET["query"]))
     include('connect.php');
     $output='';
     $search = $_GET["query"];
-    $stmt = $con->prepare("SELECT title FROM post WHERE title LIKE '%".$search."%'");
+    $stmt = $con->prepare("SELECT * FROM post WHERE title LIKE '%".$search."%'");
     $stmt->execute();
     $row = $stmt->fetchAll();
     $count =$stmt->rowCount();
@@ -15,7 +15,7 @@ if(isset($_GET["query"]))
     {
         foreach($row as $rows)
         {
-            $output .= '<li><a href="section.php">' . $rows["title"] . '</a></li>';
+            $output .= '<li><a href="section.php?Cat_id='.$rows["category_id"].'">' . $rows["title"] . '</a></li>';
         }
     } else{
 
