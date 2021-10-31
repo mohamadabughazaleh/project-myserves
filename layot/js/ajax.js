@@ -233,7 +233,7 @@ function load_comment(){
     e.preventDefault();
 
     var msg =$(".comment-texrarea").val();
-    
+
     if($.trim(msg).length==0){
 
         error_msg="please type comment";
@@ -253,6 +253,7 @@ function load_comment(){
         'loac': location.search,
         'msg':msg,
         'add_comnment':true,
+
     };
     console.log(data);
     $.ajax({
@@ -263,7 +264,6 @@ function load_comment(){
         success:function(response){ 
         $('.comment-texrarea').val("");
         load_comment();
-        
 
         
         }

@@ -1,8 +1,7 @@
 <?php
 session_start();
 $con = mysqli_connect("localhost" , "root" ,"","khidma");
- //$comt_id = $_GET['loac'];
-// var_dump($comt_id);
+
 
 if(isset($_POST['add_subreplies']))
 {
