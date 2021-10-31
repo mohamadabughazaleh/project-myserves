@@ -1,7 +1,8 @@
 <?php
 session_start();
 $con = mysqli_connect("localhost" , "root" ,"","khidma");
-
+// $post_id = mysqli_real_escape_string($con, $_GET['location']);
+// var_dump($post_id);
 if(isset($_POST['add_subreplies']))
 {
     $cmt_id = mysqli_real_escape_string($con, $_POST['cmt_id']);

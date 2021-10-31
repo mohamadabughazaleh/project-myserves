@@ -220,6 +220,9 @@ if (isset($_SESSION['userid'])){
  } 
  ob_end_flush();
  ?>
+
 <!--start-edit-infromation-->
 
 <!--end-edit-infromation-->
+<?php 
+ include 'footer.php';?>

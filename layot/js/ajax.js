@@ -236,6 +236,7 @@ function load_comment(){
 
     var msg =$(".comment-texrarea").val();
 
+
     if($.trim(msg).length==0){
 
         error_msg="please type comment";
@@ -254,17 +255,17 @@ function load_comment(){
     var data={
         'msg':msg,
         'add_comnment':true,
+        'location':location.search,
 
     };
     $.ajax({
-
         type:"POST",
         url:"code.php",
         data:data,
         datatType:"datatype",
         success:function(response){ 
-        alert(response);
         $('.comment-texrarea').val("");
+        load_comment();
         
         }
     });
