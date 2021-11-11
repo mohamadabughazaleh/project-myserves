@@ -1,12 +1,8 @@
 <?php
 ob_start();
-include ("include/session.php");
-include ("include/header.php");
-include ("include/topnav.php");
-include ("include/connect.php");
-include ("include/function.php");
-include('include/loding.php');
-
+include ("topnav.php");
+include ("connect.php");
+include ("function.php");
 if (isset($_SESSION['userid'])) {
     
         $action = isset($_GET['action']) ? $_GET['action'] : 'Add';
@@ -182,5 +178,6 @@ if (isset($_SESSION['userid'])) {
             }
         ob_end_flush();
    ?>
+   <?php include('loding.php');?>
 
-   <?php include ("include/footer.php");?>
+   <?php include ("footer.php");?>

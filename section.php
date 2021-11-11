@@ -1,10 +1,8 @@
 <?php 
-    include ("include/session.php");
-    include ("include/header.php");
-    include ("include/topnav.php");
-    include ("include/connect.php");
-    include ("include/function.php");
-    include('include/loding.php');
+include ("topnav.php");
+include ("connect.php");
+include ("function.php");
+
 ?>
 <!-- start name and drodawn create ghazal-->
 <?php 
@@ -143,4 +141,4 @@ $stmt = $stmt->fetchAll();
     </div>
 </div>  
 <!--end about prodacts and services-->
-<?php include ("include/footer.php");?>
+<?php include ("footer.php");?>

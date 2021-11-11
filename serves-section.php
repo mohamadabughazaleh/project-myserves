@@ -1,9 +1,7 @@
 <?php
-  include ("include/session.php");
-  include ("include/header.php");
-  include ("include/topnav.php");
-  include ("include/connect.php");
-  include('include/loding.php');
+include ("topnav.php");
+include ("connect.php");
+
 ?>
 <?php
 $row_category=array();
@@ -59,5 +57,6 @@ while($row_free = $run_free->fetch())
     </div>
 </div>
 <!--start section-->
+<?php include('loding.php');?>
 
-<?php include ("include/footer.php");?>
+<?php include ("footer.php");?>

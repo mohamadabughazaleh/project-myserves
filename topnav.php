@@ -1,5 +1,7 @@
 
-
+<?php include ("mainLink.php");
+session_start();
+?>
 
  <!--start navbar-->
  <nav class="navbar navbar-edit navbar-expand-lg navbar-light back-color-nav ">

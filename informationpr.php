@@ -1,11 +1,9 @@
 <?php 
 ob_start(); 
-include ("include/session.php");
-include ("include/header.php");
-include ("include/topnav.php");
-include ("include/connect.php");
-include ("include/function.php");
-include('include/loding.php');
+include ("topnav.php");
+include ("connect.php");
+include ("function.php");
+include ("mainLink.php");
 
 if (isset($_SESSION['userid'])) {
 
@@ -91,7 +89,8 @@ if (isset($_SESSION['userid'])) {
         }
 ?>
 <!--endinframtionpr-->
+<?php include('loding.php');?>
 
-<?php include ("include/footer.php");?>
+<?php include ("footer.php");?>
 
     
