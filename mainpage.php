@@ -1,7 +1,10 @@
 <?php
-include ("topnav.php");
-include('connect.php');
-include('loding.php');
+    $titlePage = "Home-Page";
+    include ("include/session.php");
+    include ("include/header.php");
+    include ("include/topnav.php");
+    include ("include/connect.php");
+    include('include/loding.php');
 ?>
    <!---start background-->
         <header class="background-section">
@@ -387,7 +390,4 @@ include('loding.php');
     </div>
     <!--slider mainpage -->
 
-    <?php include ("footer.php");?>
-
-
-   
+    <?php include ("include/footer.php");?>
