@@ -1,8 +1,10 @@
 <?php 
-include ("topnav.php");
-include ("connect.php");
-include ("function.php");
-include('loding.php');
+include ("include/session.php");
+include ("include/header.php");
+include ("include/topnav.php");
+include ("include/connect.php");
+include ("include/function.php");
+include('include/loding.php');
 
 
 if (isset($_SESSION['userid'])) {
@@ -32,7 +34,7 @@ if (isset($_SESSION['userid'])) {
         </div>
         <div class="col-xl-4  col-lg col-md col-xs">
           <div class="mar-btn-detals">
-            <a href="home.php?id=<?php echo $_SESSION['userid'];?>"><button type="button" class="btn  btn-details">تواصل مع البائع</button></a><span><a href="#"><button type="button" class="btn btn-secondary btn-details-tow"><i class="fas fa-shopping-cart icon-cart"></i><span>طلب الخدمة</span></button></a></span>
+            <a href="#"><button type="button" class="btn  btn-details">تواصل مع البائع</button></a><span><a href="#"><button type="button" class="btn btn-secondary btn-details-tow"><i class="fas fa-shopping-cart icon-cart"></i><span>طلب الخدمة</span></button></a></span>
           </div>
           <div class="padding d-none d-xl-block">
           </div>
@@ -82,18 +84,4 @@ if (isset($_SESSION['userid'])) {
         }
 ?>
 <!--end-details-->
-<script src="layot/js/jquery-3.5.1.min.js"></script>
-        <script src="layot/js/popper.min.js"></script>
-        <script src="layot/js/bootstrap.min.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202110050101/show_ads_impl_fy2019.js" id="google_shimpl"></script><script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
-        <script src="layot/js/ajax.js"></script>
-        <script src="layot/js/main.js"></script>
-        <script src="layot/js/wow.min.js"></script>
-        <script>
-          AOS.init();
-        </script>
-        <script>new WOW().init();</script>
-</body>
-</html>
+<?php include ("include/footer.php");?>
