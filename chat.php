@@ -1,11 +1,11 @@
 <?php 
 ob_start();
-include ("topnav.php");
-include ('mainlink.php');
-include ("connect.php");
-include ("function.php");
-// include('loding.php');
-
+include ("include/session.php");
+include ("include/connect.php");
+include ("include/header.php");
+include ("include/topnav.php");
+include ("include/function.php");
+include('include/loding.php');
 if (isset($_SESSION['userid']))
 {
     $name = isset($_GET['user_id']) && is_numeric($_GET['user_id']) ? intval($_GET['user_id']) :0;
@@ -109,8 +109,7 @@ if (isset($_SESSION['userid']))
     </div>
 </div>
 
-<?php include "footer.php"; ?>
-
+<?php include ("include/footer.php");?>
 
 <script>
 	var scrollDown = function(){

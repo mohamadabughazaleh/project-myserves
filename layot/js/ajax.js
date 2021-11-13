@@ -46,6 +46,7 @@ $(document).ready(function(){
         
     });
     $(document).on("click","li",function(){
+        $("#conutry").trim();
         $("#conutry").val($(this).text());
         $("#countrylist").fadeOut();
         });
@@ -55,12 +56,14 @@ $(document).ready(function(){
 ///////////////////////////////// COMMENT ////////////////////////////////////////////////
 
  $(document).ready(function(){
-load_comment();
-function load_comment(){
+    var postId = parseInt(location.search.substring(4));
+    load_comment(postId);
+function load_comment(postId){
     $.ajax({
         type:"POST",
         url:"code.php",
         data:{
+            'postId' : postId,
             'comment_load_data':true
         },
         success:function(response){
@@ -81,9 +84,6 @@ function load_comment(){
     });
     
 }
-
-
-
     $(document).on('click','.replay-feedback',function()
     {
         var thisClicked = $(this);
@@ -163,7 +163,7 @@ function load_comment(){
                     <i class="fas fa-reply icon-commint-details-tow"></i><button class="sub_replay-feedback" value="'+ value.cmt['comt_id'] +'" style="margin-right:20px">رد على تعليق</button>\
                     <div class="ml-4 sub_replay_section"></div>\
                     </div>\
-                  ');
+                ');
                });
             }
         });
@@ -235,6 +235,8 @@ function load_comment(){
     e.preventDefault();
 
     var msg =$(".comment-texrarea").val();
+    var posId = $(this).data("postid");
+    
 
     if($.trim(msg).length==0){
 
@@ -252,23 +254,28 @@ function load_comment(){
     }
     else{
     var data={
+        "postId": posId,
         'msg':msg,
         'add_comnment':true,
-
     };
+    console.log(data);
     $.ajax({
-
-        type:"POST",
+        method:"POST",
         url:"code.php",
         data:data,
         datatType:"datatype",
         success:function(response){ 
-        alert(response);
         $('.comment-texrarea').val("");
-        load_comment();
+        load_comment(posId);
+        
+
         
         }
     });
    }
  });
 });
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////END COMMENT//////////////////////////////////////////////////////////////

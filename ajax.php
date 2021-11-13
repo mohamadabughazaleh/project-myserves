@@ -4,7 +4,7 @@
 if(isset($_GET['main_selector']) && !empty($_GET['main_selector']))
     {
 
-        include ('connect.php');
+        include ('include/connect.php');
         
     $subName = $_GET['main_selector'];
     $stmt = $con->prepare("SELECT *, sub_category.id as sub_id 
@@ -24,5 +24,5 @@ if(isset($_GET['main_selector']) && !empty($_GET['main_selector']))
     }else {
         echo '<h1> Error </h1>';
     }
-
+    
     ?>

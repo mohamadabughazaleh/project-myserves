@@ -1,18 +1,18 @@
 <?php 
-ob_start();
-include ("topnav.php");
-include ("connect.php");
-include ("function.php");
-// include('loding.php');
+include ("include/session.php");
+include ("include/connect.php");
+include ("include/header.php");
+include ("include/topnav.php");
+include ("include/function.php");
+include('include/loding.php');
 
 if (isset($_SESSION['userid'])) {
 
   $ID = isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) :0;
 
-  $getUser = $con->prepare("SELECT *, users.first_name , users.last_name , users.Response_speed FROM post INNER JOIN users ON users.id  = post.user_id WHERE post.id = '$ID' ");
+  $getUser = $con->prepare("SELECT *,post.id as post_id, users.first_name,users.id as user , users.last_name , users.Response_speed FROM post INNER JOIN users ON users.id  = post.user_id WHERE post.id='$ID'");
   $getUser->execute();
   $row = $getUser->fetch();
- 
 ?>
 <!--start-detalis-->
 <div class="main-backgrond">
@@ -32,14 +32,16 @@ if (isset($_SESSION['userid'])) {
         </div>
         <div class="col-xl-4  col-lg col-md col-xs">
           <div class="mar-btn-detals">
-            <a href="chat.php?user_id=<?php echo $_SESSION['username'];?>&post=<?php echo $row['user_id'] ?> "><button type="button" class="btn  btn-details">تواصل مع البائع</button></a><span><a href="#"><button type="button" class="btn btn-secondary btn-details-tow"><i class="fas fa-shopping-cart icon-cart"></i><span>طلب الخدمة</span></button></a></span>
+          <a href="chat.php?user_id=<?php echo $_SESSION['username'];?>&post=<?php echo $row['user_id'] ?> "><button type="button" class="btn  btn-details">تواصل مع البائع</button></a><span><a href="request.php?post_name=<?php echo $row['title'];?>&user_id=<?php echo $row['user']?>&post_id=<?php echo $row['post_id'];?>"><button type="button" class="btn btn-secondary btn-details-tow"><i class="fas fa-shopping-cart icon-cart"></i><span>طلب الخدمة</span></button></a></span>
+          </div>
+          <div class="padding d-none d-xl-block">
           </div>
         </div>
       </div>
     </div>
     <div class="back-ground-par">
       <div class="imge-details-tow d-none d-xl-block">
-        <img  src="../project-myserves/layot/img/<?php echo $row['img'] ?>" alt="">
+        <img  src="../project-myserves/layot/img/pexels-pixabay-147413.jpg" alt="">
       </div>
       <div class="row">
         <div class="container">
@@ -56,9 +58,9 @@ if (isset($_SESSION['userid'])) {
             <div class="back-ground-comment-part-tow">
               <form method="POST">
                 <div class="form-group">
-
+            
                   <label class="lable-details" for="exampleFormControlTextarea1"><span><i style="color:#e59560" class="fas fa-comment-alt "></i>&nbsp;</span>آراء المشترين</label>
-                  <textarea class="form-control comment-texrarea" id="exampleFormControlTextarea1" rows="2"></textarea><span><button type="submit" class="btn btn-textarea btn-comment"> <span style="margin-left:5px"><i class="fas fa-comments"></i></span>تعليق</button>
+                  <textarea class="form-control comment-texrarea" id="exampleFormControlTextarea1" rows="2"></textarea><span><button data-postid="<?= $_GET['id'] ?>" type="submit" class="btn btn-textarea btn-comment"> <span style="margin-left:5px"><i class="fas fa-comments"></i></span>تعليق</button>
                 </div>
               </form>
             </div>
@@ -72,27 +74,14 @@ if (isset($_SESSION['userid'])) {
   </div>
 
 </div>
-<!--end-details-->
-<script src="layot/js/jquery-3.5.1.min.js"></script>
-        <script src="layot/js/popper.min.js"></script>
-        <script src="layot/js/bootstrap.min.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202110050101/show_ads_impl_fy2019.js" id="google_shimpl"></script><script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
-        <script src="layot/js/ajax.js"></script>
-        <script src="layot/js/main.js"></script>
-        <script src="layot/js/wow.min.js"></script>
-        <script>
-          AOS.init();
-        </script>
-        <script>new WOW().init();</script>
-</body>
-</html>
 <?php 
         } else {
+
             header('Location: main-login.php');
             exit();
-
         }
-        ob_end_flush();
 ?>
+<!--end-details-->
+<?php include ("include/footer.php");?>
+
+

@@ -1,11 +1,10 @@
 <?php
-ob_start();
-include ("topnav.php");
-include('connect.php');
-include('loding.php');
-
-if(isset($_SESSION["userid"])){
-
+    include ("include/session.php");
+    include ("include/connect.php");
+    include ("include/header.php");
+    include ("include/topnav.php");
+    include ("include/function.php");
+    include('include/loding.php');
 ?>
    <!---start background-->
         <header class="background-section">
@@ -16,7 +15,7 @@ if(isset($_SESSION["userid"])){
                         <div class="background-text">
                             <h1>أنجز مشاريعك عبر الإنترنت بسهولة وأمان</h1>
                             <p>قدم خدماتك واعمالك عند التسجيل</p>
-                            <a href="main-login.php"><button type="button" class="btn btn-outline-secondary"><i class="fas fa-sign-in-alt"></i>&nbsp;سجل ألان</button></a>
+                            <button type="button" class="btn btn-outline-secondary"><i class="fas fa-sign-in-alt"></i>&nbsp;سجل ألان</button>
                     </div>
             </article>
         </header>
@@ -391,13 +390,4 @@ if(isset($_SESSION["userid"])){
     </div>
     <!--slider mainpage -->
 
-    <?php }else{
-        header('Location: main-login.php');
-        exit();
-    }
-    ob_end_flush();
-    include ("footer.php");
-    ?>
-
-
-   
+    <?php include ("include/footer.php");?>

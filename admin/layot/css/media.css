@@ -1,0 +1,8 @@
+
+/*top nav*/
+@media(max-width:700px){
+    .navbar-search{display: none;}
+    .navbar-nav i{margin-left: 10px;}
+    .navbar-badge{ left: 30px;}
+}
+@media (min-width:700px) and (max-width:1050px){.navbar-search{width: 20%;}}

@@ -1,7 +1,11 @@
 <!-- start-account-balance-->
-<?php include ("topnav.php")?>
-
-<?php include('loding.php');?>
+<?php
+    include ("include/session.php");
+    include ("include/connect.php");
+    include ("include/header.php");
+    include ("include/topnav.php");
+    include('include/loding.php');
+?>
 
 <div class="accountitel-ds text-center">
     <div class="container">
@@ -47,4 +51,4 @@
         </div>
     </div>
 </div>
-<?php include ("footer.php");?>
+<?php include ("include/footer.php");?>
