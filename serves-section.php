@@ -1,6 +1,8 @@
 <?php
 include ("topnav.php");
 include ("connect.php");
+include ('function.php');
+$pageTitle = "section";
 
 ?>
 <?php

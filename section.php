@@ -1,21 +1,11 @@
 <?php 
 include ("topnav.php");
 include ("connect.php");
-include ("function.php");
 
 ?>
 <!-- start name and drodawn create ghazal-->
 <?php 
-
-// $sort = 'DESC';
-// $sort_array = array('DESC');
-// if(isset($_GET['sort']) && in_array($_GET['sort'] && isset($_POST['desc']) , $sort_array)){
-//     $sort = $_GET['sort'];
-//     $stmt = $con-> prepare("SELECT * FROM post WHERE category_id = ? AND ORDER BY id $sort");
-//     $stmt->execute();
-//     $stmt = $stmt->fetchAll();
-// }
-
+$pageTitle = "section";
 $Cat_id = isset($_GET['Cat_id']) && is_numeric($_GET['Cat_id']) ? intval($_GET['Cat_id']) :0;
 $stmt = $con-> prepare("SELECT * FROM post WHERE category_id = ? ");
 $stmt->execute(array($Cat_id));

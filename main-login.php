@@ -44,7 +44,6 @@ if(isset($_SESSION['userid']))
                     <a href="#" class="forget-passowrd-login">نسيت كلمة السر؟</a>
                 </form>
                 
-    
     <?php 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if (isset($_POST['signup'])) {

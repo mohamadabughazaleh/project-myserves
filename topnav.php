@@ -1,6 +1,7 @@
 
-<?php include ("mainLink.php");
+<?php
 session_start();
+ include ("mainLink.php");
 ?>
 
  <!--start navbar-->

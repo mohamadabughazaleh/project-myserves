@@ -78,3 +78,11 @@ function login($username,$password)
         return $count;
     }
 
+function getTitle(){
+    global $pageTitle;
+    if(isset($pageTitle)){
+        echo $pageTitle;
+    }else {
+        echo 'Defult';
+    }
+}
