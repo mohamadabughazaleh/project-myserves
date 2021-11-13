@@ -78,3 +78,99 @@ function login($username,$password)
         return $count;
     }
 
+    function getUser($username, $con){
+        $sql = "SELECT * FROM users 
+                WHERE id=?";
+        $stmt = $con->prepare($sql);
+        $stmt->execute([$username]);
+     
+        if ($stmt->rowCount() === 1) {
+             $user = $stmt->fetch();
+             return $user;
+        }else {
+            $user = [];
+            return $user;
+        }
+     }
+
+    function getChats($id_1, $id_2, $con){
+    
+    $sql = "SELECT * FROM chat
+            WHERE from_id=? AND to_id=?
+            OR to_id=? AND from_id=?
+            ORDER BY chat_id ASC";
+        $stmt = $con->prepare($sql);
+        $stmt->execute([$id_1, $id_2,$id_1,$id_2]);
+
+        if ($stmt->rowCount() > 0) {
+            $chats = $stmt->fetchAll();
+            return $chats;
+        }else {
+            $chats = [];
+            return $chats;
+        }
+
+    }
+
+    function opened($id_1, $con, $chats){
+        foreach ($chats as $chat) {
+            if ($chat['opened'] == 0) {
+                $opened = 1;
+                $chat_id = $chat['chat_id'];
+    
+                $sql = "UPDATE chat
+                        SET   opened = ?
+                        WHERE from_id=? 
+                        AND   chat_id = ?";
+                $stmt = $con->prepare($sql);
+                $stmt->execute([$opened, $id_1, $chat_id]);
+    
+            }
+        }
+    }
+
+    function lastChat($id_1, $id_2, $con){
+   
+        $sql = "SELECT * FROM chat
+                WHERE (from_id=? AND to_id=?)
+                OR    (to_id=? AND from_id=?)
+                ORDER BY chat_id DESC LIMIT 1";
+         $stmt = $con->prepare($sql);
+         $stmt->execute([$id_1, $id_2, $id_1, $id_2]);
+     
+         if ($stmt->rowCount() > 0) {
+             $chat = $stmt->fetch();
+             return $chat['message'];
+         }else {
+             $chat = '';
+             return $chat;
+         }
+     
+     }
+
+     define('TIMEZONE', 'Africa/Addis_Ababa');
+    date_default_timezone_set(TIMEZONE);
+
+    function last_seen($date_time){
+
+    $timestamp = strtotime($date_time);	
+    
+    $strTime = array("second", "minute", "hour", "day", "month", "year");
+    $length = array("60","60","24","30","12","10");
+
+    $currentTime = time();
+    if($currentTime >= $timestamp) {
+            $diff     = time()- $timestamp;
+            for($i = 0; $diff >= $length[$i] && $i < count($length)-1; $i++) {
+            $diff = $diff / $length[$i];
+            }
+
+            $diff = round($diff);
+            if ($diff < 59 && $strTime[$i] == "second") {
+                return 'Active';
+            }else {
+                return $diff . " " . $strTime[$i] . "(s) ago ";
+            }
+            
+    }
+    }

@@ -7,7 +7,6 @@
 body{
     direction: rtl;
     text-align: right;
-    overflow-y: hidden;
     overflow-x: hidden;
     
 }

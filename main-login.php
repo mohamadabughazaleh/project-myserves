@@ -46,10 +46,15 @@ if(isset($_SESSION['userid']))
                 
     
     <?php 
+
+    ////////////////////////////////////////Sign-Up//////////////////////////////////////
+
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if (isset($_POST['signup'])) {
                     $formErrors = array();
                     $user = $_POST['name'];
+                    $user1 = $_POST['name1'];
+                    $user2 = $_POST['name2'];
                     $pass = $_POST['pass'];
                     $password2 = $_POST['pass2'];
                     $email = $_POST['Email'];
@@ -86,10 +91,12 @@ if(isset($_SESSION['userid']))
                                     $hashPassword = md5($pass);
 
                                     $insert = $con->prepare("INSERT INTO 
-                                                users(name,password,Email,type,date)
-                                                VALUES(:zuser, :zpass, :zmail, :postType , now() )");
+                                                users(name,first_name,last_name,password,Email,type,date)
+                                                VALUES(:zuser,:zuser1,:zuser2, :zpass, :zmail, :postType , now() )");
                                     $insert->execute(array(
                                         'zuser' =>$user,
+                                        'zuser1' =>$user1,
+                                        'zuser2' =>$user2,
                                         'zpass' =>$hashPassword,
                                         'zmail' =>$email,
                                         'postType'=>$_POST['type']
@@ -111,6 +118,30 @@ if(isset($_SESSION['userid']))
                     name="name"
                     autocomplete="off"
                     placeholder="اسم المستخدم"
+                    pattern=".{4,}"
+                    title="Username Must Be 4 Chars"
+                    required
+                    />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input
+                    type="text" 
+                    name="name1"
+                    autocomplete="off"
+                    placeholder= "الأسم الأول "
+                    pattern=".{3,}"
+                    title="Username Must Be 4 Chars"
+                    required
+                    />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input
+                    type="text" 
+                    name="name2"
+                    autocomplete="off"
+                    placeholder="الأسم ألأخير"
                     pattern=".{4,}"
                     title="Username Must Be 4 Chars"
                     required

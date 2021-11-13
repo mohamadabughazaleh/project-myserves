@@ -265,6 +265,7 @@ function load_comment(){
         success:function(response){ 
         alert(response);
         $('.comment-texrarea').val("");
+        load_comment();
         
         }
     });

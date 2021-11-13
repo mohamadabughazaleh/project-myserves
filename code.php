@@ -123,6 +123,7 @@ if(isset($_POST['add_comnment']))
 
     $comment_add_query = "INSERT INTO comment (comment_user,comment)VALUES('$user_id' ,'$msg')";
     $comment_add_query_run = mysqli_query($con,$comment_add_query);
+    
     if($comment_add_query_run)
     {
         echo "Comment Add Successfully";

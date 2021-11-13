@@ -1,8 +1,9 @@
 <?php 
+ob_start();
 include ("topnav.php");
 include ("connect.php");
 include ("function.php");
-include('loding.php');
+// include('loding.php');
 
 if (isset($_SESSION['userid'])) {
 
@@ -31,7 +32,7 @@ if (isset($_SESSION['userid'])) {
         </div>
         <div class="col-xl-4  col-lg col-md col-xs">
           <div class="mar-btn-detals">
-            <a href="#"><button type="button" class="btn  btn-details">تواصل مع البائع</button></a><span><a href="#"><button type="button" class="btn btn-secondary btn-details-tow"><i class="fas fa-shopping-cart icon-cart"></i><span>طلب الخدمة</span></button></a></span>
+            <a href="chat.php?user_id=<?php echo $_SESSION['username'];?>&post=<?php echo $row['user_id'] ?> "><button type="button" class="btn  btn-details">تواصل مع البائع</button></a><span><a href="#"><button type="button" class="btn btn-secondary btn-details-tow"><i class="fas fa-shopping-cart icon-cart"></i><span>طلب الخدمة</span></button></a></span>
           </div>
         </div>
       </div>
@@ -71,13 +72,6 @@ if (isset($_SESSION['userid'])) {
   </div>
 
 </div>
-<?php 
-        } else {
-
-            header('Location: main-login.php');
-            exit();
-        }
-?>
 <!--end-details-->
 <script src="layot/js/jquery-3.5.1.min.js"></script>
         <script src="layot/js/popper.min.js"></script>
@@ -94,3 +88,11 @@ if (isset($_SESSION['userid'])) {
         <script>new WOW().init();</script>
 </body>
 </html>
+<?php 
+        } else {
+            header('Location: main-login.php');
+            exit();
+
+        }
+        ob_end_flush();
+?>

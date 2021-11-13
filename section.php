@@ -3,18 +3,7 @@ include ("topnav.php");
 include ("connect.php");
 include ("function.php");
 
-?>
-<!-- start name and drodawn create ghazal-->
-<?php 
-
-// $sort = 'DESC';
-// $sort_array = array('DESC');
-// if(isset($_GET['sort']) && in_array($_GET['sort'] && isset($_POST['desc']) , $sort_array)){
-//     $sort = $_GET['sort'];
-//     $stmt = $con-> prepare("SELECT * FROM post WHERE category_id = ? AND ORDER BY id $sort");
-//     $stmt->execute();
-//     $stmt = $stmt->fetchAll();
-// }
+if(isset($_SESSION["userid"])){
 
 $Cat_id = isset($_GET['Cat_id']) && is_numeric($_GET['Cat_id']) ? intval($_GET['Cat_id']) :0;
 $stmt = $con-> prepare("SELECT * FROM post WHERE category_id = ? ");
@@ -47,7 +36,6 @@ $stmt = $stmt->fetchAll();
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
                     <div class="card">
                         <div class="img">
-                            
                             <img class="card-img-top" src="../project-myserves\layot\img\<?php echo $sectionId['img'];?>" alt="Card image cap">
                         </div>
                         <div class="visit-wibsite">
@@ -141,4 +129,9 @@ $stmt = $stmt->fetchAll();
     </div>
 </div>  
 <!--end about prodacts and services-->
-<?php include ("footer.php");?>
+<?php
+}else{
+    header("Location:main-login.php");
+} 
+
+include ("footer.php");?>

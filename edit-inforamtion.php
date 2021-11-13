@@ -217,9 +217,15 @@ if (isset($_SESSION['userid'])){
         echo "</div>";
     }
 
+ }else{
+    header('Location: main-login.php');
+    exit();
  } 
  ob_end_flush();
  ?>
+
 <!--start-edit-infromation-->
 
 <!--end-edit-infromation-->
+<?php 
+ include 'footer.php';?>
