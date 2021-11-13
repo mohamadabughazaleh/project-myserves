@@ -46,8 +46,10 @@ $stmt = $stmt->fetchAll();
         <div class="container">
             <div class="card-group">
                 <?php foreach($stmt as $sectionId) { ?>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+
                     <div class="card">
+
                         <div class="img">
                             
                             <img class="card-img-top" src="../project-myserves\layot\img\<?php echo $sectionId['img'];?>" alt="Card image cap">
