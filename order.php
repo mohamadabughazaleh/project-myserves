@@ -1,9 +1,11 @@
 <?php
-include ("topnav.php");
-// include ('mainLink.php');
-include("connect.php");
-include ("function.php");
 ob_start();
+include ("include/session.php");
+include ("include/connect.php");
+include ("include/header.php");
+include ("include/topnav.php");
+include ("include/function.php");
+include('include/loding.php');
 
 if(isset($_SESSION["userid"]))
 {
@@ -66,4 +68,4 @@ $r =$_SESSION['userid'];
 ?>
 
 
-<?php include ("footer.php");?>
+<?php include ("include/footer.php");?>
