@@ -1,5 +1,4 @@
 <?php 
-
 function checkCat($type){
     global $con;
 
@@ -112,6 +111,7 @@ function login($username,$password)
 
     }
 
+
     function opened($id_1, $con, $chats){
         foreach ($chats as $chat) {
             if ($chat['opened'] == 0) {
@@ -174,3 +174,12 @@ function login($username,$password)
             
     }
     }
+  
+
+
+
+
+    
+
+
+

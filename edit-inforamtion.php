@@ -1,9 +1,9 @@
 <?php
 ob_start();
-include ("topnav.php");
+include("topnav.php");
 include ("connect.php");
 include ("function.php");
-include ("mainLink.php");
+include('loding.php');
 
 if (isset($_SESSION['userid'])){
 
@@ -217,15 +217,12 @@ if (isset($_SESSION['userid'])){
         echo "</div>";
     }
 
- }else{
-    header('Location: main-login.php');
-    exit();
  } 
  ob_end_flush();
+ 
  ?>
 
 <!--start-edit-infromation-->
 
 <!--end-edit-infromation-->
-<?php 
- include 'footer.php';?>
+<?php include ("footer.php");?>

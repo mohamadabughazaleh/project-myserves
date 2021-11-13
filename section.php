@@ -1,9 +1,22 @@
 <?php 
-include ("topnav.php");
-include ("connect.php");
-include ("function.php");
+    include ("include/session.php");
+    include ("include/header.php");
+    include ("include/topnav.php");
+    include ("include/connect.php");
+    include ("include/function.php");
+    include('include/loding.php');
+?>
+<!-- start name and drodawn create ghazal-->
+<?php 
 
-if(isset($_SESSION["userid"])){
+// $sort = 'DESC';
+// $sort_array = array('DESC');
+// if(isset($_GET['sort']) && in_array($_GET['sort'] && isset($_POST['desc']) , $sort_array)){
+//     $sort = $_GET['sort'];
+//     $stmt = $con-> prepare("SELECT * FROM post WHERE category_id = ? AND ORDER BY id $sort");
+//     $stmt->execute();
+//     $stmt = $stmt->fetchAll();
+// }
 
 $Cat_id = isset($_GET['Cat_id']) && is_numeric($_GET['Cat_id']) ? intval($_GET['Cat_id']) :0;
 $stmt = $con-> prepare("SELECT * FROM post WHERE category_id = ? ");
@@ -33,9 +46,12 @@ $stmt = $stmt->fetchAll();
         <div class="container">
             <div class="card-group">
                 <?php foreach($stmt as $sectionId) { ?>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+
                     <div class="card">
+
                         <div class="img">
+                            
                             <img class="card-img-top" src="../project-myserves\layot\img\<?php echo $sectionId['img'];?>" alt="Card image cap">
                         </div>
                         <div class="visit-wibsite">
@@ -129,9 +145,4 @@ $stmt = $stmt->fetchAll();
     </div>
 </div>  
 <!--end about prodacts and services-->
-<?php
-}else{
-    header("Location:main-login.php");
-} 
-
-include ("footer.php");?>
+<?php include ("include/footer.php");?>

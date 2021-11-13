@@ -42,7 +42,7 @@ session_start();
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link main-text-nav" href="#"><i class="fas fa-briefcase"></i>الخدمات المطلوبة</a>
+                          <a class="nav-link main-text-nav" href="order.php"><i class="fas fa-briefcase"></i>الخدمات المطلوبة</a>
                         </li>
                         <li class="nav-item">
                           <?php 
@@ -123,7 +123,7 @@ session_start();
                         </li>
                          <!--end notification-->
                          <!--start maseges-->
-                        <li class="nav-item">
+                         <li class="nav-item">
                             <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                <i class="far fa-envelope icon-nav"></i>
                             </a> 
@@ -176,7 +176,7 @@ session_start();
 
 
                                 <a class="dropdown-item" href="informationpr.php?userid=<?php echo $_SESSION['userid']?>"><i class="fas fa-user"></i>الملف الشخصي </a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-wallet"></i>الرصيد</a>
+                                <a class="dropdown-item" href="Account-balance.php"><i class="fas fa-wallet"></i>الرصيد</a>
                                 <a class="dropdown-item" href="edit-inforamtion.php?action=Edit&userid=<?php echo $_SESSION['userid']?>"><i class="fas fa-user-edit"></i>تعديل الحساب</a>
                                 <a class="dropdown-item" href="logout.php"><i class="fas fa-door-open"></i> خروج</a>
 
