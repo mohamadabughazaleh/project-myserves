@@ -1,9 +1,10 @@
 <?php
-session_start();
-//ob_start();
-include ('connect.php');
-include ("mainLink.php");
-include ('function.php');
+include ("include/session.php");
+include ("include/header.php");
+include ("include/connect.php");
+include ("include/function.php");
+include('include/loding.php');
+
 if(isset($_SESSION['userid']))
 {
     header('location: mainpage.php');
@@ -237,7 +238,6 @@ if(isset($_SESSION['userid']))
     <?php 
         ob_end_flush();
     ?>
-    <?php include('loding.php');?>
 
     <script src="layot/js/jquery-3.5.1.min.js"></script>
         <script src="layot/js/popper.min.js"></script>

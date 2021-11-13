@@ -2,7 +2,7 @@
 
 if(isset($_GET["query"]))
 {
-    include('connect.php');
+    include('include/connect.php');
     $output='';
     $search = $_GET["query"];
     $stmt = $con->prepare("SELECT * FROM post WHERE title LIKE '%".$search."%'");
