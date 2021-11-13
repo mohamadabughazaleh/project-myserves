@@ -1,3 +1,4 @@
+
 <html>
 <head>
     <meta charset="UTF-8" />
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- First Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel = "icon" type = "image/png" href = "../project-myserves/layot/img/customer-service.png">
     <link rel="stylesheet" href="layot/css/bootstrap.css">
     <link rel="stylesheet" href="layot/css/animate.css">  
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">

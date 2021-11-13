@@ -56,12 +56,14 @@ $(document).ready(function(){
 ///////////////////////////////// COMMENT ////////////////////////////////////////////////
 
  $(document).ready(function(){
-    load_comment();
-function load_comment(){
+    var postId = parseInt(location.search.substring(4));
+    load_comment(postId);
+function load_comment(postId){
     $.ajax({
         type:"POST",
         url:"code.php",
         data:{
+            'postId' : postId,
             'comment_load_data':true
         },
         success:function(response){
@@ -233,7 +235,9 @@ function load_comment(){
     e.preventDefault();
 
     var msg =$(".comment-texrarea").val();
+    var posId = $(this).data("postid");
     
+
     if($.trim(msg).length==0){
 
         error_msg="please type comment";
@@ -250,19 +254,19 @@ function load_comment(){
     }
     else{
     var data={
-        'loac': location.search,
+        "postId": posId,
         'msg':msg,
         'add_comnment':true,
     };
     console.log(data);
     $.ajax({
-        type:"POST",
+        method:"POST",
         url:"code.php",
         data:data,
         datatType:"datatype",
         success:function(response){ 
         $('.comment-texrarea').val("");
-        load_comment();
+        load_comment(posId);
         
 
         
@@ -271,6 +275,7 @@ function load_comment(){
    }
  });
 });
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////END COMMENT//////////////////////////////////////////////////////////////

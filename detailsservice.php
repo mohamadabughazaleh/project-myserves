@@ -2,14 +2,14 @@
 include ("topnav.php");
 include ("connect.php");
 include ("function.php");
-include('loding.php');
+include ("loding.php");
 
 
 if (isset($_SESSION['userid'])) {
 
   $ID = isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) :0;
 
-  $getUser = $con->prepare("SELECT *, users.first_name , users.last_name , users.Response_speed FROM post INNER JOIN users ON users.id  = post.user_id WHERE post.id = '$ID' ");
+  $getUser = $con->prepare("SELECT *,post.id as post_id, users.first_name,users.id as user , users.last_name , users.Response_speed FROM post INNER JOIN users ON users.id  = post.user_id WHERE post.id='$ID'");
   $getUser->execute();
   $row = $getUser->fetch();
  
@@ -32,7 +32,7 @@ if (isset($_SESSION['userid'])) {
         </div>
         <div class="col-xl-4  col-lg col-md col-xs">
           <div class="mar-btn-detals">
-            <a href="#"><button type="button" class="btn  btn-details">تواصل مع البائع</button></a><span><a href="#"><button type="button" class="btn btn-secondary btn-details-tow"><i class="fas fa-shopping-cart icon-cart"></i><span>طلب الخدمة</span></button></a></span>
+          <a href="chat.php?user_id=<?php echo $_SESSION['username'];?>&post=<?php echo $row['user_id'] ?> "><button type="button" class="btn  btn-details">تواصل مع البائع</button></a><span><a href="request.php?post_name=<?php echo $row['title'];?>&user_id=<?php echo $row['user']?>&post_id=<?php echo $row['post_id'];?>"><button type="button" class="btn btn-secondary btn-details-tow"><i class="fas fa-shopping-cart icon-cart"></i><span>طلب الخدمة</span></button></a></span>
           </div>
           <div class="padding d-none d-xl-block">
           </div>
@@ -58,9 +58,9 @@ if (isset($_SESSION['userid'])) {
             <div class="back-ground-comment-part-tow">
               <form method="POST">
                 <div class="form-group">
-
+            
                   <label class="lable-details" for="exampleFormControlTextarea1"><span><i style="color:#e59560" class="fas fa-comment-alt "></i>&nbsp;</span>آراء المشترين</label>
-                  <textarea class="form-control comment-texrarea" id="exampleFormControlTextarea1" rows="2"></textarea><span><button type="submit" class="btn btn-textarea btn-comment"> <span style="margin-left:5px"><i class="fas fa-comments"></i></span>تعليق</button>
+                  <textarea class="form-control comment-texrarea" id="exampleFormControlTextarea1" rows="2"></textarea><span><button data-postid="<?= $_GET['id'] ?>" type="submit" class="btn btn-textarea btn-comment"> <span style="margin-left:5px"><i class="fas fa-comments"></i></span>تعليق</button>
                 </div>
               </form>
             </div>
@@ -95,5 +95,7 @@ if (isset($_SESSION['userid'])) {
           AOS.init();
         </script>
         <script>new WOW().init();</script>
+        
 </body>
 </html>
+
