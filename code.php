@@ -1,8 +1,7 @@
 <?php
 session_start();
 $con = mysqli_connect("localhost" , "root" ,"","khidma");
-
-
+;
 if(isset($_POST['add_subreplies']))
 {
      //$comt_id = isset($_GET['loac']) && is_numeric($_GET['loac']) ? intval($_GET['loac']) :0;
@@ -92,7 +91,9 @@ if(isset($_POST['reply_add_btn']))
 
 if(isset($_POST['comment_load_data']))
 {
-    $comments_query = "SELECT * FROM comment ORDER BY comment_id DESC" ;
+    $postId = mysqli_real_escape_string($con, $_POST['postId']);
+
+    $comments_query = "SELECT * FROM comment WHERE post_id = '$postId' ORDER BY comment_id DESC" ;
     $comments_query_run = mysqli_query($con,$comments_query);
 
     $array_result = [];
@@ -120,11 +121,13 @@ if(isset($_POST['comment_load_data']))
 if(isset($_POST['add_comnment']))
 {
     $msg = mysqli_real_escape_string($con, $_POST['msg']);
-    
+    $postId = mysqli_real_escape_string($con, $_POST['postId']);
+
 
     $user_id = $_SESSION['userid'];
 
-    $comment_add_query = "INSERT INTO comment (comment_user,comment)VALUES('$user_id' ,'$msg')";
+
+    $comment_add_query = "INSERT INTO comment (comment_user,comment,post_id)VALUES('$user_id' ,'$msg', '$postId')";
     $comment_add_query_run = mysqli_query($con,$comment_add_query);
     if($comment_add_query_run)
     {

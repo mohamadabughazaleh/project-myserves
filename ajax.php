@@ -24,5 +24,5 @@ if(isset($_GET['main_selector']) && !empty($_GET['main_selector']))
     }else {
         echo '<h1> Error </h1>';
     }
-
+    
     ?>

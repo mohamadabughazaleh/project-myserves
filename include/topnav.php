@@ -1,7 +1,7 @@
-
-<?php
+<?php 
+include ("connect.php");
+include ("mainLink.php");
 session_start();
- include ("mainLink.php");
 ?>
 
  <!--start navbar-->
@@ -42,10 +42,26 @@ session_start();
                             </div>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link main-text-nav" href="#"><i class="fas fa-briefcase"></i>الخدمات المطلوبة</a>
+                          <a class="nav-link main-text-nav" href="order.php"><i class="fas fa-briefcase"></i>الخدمات المطلوبة</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link main-text-nav" href="#"><i class="fas fa-ambulance"></i>الطلبات الواردة</a>
+                          <?php 
+ 
+                            if(isset($_SESSION['userid']))
+                            {
+                                switch ($_SESSION['usertype']) {
+                                    case "1": ?>
+                                        <a class="nav-link main-text-nav" href="required-service.php"><i class="fas fa-ambulance"></i>الطلبات الواردة</a>                                    <?php
+                                    case "2":
+                                        echo '';
+                                        break;
+                                    default:
+                                    echo  '';
+                            
+                                }
+                            
+                            }     
+                            ?>
                         </li>
                         <!--start serch-->
                         <li class="nav-item icon-nav-space">
@@ -107,48 +123,35 @@ session_start();
                         </li>
                          <!--end notification-->
                          <!--start maseges-->
-                        <li class="nav-item">
+                         <li class="nav-item">
                             <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                <i class="far fa-envelope icon-nav"></i>
                             </a> 
                             <div class="dropdown-menu continar-notification continar-maseges" aria-labelledby="navbarDropdownMenuLink">
                                 <ul class="list-group ">
+                                    <?php
+                                    if(isset($_SESSION["userid"]))
+                                    {
+                                        $roo = $_SESSION["userid"];
+                                        $chat = $con-> prepare("SELECT  *,users.id as id,users.imgg as img , users.name as name FROM chat
+                                        INNER JOIN users ON users.id  = chat.from_id
+                                        WHERE to_id = '$roo' ORDER BY chat_id DESC LIMIT 5 ");
+                                        $chat->execute();
+                                        $stmt = $chat->fetchAll();
+                                        
+                                        foreach($stmt as $row){
+                                    ?>
                                     <li class="list-group-item">
-                                        <a href="#">
-                                            <img class="img-profile" src="layot/img/pexels-cottonbro-4778611.jpg">
+                                        <a href="chat.php?user_id=<?php echo $_SESSION['username'];?>&post=<?php echo $row['from_id'] ?>">
+                                            <img class="img-profile" src="layot/img/<?php echo $row["img"];?>">
                                             <span class="text-notification text-maseges">
-                                               مرحبا بك في موقع خدمتك سيستطيع طالب الخدمة من التواصل معك من خلال رسائل الموقع   
+                                                <?php echo $row["name"];?>
                                             </span>
-                                            <span class="time-notification"><i class="far fa-clock"></i> منذ 4 أشهر و7 أيام</span>
+                                            <p><?php echo $row["message"];?></p>
+                                            <span class="time-notification"><i class="far fa-clock"></i><?php echo $row["created_at"];?></span>
                                         </a>
                                     </li>
-                                    <li class="list-group-item">
-                                        <a href="#">
-                                            <img class="img-profile" src="layot/img/pexels-cottonbro-4778611.jpg">
-                                            <span class="text-notification  text-maseges">
-                                            مرحبا بك في موقع خدمتك سيستطيع طالب الخدمة من التواصل معك من خلال رسائل الموقع   
-                                            </span>
-                                            <span class="time-notification"><i class="far fa-clock"></i> منذ 4 أشهر و7 أيام</span>
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#">
-                                            <img class="img-profile" src="layot/img/pexels-cottonbro-4778611.jpg">
-                                            <span class="text-notification  text-maseges">
-                                            مرحبا بك في موقع خدمتك سيستطيع طالب الخدمة من التواصل معك من خلال رسائل الموقع   
-                                            </span>
-                                            <span class="time-notification"><i class="far fa-clock"></i> منذ 4 أشهر و7 أيام</span>
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#">
-                                            <img class="img-profile" src="layot/img/pexels-cottonbro-4778611.jpg">
-                                            <span class="text-notification  text-maseges">
-                                                سوف يتم تلقي الرسائل في حال طلب منك تنفيد الخدمة
-                                            </span>
-                                            <span class="time-notification"><i class="far fa-clock"></i> منذ 4 أشهر و7 أيام</span>
-                                        </a>
-                                    </li>
+                                <?php } } ?>
                                 </ul>
                                     <div class="card-header footer-notification">
                                          <i class="far fa-envelope"></i><a href="#">عرض جميع الرسائل</a>
@@ -156,16 +159,24 @@ session_start();
                             </div>   
                         </li>
                          <!--end maseges-->
+                         <?php
+                         if(isset($_SESSION['userid']))
+                         {
+                            $User = $con->prepare('SELECT imgg FROM users WHERE id ="'.$_SESSION['userid'].'"');
+                            $User->execute();
+                            $info = $User->fetch();
+                         }
+                         ?>
                          <!--start profile-->
                          <li class="nav-item dropdown">
                             <a class="nav-link " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="main-img-profile" src="layot/img/pexels-cottonbro-4778611.jpg">
+                                <img class="main-img-profile" src="layot/img/<?php echo $info['imgg'] ?>">
                             </a>
                             <div class="dropdown-menu drop-nav-profile" aria-labelledby="navbarDropdownMenuLink">
 
 
                                 <a class="dropdown-item" href="informationpr.php?userid=<?php echo $_SESSION['userid']?>"><i class="fas fa-user"></i>الملف الشخصي </a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-wallet"></i>الرصيد</a>
+                                <a class="dropdown-item" href="Account-balance.php"><i class="fas fa-wallet"></i>الرصيد</a>
                                 <a class="dropdown-item" href="edit-inforamtion.php?action=Edit&userid=<?php echo $_SESSION['userid']?>"><i class="fas fa-user-edit"></i>تعديل الحساب</a>
                                 <a class="dropdown-item" href="logout.php"><i class="fas fa-door-open"></i> خروج</a>
 
