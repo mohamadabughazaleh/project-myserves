@@ -35,7 +35,7 @@ if (isset($_SESSION['username'])) {
 	    		         SET opened = ?
 	    		         WHERE chat_id = ?";
 	    		$stmt2 = $con->prepare($sql2);
-	            $stmt2->execute([$opened, $chat_id]); 
+	            $stmt2->execute([$opened, $chat_id]);
 
 	            ?>
                   <p class="ltext border 
