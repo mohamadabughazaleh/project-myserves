@@ -45,7 +45,6 @@ if(isset($_SESSION['userid']))
                     <a href="#" class="forget-passowrd-login">نسيت كلمة السر؟</a>
                 </form>
                 
-    
     <?php 
 
     ////////////////////////////////////////Sign-Up//////////////////////////////////////
