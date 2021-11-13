@@ -1,6 +1,9 @@
 <?php
-include ("topnav.php");
-include("connect.php");
+include ("include/session.php");
+include ("include/connect.php");
+include ("include/header.php");
+include ("include/topnav.php");
+include('include/loding.php');
 
 if(isset($_SESSION["userid"]))
 {
@@ -44,6 +47,7 @@ $row = $stmt->fetchAll();
         header("Location: main-login.php");
     }
 ?>
+<?php include ("include/footer.php");?>
 
 
 
@@ -52,4 +56,4 @@ $row = $stmt->fetchAll();
 
 
 
-<?php include ("footer.php");?>
+

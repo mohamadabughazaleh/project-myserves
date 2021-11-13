@@ -1,6 +1,5 @@
 <?php
-include ("topnav.php");
-include("connect.php");
+
 
 
 if(isset($_SESSION["userid"]))

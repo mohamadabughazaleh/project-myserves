@@ -1,8 +1,4 @@
-<?php 
-include ("connect.php");
-include ("mainLink.php");
-session_start();
-?>
+
 
  <!--start navbar-->
  <nav class="navbar navbar-edit navbar-expand-lg navbar-light back-color-nav ">
@@ -133,7 +129,7 @@ session_start();
                                     if(isset($_SESSION["userid"]))
                                     {
                                         $roo = $_SESSION["userid"];
-                                        $chat = $con-> prepare("SELECT  *,users.id as id,users.imgg as img , users.name as name FROM chat
+                                        $chat = $con->prepare("SELECT  *,users.id as id,users.imgg as img , users.name as name FROM chat
                                         INNER JOIN users ON users.id  = chat.from_id
                                         WHERE to_id = '$roo' ORDER BY chat_id DESC LIMIT 5 ");
                                         $chat->execute();

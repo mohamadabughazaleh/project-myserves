@@ -9,7 +9,7 @@ if (isset($_SESSION['username'])) {
         isset($_POST['to_id'])) {
 	
 	# database connection file
-	include 'connect.php';
+	include 'include/connect.php';
 
 	# get data from XHR request and store them in var
 	$message = $_POST['message'];

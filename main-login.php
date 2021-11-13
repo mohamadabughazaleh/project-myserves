@@ -1,7 +1,7 @@
 <?php
 include ("include/session.php");
-include ("include/header.php");
 include ("include/connect.php");
+include ("include/header.php");
 include ("include/function.php");
 include('include/loding.php');
 
