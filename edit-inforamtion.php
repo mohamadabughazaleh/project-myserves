@@ -1,4 +1,5 @@
 <?php
+$titlePage = "edit-information";
 ob_start();
 include ("include/session.php");
 include ("include/connect.php");

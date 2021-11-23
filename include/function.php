@@ -12,14 +12,14 @@ function checkCat($type){
 function redirectHome($theMsg,$url = null, $Seconds =4){
     if($url === null){
         $url = 'login.php';
-        $link = 'mainpage';
+        $link = 'index';
     }else{
         if(isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== ''){
             $url = $_SERVER['HTTP_REFERER'];   
             $link = 'Previous Page'; 
         }else {
             $url = 'login.php';
-            $link = 'mainpage';
+            $link = 'index';
         }
        
     }
@@ -58,7 +58,7 @@ function login($username,$password)
             $_SESSION['usertype']=$row_data['type'];
             $_SESSION['userid']=$row_data['id'];
             $_SESSION['username']=$row_data['name'];
-            header('location: mainpage.php');
+            header('location: index.php');
 
         }else
         {

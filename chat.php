@@ -1,4 +1,5 @@
 <?php 
+$titlePage = "chat";
 ob_start();
 include ("include/session.php");
 include ("include/connect.php");
@@ -16,7 +17,7 @@ if (isset($_SESSION['userid']))
     $row = $getUser->fetch();
 
   	if (!isset($_GET['post'])) {
-  		header("Location: mainpage.php");
+  		header("Location: index.php");
   		exit;  
   	}
 
