@@ -1,6 +1,9 @@
+*{
+    box-sizing: border-box;
+}
 :root {
     --orang--color: #e59560;
-    --Navy--color: #35434e;
+    --Navy--color: #5c6166;
     --White--color: #f2f2f2;
     --residential--color:#ccc;
 }
@@ -1286,7 +1289,7 @@ font-size: 1.1rem;
   z-index: 3;
   transition: all 0.3s;
 }
-.material-card .img-container img{max-width: 100%;height: 100%;object-fit: cover;}
+.material-card .img-container img{max-width: 100%;height: 100%;width: 100%;}
 
 .material-card.mc-active .img-container {
     border-radius: 50%;
@@ -1461,39 +1464,178 @@ footer .form-control {
 
 /*loding*/
 .loading-overlay {
-    background-color: var(--Navy--color);
-    color: var(--White--color);
+    background-color: #f2f2f2;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: 99999; }
+    z-index: 99999; 
+    transition: 1s;
+}
+
+.load{position:absolute;top:50%;right:48%;transform:translate(-50%, -50%);
+  /*change these sizes to fit into your project*/
+  width:100px;
+  height:100px;
   
-  .spinner {
-    width: 40px;
-    height: 40px;
-    background-color:var(--White--color);
-    margin: 300px auto;
-    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
-    animation: sk-rotateplane 1.2s infinite ease-in-out; }
+}
+.load hr{padding:0; ;border:0;margin:0;width:40%;height:40%;position:absolute;border-radius:50%;animation:spin 2s ease infinite }
+
+.load :first-child{background:#5c6166;animation-delay:-1.5s}
+.load :nth-child(2){background:var(--residential--color);animation-delay:-1s}
+.load :nth-child(3){background:var(--orang--color);animation-delay:-0.5s}
+.load :last-child{background:var(--Navy--color)}
+
+@keyframes spin{
+  0%,100%{transform:translate(0)}
+  25%{transform:translate(160%)}
+  50%{transform:translate(160%, 160%)}
+  75%{transform:translate(0, 160%)}
+}
+
+@media (min-width: 330.00px) and (max-width: 991.11px){
+.load{position:absolute;top:50%;right:45%;transform:translate(-50%, -50%);}}
   
-  @-webkit-keyframes sk-rotateplane {
-    0% {
-      -webkit-transform: perspective(120px); }   
-    50% {
-      -webkit-transform: perspective(120px) rotateY(180deg); }
-    100% {
-      -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg); } }
-  @keyframes sk-rotateplane {
-    0% {
-      transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-      -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
-    50% {
-      transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-      -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
-    100% {
-      transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-      -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+ 
 /*loding*/
 
+/*test*/
+.cart-page{
+    margin: 80px auto;
+}
+.table-cart{
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 1px 1px 7px 1px;
+}
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+.th-cart th{
+    
+        text-align: center;
+        color: #fff;
+        background-color: var(--orang--color);
+        font-weight: normal;
+        font-size: 18px;
+        font-family: 'Lemonada', cursive;
+        padding: 8px;
+    
+}
+.imge-cart{
+    width:80px ;
+    height: 80px;
+    margin-left: 10px;
+    border-radius:10px ;
+    border: 3px solid white;
+}
+
+.nput-cart{
+    width: 4px;
+    height: 30px;
+    padding: 5px;
+}
+.td-cart td a{
+    color: #ff523b;
+    font-size: 12px;
+}
+.color-icon-cart{
+    color: #e59560;
+    font-size: 20px;
+}
+.td-cart{
+    background: #ccc;
+    border: 1px solid #00000059;
+}
+.color-icon-cart-tow{
+    font-size: 20px;
+    
+    color: var(--orang--color);
+}
+.cart-page td{
+    text-align: center;
+}
+.padding-deetow{
+    
+    padding: 10px;
+}
+/*------------------------------------------*/
+.edit-profile {
+    margin: 0;
+    padding-top: 100px;
+    color: #2e323c;
+    background: #f5f6fa;
+    height: 100vh;
+}
+.edit-profile label{
+    font-weight: 800;
+
+}
+.edit-one{
+    background-color: var(--Navy--color);
+    font-weight: 800;
+    color: var(--White--color);
+}
+.edit-tow{
+    background-color: var(--orang--color);
+    font-weight: 800;
+    color: var(--White--color);
+}
+.edit-profile .card-body{
+    box-shadow: 1px 1px 8px 1px;
+}
+.account-settings .user-profile {
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.account-settings .user-profile .user-avatar {
+    margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar img {
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
+.account-settings .user-profile h5.user-name {
+    margin: 0 0 0.5rem 0;
+}
+.account-settings .user-profile h6.user-email {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #9fa8b9;
+}
+.account-settings .about {
+    margin: 2rem 0 0 0;
+    text-align: center;
+}
+.account-settings .about h5 {
+    margin: 0 0 15px 0;
+}
+.account-settings .about p {
+    font-size: 0.825rem;
+}
+.edit-profile .form-control {
+    border: 1px solid #cfd1d8;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: .825rem;
+    background: #ffffff;
+    color: #2e323c;
+}
+
+.edit-profile.card {
+    background: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 1rem;
+}
