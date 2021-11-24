@@ -9,23 +9,14 @@ function checkCat($type){
     return $main_cat;
 }
 
-function redirectHome($theMsg,$url = null, $Seconds =4){
-    if($url === null){
-        $url = 'login.php';
-        $link = 'index';
-    }else{
-        if(isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== ''){
-            $url = $_SERVER['HTTP_REFERER'];   
-            $link = 'Previous Page'; 
-        }else {
-            $url = 'login.php';
-            $link = 'index';
-        }
-       
-    }
-    echo $theMsg;
-    echo "<div class = 'alert alert-info'>You will Be Redirected to $link After $Seconds.</div>";
-    header("refresh:$Seconds;url=$url");
+function redirectHome($theMsg, $Seconds = 0){
+    
+    // echo "<div class = 'alert alert-danger'>$theMsg</div>";
+
+    // echo "<div class = 'alert alert-info'>You will Be Redirected  After $Seconds seconds.</div>";
+
+    header("refresh:$Seconds;order.php?do=Manage");
+
     exit();
 }
 

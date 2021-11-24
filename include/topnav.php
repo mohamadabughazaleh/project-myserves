@@ -38,7 +38,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link main-text-nav" href="order.php"><i class="fas fa-briefcase"></i>الخدمات المطلوبة</a>
+                          <a class="nav-link main-text-nav" href="order.php?do=Manage"><i class="fas fa-briefcase"></i>الخدمات المطلوبة</a>
                         </li>
                         <li class="nav-item">
                           <?php 

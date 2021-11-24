@@ -173,15 +173,15 @@ $(window).load(function () {
     
     // Loading Elements
     
-    $(".loading-overlay .spinner").fadeOut(2500, function () {
+    $(".loading-overlay .load hr").fadeOut(2500, function () {
         
         // Show The Scroll
 
         $("body").css("overflow-y", "auto");
         
-        $(this).parent().fadeOut(2500, function () {
+        $(this).parent().fadeOut(50, function () {
             
-            $(this).remove();
+            $(".loading-overlay ").remove();
         });
     });
 });
