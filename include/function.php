@@ -16,6 +16,7 @@ function redirectHome($theMsg, $Seconds = 0){
     // echo "<div class = 'alert alert-info'>You will Be Redirected  After $Seconds seconds.</div>";
 
     header("refresh:$Seconds;order.php?do=Manage");
+
     exit();
 }
 
@@ -48,7 +49,7 @@ function login($username,$password)
             $_SESSION['usertype']=$row_data['type'];
             $_SESSION['userid']=$row_data['id'];
             $_SESSION['username']=$row_data['name'];
-            header('location: mainpage.php');
+            header('location: index.php');
 
         }else
         {

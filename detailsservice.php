@@ -1,4 +1,5 @@
 <?php 
+$titlePage = "details";
 include ("include/session.php");
 include ("include/connect.php");
 include ("include/header.php");
@@ -13,7 +14,6 @@ if (isset($_SESSION['userid'])) {
   $getUser = $con->prepare("SELECT *,post.id as post_id, users.first_name,users.id as user , users.last_name , users.Response_speed FROM post INNER JOIN users ON users.id  = post.user_id WHERE post.id='$ID'");
   $getUser->execute();
   $row = $getUser->fetch();
- 
 ?>
 <!--start-detalis-->
 <div class="main-backgrond">
